@@ -1,6 +1,21 @@
 {
-  "functions": { "api/kakao.js": { "maxDuration": 30 } },
+  "framework": null,
+  "buildCommand": "",
+  "outputDirectory": ".",
+  "functions": {
+    "api/kakao.js": {
+      "maxDuration": 30
+    }
+  },
   "headers": [
-    { "source": "/public/(.*)", "headers": [ { "key": "Cache-Control", "value": "public, max-age=31536000, immutable" } ] }
+    {
+      "source": "/assets/(.*)",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=31536000, immutable"
+        }
+      ]
+    }
   ]
 }
