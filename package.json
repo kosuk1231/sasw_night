@@ -1,0 +1,8 @@
+{
+  "name": "sw-night-2026",
+  "private": true,
+  "type": "module",
+  "dependencies": {
+    "solapi": "^6.0.1"
+  }
+}

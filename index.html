@@ -1,0 +1,731 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>2026 서울사회복지사의 밤 · 사전신청</title>
+<meta name="description" content="2026. 12. 4.(금) 17:00 그랜드컨벤션센터 · 사전신청 11월 10일(화) 10시 오픈">
+<meta property="og:title" content="2026 서울사회복지사의 밤">
+<meta property="og:description" content="2026. 12. 4.(금) 17:00 · 그랜드컨벤션센터 · 사전신청 11. 10.(화) 10:00 오픈">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&family=IBM+Plex+Mono:wght@400;600&family=Noto+Sans+KR:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --deep:#06201d; --deep2:#0b2d29; --panel:#10332f; --panel2:#154039;
+  --ink:#eaf3ee; --dim:#9db8ae; --faint:#6e8c82;
+  --gold:#d7b163; --gold-lt:#f0dbab; --green:#2f8a66; --blue:#2c6ea1;
+  --line:rgba(240,219,171,.20); --line2:rgba(240,219,171,.10);
+  --danger:#e4756a;
+  --display:'Gowun Batang','Pretendard',serif;
+  --body:'Pretendard','Noto Sans KR',-apple-system,BlinkMacSystemFont,system-ui,sans-serif;
+  --mono:'IBM Plex Mono',ui-monospace,monospace;
+  --maxw:980px;
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%;scroll-padding-top:calc(60px + env(safe-area-inset-top,0px))}
+body{
+  margin:0;background:var(--deep);color:var(--ink);
+  font-family:var(--body);font-size:16.5px;line-height:1.72;letter-spacing:-.01em;word-break:keep-all;
+  padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);
+  background-image:
+    radial-gradient(900px 500px at 15% -5%, rgba(47,138,102,.22), transparent 60%),
+    radial-gradient(760px 460px at 92% 8%, rgba(44,110,161,.20), transparent 62%);
+  background-repeat:no-repeat;
+}
+img{max-width:100%;display:block}
+a{color:var(--gold-lt)}
+:focus-visible{outline:2px solid var(--gold);outline-offset:3px;border-radius:6px}
+
+/* nav */
+.nav{position:sticky;top:0;z-index:60;background:rgba(6,32,29,.93);backdrop-filter:blur(10px) saturate(140%);border-bottom:1px solid var(--line2);padding-top:env(safe-area-inset-top,0px)}
+.nav-in{max-width:var(--maxw);margin:0 auto;padding:0 20px;height:58px;display:flex;align-items:center;gap:6px;overflow-x:auto;scrollbar-width:none}
+.nav-in::-webkit-scrollbar{display:none}
+.brand{font-family:var(--display);font-weight:700;font-size:15px;white-space:nowrap;margin-right:auto;letter-spacing:.01em}
+.brand b{color:var(--gold)}
+.nav a{font-size:14px;color:var(--dim);text-decoration:none;padding:7px 11px;border-radius:999px;white-space:nowrap;transition:.18s}
+.nav a:hover{color:var(--ink);background:rgba(240,219,171,.12)}
+.nav .cta{background:var(--gold);color:#2b1f00;font-weight:600}
+.nav .cta:hover{background:var(--gold-lt);color:#2b1f00}
+
+/* hero */
+.hero{max-width:var(--maxw);margin:0 auto;padding:58px 20px 36px;display:grid;grid-template-columns:1.15fr .85fr;gap:40px;align-items:center}
+.eyebrow{font-family:var(--mono);font-size:12px;letter-spacing:.24em;color:var(--gold);margin:0 0 18px;display:flex;align-items:center;gap:10px}
+.eyebrow::before{content:'';width:26px;height:1px;background:var(--gold)}
+h1{font-family:var(--display);font-weight:700;margin:0;font-size:clamp(31px,5.3vw,46px);line-height:1.22;letter-spacing:-.01em}
+h1 .yr{display:block;font-family:var(--mono);font-size:.42em;letter-spacing:.2em;color:var(--gold);margin-bottom:.5em}
+h1 em{font-style:normal;color:var(--gold-lt)}
+.hero p.sub{margin:22px 0 0;color:var(--dim);max-width:30em}
+.facts{margin-top:26px;display:flex;flex-wrap:wrap;gap:9px}
+.fact{display:flex;align-items:baseline;gap:9px;border:1px solid var(--line);border-radius:10px;padding:10px 14px;background:rgba(255,255,255,.035)}
+.fact i{font-style:normal;font-family:var(--mono);font-size:10.5px;letter-spacing:.14em;color:var(--gold);text-transform:uppercase}
+.fact b{font-size:15px;font-weight:600}
+.poster{border-radius:14px;overflow:hidden;border:1px solid var(--line);box-shadow:0 24px 60px rgba(0,0,0,.45)}
+.video-band{max-width:var(--maxw);margin:6px auto 0;padding:0 20px}
+.video-frame{position:relative;border-radius:16px;overflow:hidden;border:1px solid var(--line);background:#000;box-shadow:0 24px 60px rgba(0,0,0,.45);aspect-ratio:16/9}
+.video-frame video{width:100%;height:100%;display:block;object-fit:cover}
+.sound{position:absolute;right:14px;bottom:14px;display:flex;align-items:center;gap:7px;appearance:none;border:1px solid var(--line);background:rgba(6,32,29,.82);color:var(--ink);font-family:var(--body);font-size:13px;font-weight:600;padding:8px 13px;border-radius:999px;cursor:pointer;backdrop-filter:blur(6px)}
+.sound svg{width:15px;height:15px;fill:var(--gold)}
+.sound[aria-pressed="true"]{background:var(--gold);color:#2b1f00;border-color:var(--gold)}
+.sound[aria-pressed="true"] svg{fill:#2b1f00}
+
+/* sections */
+main{max-width:var(--maxw);margin:0 auto;padding:0 20px}
+section{padding:54px 0 6px;scroll-margin-top:72px}
+h2{font-family:var(--display);font-weight:700;font-size:clamp(23px,4.2vw,30px);margin:0 0 6px;letter-spacing:-.01em}
+.sec-note{margin:0 0 26px;color:var(--faint);font-size:14.5px}
+h3{font-family:var(--display);font-weight:700;font-size:17px;margin:0 0 8px}
+
+/* 신청 박스 */
+.apply{border:1px solid var(--line);border-radius:18px;background:linear-gradient(180deg,rgba(21,64,57,.75),rgba(16,51,47,.6));overflow:hidden}
+.status{padding:26px 26px 22px;border-bottom:1px solid var(--line2);text-align:center}
+.status-lab{font-family:var(--mono);font-size:11.5px;letter-spacing:.18em;color:var(--gold);text-transform:uppercase;margin:0 0 12px}
+.countdown{display:flex;justify-content:center;gap:10px;flex-wrap:wrap;margin:0 0 12px}
+.cd{min-width:74px;background:rgba(0,0,0,.26);border:1px solid var(--line2);border-radius:12px;padding:12px 8px}
+.cd b{display:block;font-family:var(--mono);font-size:26px;font-weight:600;color:var(--gold-lt);line-height:1.1;font-variant-numeric:tabular-nums}
+.cd span{display:block;font-size:11px;color:var(--faint);margin-top:4px;letter-spacing:.08em}
+.status-msg{margin:0;font-size:15px;color:var(--dim)}
+.status-msg b{color:var(--ink)}
+.seats{display:inline-flex;align-items:baseline;gap:8px;margin-top:4px}
+.seats b{font-family:var(--mono);font-size:30px;font-weight:600;color:var(--gold-lt);font-variant-numeric:tabular-nums}
+.bar{height:6px;border-radius:999px;background:rgba(0,0,0,.3);overflow:hidden;max-width:360px;margin:14px auto 0}
+.bar i{display:block;height:100%;background:linear-gradient(90deg,var(--green),var(--gold));transition:width .5s ease}
+
+.form-wrap{padding:24px 26px 28px}
+.form-wrap[hidden]{display:none}
+.tabs{display:flex;gap:8px;margin-bottom:22px}
+.tab{flex:1;appearance:none;border:1px solid var(--line);background:transparent;color:var(--dim);font-family:var(--body);font-size:15px;font-weight:600;padding:13px 10px;border-radius:11px;cursor:pointer;transition:.18s}
+.tab[aria-selected="true"]{background:var(--gold);border-color:var(--gold);color:#2b1f00}
+.tab:hover:not([aria-selected="true"]){color:var(--ink);border-color:var(--gold)}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.field{display:flex;flex-direction:column;gap:6px;margin-bottom:14px}
+.field label{font-size:13.5px;color:var(--dim);font-weight:500}
+.field label .req{color:var(--gold);margin-left:3px}
+.field .hint{font-size:12.5px;color:var(--faint);line-height:1.55}
+input[type=text],input[type=tel],input[type=email],textarea{
+  font-family:var(--body);font-size:15.5px;color:var(--ink);
+  background:rgba(0,0,0,.26);border:1px solid var(--line2);border-radius:10px;padding:12px 13px;width:100%;
+  transition:border-color .16s,background .16s;
+}
+input::placeholder{color:#577069}
+input:focus,textarea:focus{border-color:var(--gold);background:rgba(0,0,0,.4);outline:none}
+textarea{resize:vertical;min-height:72px}
+
+/* 참가자 표 */
+.people{border:1px solid var(--line2);border-radius:12px;overflow:hidden;margin-top:6px}
+.people-head{display:flex;align-items:center;gap:10px;padding:12px 14px;background:rgba(0,0,0,.2);border-bottom:1px solid var(--line2)}
+.people-head h3{margin:0;font-size:15px}
+.people-head .count{margin-left:auto;font-family:var(--mono);font-size:12.5px;color:var(--gold-lt)}
+.prow{display:grid;grid-template-columns:28px 1.1fr .8fr 1.2fr .9fr 32px;gap:8px;align-items:center;padding:10px 14px;border-bottom:1px solid var(--line2)}
+.prow:last-child{border-bottom:none}
+.prow .n{font-family:var(--mono);font-size:12px;color:var(--faint);text-align:center}
+.prow input{padding:9px 10px;font-size:14.5px}
+.prow .del{appearance:none;border:none;background:transparent;color:var(--faint);font-size:19px;line-height:1;cursor:pointer;padding:4px;border-radius:6px}
+.prow .del:hover{color:var(--danger)}
+.plabels{display:grid;grid-template-columns:28px 1.1fr .8fr 1.2fr .9fr 32px;gap:8px;padding:8px 14px 0;font-size:11.5px;color:var(--faint)}
+.add-row{appearance:none;width:100%;border:1px dashed var(--line);background:transparent;color:var(--gold-lt);font-family:var(--body);font-size:14px;font-weight:600;padding:12px;border-radius:10px;cursor:pointer;margin-top:12px;transition:.16s}
+.add-row:hover{background:rgba(240,219,171,.08)}
+.add-row:disabled{opacity:.4;cursor:not-allowed}
+
+.agree{display:flex;gap:11px;align-items:flex-start;margin-top:20px;padding:15px 16px;border:1px solid var(--line2);border-radius:11px;background:rgba(0,0,0,.18)}
+.agree input{margin-top:4px;width:17px;height:17px;accent-color:var(--gold);flex:none}
+.agree p{margin:0;font-size:13.5px;color:var(--dim);line-height:1.65}
+.agree a{text-decoration:underline}
+
+.submit{appearance:none;width:100%;border:none;background:var(--gold);color:#2b1f00;font-family:var(--body);font-size:17px;font-weight:700;padding:16px;border-radius:12px;cursor:pointer;margin-top:18px;transition:.16s}
+.submit:hover{background:var(--gold-lt)}
+.submit:disabled{opacity:.45;cursor:not-allowed}
+.err{margin:14px 0 0;padding:13px 15px;border-radius:10px;border:1px solid rgba(228,117,106,.45);background:rgba(228,117,106,.12);color:#ffd8d2;font-size:14.5px}
+.err[hidden]{display:none}
+
+/* 완료 */
+.done{padding:34px 26px 30px;text-align:center}
+.done[hidden]{display:none}
+.done .mark{width:56px;height:56px;border-radius:50%;background:var(--gold);display:grid;place-items:center;margin:0 auto 18px}
+.done .mark svg{width:26px;height:26px;fill:#2b1f00}
+.done h3{font-size:22px;margin-bottom:8px}
+.done p{margin:0 0 18px;color:var(--dim)}
+.pay-box{border:1px solid var(--line);border-radius:13px;padding:20px;background:rgba(0,0,0,.22);text-align:left;max-width:460px;margin:0 auto}
+.pay-box dl{margin:0;display:grid;grid-template-columns:auto 1fr;gap:10px 16px}
+.pay-box dt{font-size:13px;color:var(--faint);white-space:nowrap}
+.pay-box dd{margin:0;font-size:15px;font-weight:600;text-align:right}
+.pay-box dd.amount{font-family:var(--mono);font-size:19px;color:var(--gold-lt)}
+.again{appearance:none;margin:20px auto 0;display:block;border:1px solid var(--line);background:transparent;color:var(--gold-lt);font-family:var(--body);font-size:14.5px;font-weight:600;padding:12px 24px;border-radius:999px;cursor:pointer;transition:.16s}
+.again:hover{background:rgba(240,219,171,.1)}
+.pay-note{margin:16px 0 0;font-size:13.5px;color:var(--faint);line-height:1.7}
+
+/* 일반 카드 */
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.cards.two{grid-template-columns:1fr 1fr}
+.card p b{color:var(--ink);font-weight:600}
+.card{border:1px solid var(--line2);border-radius:14px;padding:20px;background:rgba(255,255,255,.03)}
+.card .num{font-family:var(--mono);font-size:12px;color:var(--gold);letter-spacing:.14em;margin-bottom:8px}
+.card p{margin:0;font-size:14.5px;color:var(--dim)}
+.info{border:1px solid var(--line2);border-radius:14px;overflow:hidden}
+.info div{display:grid;grid-template-columns:118px 1fr;border-bottom:1px solid var(--line2)}
+.info div:last-child{border-bottom:none}
+.info dt{padding:14px 16px;font-size:13.5px;color:var(--gold);background:rgba(0,0,0,.18);margin:0}
+.info dd{padding:14px 16px;margin:0;font-size:15.5px;font-weight:500}
+.notes{list-style:none;margin:0;padding:0}
+.notes li{position:relative;padding:10px 0 10px 20px;border-bottom:1px dashed var(--line2);font-size:15px;color:var(--dim)}
+.notes li:last-child{border-bottom:none}
+.notes li::before{content:'·';position:absolute;left:6px;color:var(--gold);font-weight:700}
+.notes b{color:var(--ink);font-weight:600}
+
+.privacy{border:1px solid var(--line2);border-radius:14px;background:rgba(255,255,255,.025);padding:0 18px 16px}
+.privacy summary{cursor:pointer;list-style:none;padding:16px 0;font-weight:600;font-size:15.5px;display:flex;align-items:center;gap:10px}
+.privacy summary::-webkit-details-marker{display:none}
+.privacy summary::before{content:'';width:8px;height:8px;border-right:2px solid var(--gold);border-bottom:2px solid var(--gold);transform:rotate(-45deg);transition:transform .2s;flex:none}
+.privacy[open] summary::before{transform:rotate(45deg)}
+.privacy .info{margin-top:4px}
+.privacy .info dd{font-weight:400;font-size:14.5px;color:var(--dim);line-height:1.7}
+.privacy .info dd b{color:var(--ink);font-weight:600}
+.privacy-foot{margin:14px 2px 0;font-size:13px;color:var(--faint)}
+footer{margin-top:70px;border-top:1px solid var(--line2);padding:36px 20px 52px}
+.f-in{max-width:var(--maxw);margin:0 auto;display:flex;flex-wrap:wrap;gap:30px;font-size:14px;color:var(--dim)}
+.f-in dt{font-family:var(--mono);font-size:10.5px;letter-spacing:.16em;color:var(--gold);margin-bottom:4px}
+.f-in dd{margin:0}
+.f-title{font-family:var(--display);font-weight:700;font-size:18px;color:var(--ink);width:100%;margin:0}
+
+/* 데모 툴바 */
+.demo{position:fixed;left:50%;bottom:16px;transform:translateX(-50%);z-index:80;display:flex;align-items:center;gap:7px;background:rgba(6,32,29,.95);border:1px solid var(--gold);border-radius:999px;padding:7px 9px;box-shadow:0 10px 30px rgba(0,0,0,.5)}
+.demo[hidden]{display:none}
+.demo span{font-family:var(--mono);font-size:10.5px;letter-spacing:.12em;color:var(--gold);padding:0 6px}
+.demo button{appearance:none;border:1px solid var(--line);background:transparent;color:var(--dim);font-family:var(--body);font-size:12.5px;padding:6px 11px;border-radius:999px;cursor:pointer}
+.demo button[aria-pressed="true"]{background:var(--gold);border-color:var(--gold);color:#2b1f00;font-weight:600}
+
+@media (max-width:860px){
+  .hero{grid-template-columns:1fr;gap:28px;padding-top:40px}
+  .poster{max-width:360px;margin:0 auto}
+  .cards,.cards.two{grid-template-columns:1fr}
+}
+@media (max-width:640px){
+  body{font-size:16px}
+  .grid2{grid-template-columns:1fr;gap:0}
+  .form-wrap,.status,.done{padding-left:17px;padding-right:17px}
+  .plabels{display:none}
+  .prow{grid-template-columns:22px 1fr 1fr 28px;gap:8px;padding:13px 12px}
+  .prow .n{grid-column:1;grid-row:1/4;align-self:center}
+  .prow .del{grid-column:4;grid-row:1/4;align-self:center}
+  .prow .p-name{grid-column:2/4;grid-row:1}
+  .prow .p-pos{grid-column:2;grid-row:2}
+  .prow .p-birth{grid-column:3;grid-row:2}
+  .prow .p-phone{grid-column:2/4;grid-row:3}
+  .info div{grid-template-columns:1fr}
+  .info dt{padding-bottom:0;background:transparent}
+  .info dd{padding-top:6px}
+  .cd{min-width:64px}
+  .cd b{font-size:22px}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-in">
+    <div class="brand"><b>2026</b> 서울사회복지사의 밤</div>
+    <a href="#apply" class="cta">사전신청</a>
+    <a href="#about">행사 안내</a>
+    <a href="#notice">신청 안내</a>
+    <a href="#privacy">개인정보</a>
+  </div>
+</nav>
+
+<header class="hero">
+  <div>
+    <p class="eyebrow">Together for Social Workers</p>
+    <h1><span class="yr">2026</span>서울사회복지사의 <em>밤</em></h1>
+    <p class="sub">한 해 동안 서울시민의 곁을 지킨 사회복지사들이 서로를 격려하고, 함께 웃으며 새로운 내일을 준비하는 자리입니다.</p>
+    <div class="facts">
+      <div class="fact"><i>Date</i><b>2026. 12. 4.(금) 17:00</b></div>
+      <div class="fact"><i>Place</i><b>그랜드컨벤션센터</b></div>
+      <div class="fact"><i>Open</i><b>11. 10.(화) 10:00</b></div>
+    </div>
+  </div>
+  <div class="poster">
+    <img src="public/poster.webp" alt="2026 서울사회복지사의 밤 초대장. 회원 여러분을 초대합니다. 2026년 12월 4일 금요일 17시, 그랜드컨벤션센터.">
+  </div>
+</header>
+
+<div class="video-band">
+  <div class="video-frame">
+    <video id="promo" src="public/video.mp4" poster="public/videoposter.jpg"
+           autoplay muted loop playsinline preload="metadata"
+           aria-label="2026 서울사회복지사의 밤 사전신청 안내 영상"></video>
+    <button class="sound" id="sound" type="button" aria-pressed="false" aria-label="소리 켜기">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path id="soundIcon" d="M3 9v6h4l5 5V4L7 9H3zm13.5 3A4.5 4.5 0 0 0 14 8v8a4.5 4.5 0 0 0 2.5-4z"/></svg>
+      <span id="soundLab">소리 켜기</span>
+    </button>
+  </div>
+</div>
+
+<main>
+
+  <!-- ===== 신청 ===== -->
+  <section id="apply">
+    <h2>사전신청</h2>
+    <p class="sec-note">협회 2026년 회비를 납부한 회원이 신청할 수 있습니다. 신청과 입금 순서대로 마감합니다.</p>
+
+    <div class="apply">
+
+      <div class="status" id="statusBox">
+        <p class="status-lab" id="statusLab">접수 시작까지</p>
+        <div class="countdown" id="countdown">
+          <div class="cd"><b id="cdD">--</b><span>일</span></div>
+          <div class="cd"><b id="cdH">--</b><span>시간</span></div>
+          <div class="cd"><b id="cdM">--</b><span>분</span></div>
+          <div class="cd"><b id="cdS">--</b><span>초</span></div>
+        </div>
+        <div class="seats" id="seatsBox" hidden><b id="seatsNum">--</b><span>명 신청</span></div>
+        <p class="status-msg" id="statusMsg">2026년 11월 10일(화) 오전 10시에 접수가 열립니다.</p>
+      </div>
+
+      <div class="form-wrap" id="formWrap" hidden>
+        <div class="tabs" role="tablist">
+          <button class="tab" role="tab" id="tabInd" aria-selected="true" type="button">개인 신청</button>
+          <button class="tab" role="tab" id="tabGrp" aria-selected="false" type="button">단체 신청</button>
+        </div>
+
+        <div id="grpFields" hidden>
+          <div class="field">
+            <label for="orgName">기관·단체명<span class="req">*</span></label>
+            <input type="text" id="orgName" placeholder="예) 서울특별시사회복지사협회" autocomplete="organization">
+            <span class="hint">이미 같은 기관으로 신청한 내역이 있으면 <b>기존 신청에 인원이 합쳐집니다.</b> 기관당 최대 <span id="gmax">10</span>명 (개인으로 신청한 같은 소속 포함).</span>
+          </div>
+        </div>
+
+        <div class="grid2">
+          <div class="field">
+            <label for="cName" id="cNameLab">담당자 성함<span class="req">*</span></label>
+            <input type="text" id="cName" autocomplete="name">
+          </div>
+          <div class="field">
+            <label for="cPhone" id="cPhoneLab">담당자 연락처<span class="req">*</span></label>
+            <input type="tel" id="cPhone" placeholder="010-0000-0000" autocomplete="tel" inputmode="numeric">
+          </div>
+        </div>
+        <div class="grid2">
+          <div class="field">
+            <label for="cEmail">이메일<span class="req">*</span></label>
+            <input type="email" id="cEmail" placeholder="receipt@example.com" autocomplete="email">
+            <span class="hint">입금 영수증을 이 주소로 보내드립니다.</span>
+          </div>
+          <div class="field">
+            <label for="payer">입금자명<span class="req">*</span></label>
+            <input type="text" id="payer" placeholder="통장에 찍히는 이름">
+            <span class="hint">신청자와 다를 수 있습니다. 실제 이체할 때 쓰는 이름을 적어주세요.</span>
+          </div>
+        </div>
+
+        <div id="indFields">
+          <div class="field">
+            <label for="indOrg">소속 기관<span class="req">*</span></label>
+            <input type="text" id="indOrg" placeholder="예) ○○종합사회복지관 (소속이 없으면 '없음')" autocomplete="organization">
+            <span class="hint">한 기관에서 최대 <span class="gmax2">10</span>명까지 참석할 수 있어, 단체 신청과 합산해 확인합니다.</span>
+          </div>
+        </div>
+
+        <div class="people" id="people" hidden>
+          <div class="people-head">
+            <h3>참가자 명단</h3>
+            <span class="count"><b id="pCount">0</b> / <span id="pMax">10</span>명</span>
+          </div>
+          <div class="plabels"><span></span><span>성함 *</span><span>직급</span><span>연락처 *</span><span>생년월일</span><span></span></div>
+          <div id="pRows"></div>
+        </div>
+        <button class="add-row" id="addRow" type="button" hidden>+ 참가자 추가</button>
+
+        <div class="agree">
+          <input type="checkbox" id="agree">
+          <p><label for="agree"><b>[필수]</b> 개인정보 수집·이용에 동의합니다.</label><br>
+          수집 항목 : 성함 · 직급 · 연락처 · 이메일 · 생년월일(앞 6자리) /
+          이용 목적 : 행사 안내 · 참가자 확인 · 입금 영수증 발송 /
+          보유 기간 : <b>행사 종료 후 즉시 파기</b> · <a href="#privacy">개인정보 처리방침 보기</a></p>
+        </div>
+
+        <p class="err" id="err" hidden></p>
+        <button class="submit" id="submit" type="button">신청하기</button>
+      </div>
+
+      <div class="done" id="done" hidden>
+        <div class="mark"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 16.2 4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4z"/></svg></div>
+        <h3>신청이 접수되었습니다</h3>
+        <p id="doneMsg"></p>
+        <div class="pay-box">
+          <dl>
+            <dt>입금 금액</dt><dd class="amount" id="dAmount">-</dd>
+            <dt>입금자명</dt><dd id="dPayer">-</dd>
+            <dt>입금 계좌</dt><dd id="dBank">-</dd>
+          </dl>
+          <p class="pay-note">입금 안내를 <b>카카오톡 알림톡</b>으로 보내드렸습니다. 입금이 확인되면 알림톡과 함께 <b>신청하신 이메일로 영수증</b>을 보내드립니다.
+          <b>입금까지 완료되어야 신청이 확정</b>되며, 미입금 건은 순차적으로 취소될 수 있습니다.</p>
+        </div>
+        <button class="again" id="again" type="button">추가로 신청하기</button>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ===== 행사 안내 ===== -->
+  <section id="about">
+    <h2>행사 안내</h2>
+    <p class="sec-note">서울의 사회복지사 600명이 함께하는 특별한 밤입니다.</p>
+
+    <dl class="info">
+      <div><dt>행사명</dt><dd>2026 서울사회복지사의 밤</dd></div>
+      <div><dt>일시</dt><dd>2026년 12월 4일(금) 17:00</dd></div>
+      <div><dt>장소</dt><dd>그랜드컨벤션센터</dd></div>
+      <div><dt>참석 규모</dt><dd>약 600명</dd></div>
+      <div><dt>주최</dt><dd>서울특별시사회복지사협회</dd></div>
+    </dl>
+
+    <h3 style="margin:30px 0 6px">Green &amp; Blue — 함께 만드는 지속가능한 내일</h3>
+    <p class="sec-note">기후위기와 지속가능한 미래의 의미를 함께 나누는 행사로 준비하고 있습니다.</p>
+    <div class="cards two">
+      <div class="card"><div class="num">1부</div><h3>시상식</h3><p>한 해 동안 현장을 지켜온 사회복지사를 격려하는 시상 · 축하 공연 <b>클랑클랑 합창단</b></p></div>
+      <div class="card"><div class="num">2부</div><h3>화합과 교류</h3><p>함께 웃고 이야기 나누는 시간 · <b>경품 추첨</b></p></div>
+    </div>
+  </section>
+
+  <!-- ===== 신청 안내 ===== -->
+  <section id="notice">
+    <h2>신청 안내</h2>
+    <p class="sec-note">신청 전에 꼭 확인해 주세요.</p>
+    <ul class="notes">
+      <li><b>신청 자격</b> — 서울특별시사회복지사협회 2026년 회비를 납부한 회원</li>
+      <li><b>선착순 마감</b> — 신청과 입금 순으로 접수하며, 준비된 자리가 차면 신청이 자동으로 닫힙니다.</li>
+      <li><b>기관당 인원</b> — 한 기관에서 최대 <b>10명</b>까지 참석할 수 있습니다. 단체 신청과 개인 신청(소속 기준)을 <b>합산</b>하며, 같은 기관명으로 다시 신청하면 기존 명단에 합쳐집니다.</li>
+      <li><b>확정 기준</b> — 신청만으로는 확정되지 않습니다. <b>입금이 확인되어야 참석이 확정</b>됩니다.</li>
+      <li><b>영수증</b> — 입금 확인 후 신청 시 입력한 이메일로 영수증을 보내드립니다.</li>
+      <li><b>중복 방지</b> — 같은 휴대전화 번호로는 한 번만 신청할 수 있습니다.</li>
+      <li><b>문의</b> — 서울특별시사회복지사협회 회원조직팀 <a href="tel:0227862962">02-786-2962</a></li>
+    </ul>
+  </section>
+
+  <!-- ===== 개인정보 처리방침 ===== -->
+  <section id="privacy">
+    <h2>개인정보 처리방침</h2>
+    <p class="sec-note">서울특별시사회복지사협회는 「개인정보 보호법」에 따라 아래와 같이 개인정보를 수집·이용합니다.</p>
+    <details class="privacy" open>
+      <summary>2026 서울사회복지사의 밤 참가 신청 개인정보 수집·이용 안내</summary>
+      <dl class="info">
+        <div><dt>처리 목적</dt><dd>① 참가자 접수 및 행사 안내 ② 참가비 입금 확인 및 영수증 발송 ③ 행사 당일 참석 확인 및 경품 추첨 ④ 단체상해보험 가입</dd></div>
+        <div><dt>수집 항목</dt><dd>성함, 직급, 휴대전화번호, 이메일, 생년월일(앞 6자리), 소속 기관명, 입금자명</dd></div>
+        <div><dt>보유 기간</dt><dd><b>행사 종료 후 즉시 파기</b>합니다. 다만 관련 법령에 따라 보관이 필요한 경우(입금·영수증 기록 등)에는 해당 법령이 정한 기간 동안 보관합니다.</dd></div>
+        <div><dt>제3자 제공</dt><dd>원칙적으로 제공하지 않습니다. 단체상해보험 가입을 위해 보험사에 성함·생년월일·연락처를 제공할 수 있으며, 보험 가입 목적 외에는 사용하지 않습니다.</dd></div>
+        <div><dt>처리 위탁</dt><dd>신청 데이터 저장(Supabase), 알림·영수증 발송(이메일 서비스)을 위해 처리를 위탁하며, 수탁자는 위탁 목적 외 처리를 할 수 없습니다.</dd></div>
+        <div><dt>동의 거부 권리</dt><dd>개인정보 수집·이용에 대한 동의를 거부할 권리가 있습니다. 다만 동의하지 않으실 경우 참가 신청과 행사 안내가 제한됩니다.</dd></div>
+        <div><dt>정보주체 권리</dt><dd>언제든지 열람·정정·삭제·처리정지를 요청하실 수 있습니다. 아래 담당 부서로 연락해 주세요.</dd></div>
+        <div><dt>개인정보 보호책임자</dt><dd>서울특별시사회복지사협회 회원조직팀 · 02-786-2962</dd></div>
+      </dl>
+      <p class="privacy-foot">신청서를 제출하면 위 개인정보 수집·이용에 동의한 것으로 봅니다. 생년월일은 참석자 확인·보험 가입·경품 추첨 목적으로만 사용합니다.</p>
+    </details>
+  </section>
+
+</main>
+
+<footer>
+  <div class="f-in">
+    <p class="f-title">2026 서울사회복지사의 밤</p>
+    <div><dt>일시 · 장소</dt><dd>2026. 12. 4.(금) 17:00<br>그랜드컨벤션센터</dd></div>
+    <div><dt>주최</dt><dd>서울특별시사회복지사협회</dd></div>
+    <div><dt>문의</dt><dd>회원조직팀 02-786-2962</dd></div>
+  </div>
+</footer>
+
+<div class="demo" id="demoBar" hidden>
+  <span>DEMO</span>
+  <button type="button" data-st="before">오픈 전</button>
+  <button type="button" data-st="open" aria-pressed="true">접수 중</button>
+  <button type="button" data-st="last">마감 임박</button>
+  <button type="button" data-st="full">마감</button>
+</div>
+
+<script>
+/* =========================================================================
+   설정 — 배포할 때 이 네 줄만 채우면 됩니다.
+   비워두면 DEMO 모드로 동작합니다(서버 없이 화면·흐름 확인용).
+   ========================================================================= */
+const CONFIG = {
+  SUPABASE_URL: '',          // 예) https://xxxxxxxx.supabase.co
+  SUPABASE_ANON_KEY: '',     // anon public key
+  POLL_MS: 15000             // 잔여석 갱신 주기
+};
+
+/* ===================== 상태 ===================== */
+const DEMO = !CONFIG.SUPABASE_URL || !CONFIG.SUPABASE_ANON_KEY;
+let ST = null;          // 서버 상태
+let skew = 0;           // 서버시각 - 클라이언트시각 (ms)
+let kind = 'individual';
+let demoState = 'open';
+
+const $ = id => document.getElementById(id);
+
+/* ===================== 서버 호출 ===================== */
+async function rpc(fn, body){
+  if (DEMO) return demoRpc(fn, body);
+  const r = await fetch(`${CONFIG.SUPABASE_URL}/rest/v1/rpc/${fn}`, {
+    method:'POST',
+    headers:{
+      'Content-Type':'application/json',
+      'apikey': CONFIG.SUPABASE_ANON_KEY,
+      'Authorization':'Bearer ' + CONFIG.SUPABASE_ANON_KEY
+    },
+    body: JSON.stringify(body || {})
+  });
+  const data = await r.json().catch(()=>null);
+  if (!r.ok){
+    const raw = (data && (data.message || data.hint || data.details)) || '요청을 처리하지 못했습니다.';
+    const msg = raw.includes('|') ? raw.split('|').slice(1).join('|') : raw;
+    throw new Error(msg);
+  }
+  return data;
+}
+
+/* ===================== DEMO 백엔드 ===================== */
+const DEMO_CAP = 1000;   // 화면 확인용 가상 정원 (실제 정원은 서버 settings에만 있음)
+const demoDB = { used: 312, groups: {}, phones: new Set() };
+function demoRpc(fn, body){
+  return new Promise((res, rej)=>setTimeout(()=>{
+    const OPEN = new Date('2026-11-10T10:00:00+09:00').getTime();
+    const now = Date.now();
+    if (fn === 'public_status'){
+      let server = now, used = demoDB.used, closed = false;
+      if (demoState === 'before') server = OPEN - 3*86400000 - 7000000;
+      if (demoState === 'open')   server = OPEN + 600000;
+      if (demoState === 'last'){  server = OPEN + 3600000; used = DEMO_CAP - 6; }
+      if (demoState === 'full'){  server = OPEN + 7200000; used = DEMO_CAP; closed = true; }
+      return res({
+        server_now:new Date(server).toISOString(), open_at:new Date(OPEN).toISOString(),
+        used, nearly_full:(DEMO_CAP-used)<=30, group_max:10, fee:30000,
+        closed: closed || used>=DEMO_CAP,
+        bank:{name:'○○은행', account:'000-000000-00-000', holder:'서울특별시사회복지사협회'}
+      });
+    }
+    if (fn === 'submit_application'){
+      const n = body.p_attendees.length;
+      for (const a of body.p_attendees){
+        const k = (a.phone||'').replace(/\D/g,'');
+        if (demoDB.phones.has(k)) return rej(new Error(`${a.name}님은 이미 신청이 완료되어 있습니다.`));
+      }
+      let cur = 0;
+      const key = (body.p_org_name||'').replace(/\s|\(주\)|\(사\)/g,'');
+      if (key && key !== '없음'){
+        cur = demoDB.groups[key] || 0;
+        if (cur + n > 10) return rej(new Error(body.p_kind==='group'
+          ? `「${body.p_org_name}」은(는) 이미 ${cur}명 신청되어 있어 ${10-cur}명까지 추가할 수 있습니다. (기관당 최대 10명, 개인 신청 포함)`
+          : `「${body.p_org_name}」 소속은 이미 ${cur}명이 신청되어 있습니다. 기관당 최대 10명까지만 참석할 수 있습니다.`));
+        demoDB.groups[key] = cur + n;
+      }
+      if (body.p_kind !== 'group') cur = 0;
+      body.p_attendees.forEach(a=>demoDB.phones.add((a.phone||'').replace(/\D/g,'')));
+      demoDB.used += n;
+      return res({ ok:true, added:n, org_total:cur+n, added_amount:n*30000, total_amount:(cur+n)*30000 });
+    }
+    rej(new Error('알 수 없는 요청'));
+  }, 420));
+}
+
+/* ===================== 상태 폴링 ===================== */
+async function pull(){
+  try{
+    ST = await rpc('public_status');
+    skew = new Date(ST.server_now).getTime() - Date.now();
+    $('gmax').textContent = ST.group_max;
+    $('pMax').textContent = ST.group_max;
+    document.querySelectorAll('.gmax2').forEach(e => e.textContent = ST.group_max);
+    render();
+  }catch(e){ /* 네트워크 일시 오류는 다음 주기에 복구 */ }
+}
+const serverNow = () => Date.now() + skew;
+
+function render(){
+  if (!ST) return;
+  const open = new Date(ST.open_at).getTime();
+  const left = open - serverNow();
+  const pre  = left > 0;
+  const full = !!ST.closed;
+
+  $('countdown').hidden = !pre;
+  $('seatsBox').hidden  = pre;
+  $('formWrap').hidden  = pre || full || !$('done').hidden;
+
+  if (pre){
+    $('statusLab').textContent = '접수 시작까지';
+    const s = Math.floor(left/1000);
+    $('cdD').textContent = Math.floor(s/86400);
+    $('cdH').textContent = String(Math.floor(s%86400/3600)).padStart(2,'0');
+    $('cdM').textContent = String(Math.floor(s%3600/60)).padStart(2,'0');
+    $('cdS').textContent = String(s%60).padStart(2,'0');
+    $('statusMsg').innerHTML = '<b>2026년 11월 10일(화) 오전 10시</b>에 접수가 열립니다.';
+  } else if (full){
+    $('statusLab').textContent = '접수 마감';
+    $('seatsBox').hidden = true;
+    $('statusMsg').innerHTML = '준비된 자리가 모두 찼습니다. 많은 관심에 감사드립니다.';
+  } else {
+    $('statusLab').textContent = ST.nearly_full ? '접수 중 · 마감 임박' : '접수 중';
+    $('seatsNum').textContent = ST.used.toLocaleString('ko-KR');
+    $('statusMsg').innerHTML = ST.nearly_full
+      ? '남은 자리가 얼마 없습니다. <b>서둘러 신청</b>해 주세요.'
+      : '지금까지 <b>' + ST.used.toLocaleString('ko-KR') + '명</b>이 신청했습니다. 입금까지 완료해야 확정됩니다.';
+  }
+}
+setInterval(render, 1000);
+setInterval(pull, CONFIG.POLL_MS);
+
+/* ===================== 탭 ===================== */
+function setKind(k){
+  kind = k;
+  $('tabInd').setAttribute('aria-selected', k==='individual');
+  $('tabGrp').setAttribute('aria-selected', k==='group');
+  $('grpFields').hidden = k!=='group';
+  $('indFields').hidden = k!=='individual';
+  $('people').hidden    = k!=='group';
+  $('addRow').hidden    = k!=='group';
+  $('cNameLab').innerHTML = (k==='group' ? '담당자 성함' : '성함') + '<span class="req">*</span>';
+  $('cPhoneLab').innerHTML = (k==='group' ? '담당자 연락처' : '연락처') + '<span class="req">*</span>';
+  if (k==='group' && !$('pRows').children.length) addPerson();
+  $('err').hidden = true;
+}
+$('tabInd').onclick = ()=>setKind('individual');
+$('tabGrp').onclick = ()=>setKind('group');
+
+/* ===================== 참가자 행 ===================== */
+function addPerson(){
+  const max = ST ? ST.group_max : 10;
+  const rows = $('pRows');
+  if (rows.children.length >= max) return;
+  const d = document.createElement('div');
+  d.className = 'prow';
+  d.innerHTML =
+    '<span class="n"></span>' +
+    '<input type="text" class="p-name"  placeholder="성함" aria-label="성함">' +
+    '<input type="text" class="p-pos"   placeholder="직급" aria-label="직급">' +
+    '<input type="tel"  class="p-phone" placeholder="010-0000-0000" inputmode="numeric" aria-label="연락처">' +
+    '<input type="text" class="p-birth" placeholder="생년월일 6자리" inputmode="numeric" maxlength="6" aria-label="생년월일 앞 6자리">' +
+    '<button type="button" class="del" aria-label="이 행 삭제">&times;</button>';
+  d.querySelector('.del').onclick = ()=>{ d.remove(); renumber(); };
+  rows.appendChild(d);
+  renumber();
+}
+function renumber(){
+  const rows = [...$('pRows').children];
+  rows.forEach((r,i)=>r.querySelector('.n').textContent = i+1);
+  const max = ST ? ST.group_max : 10;
+  $('pCount').textContent = rows.length;
+  $('addRow').disabled = rows.length >= max;
+}
+$('addRow').onclick = addPerson;
+
+/* ===================== 제출 ===================== */
+const v = id => $(id).value.trim();
+function fail(msg){ const e=$('err'); e.textContent=msg; e.hidden=false; e.scrollIntoView({block:'center'}); return false; }
+
+$('submit').onclick = async () => {
+  const btn = $('submit');
+  $('err').hidden = true;
+
+  if (!v('cName'))  return fail('성함을 입력해 주세요.');
+  if (!v('cPhone')) return fail('연락처를 입력해 주세요.');
+  if (!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(v('cEmail'))) return fail('이메일 주소를 정확히 입력해 주세요.');
+  if (!v('payer'))  return fail('입금자명을 입력해 주세요.');
+  if (kind === 'individual' && !v('indOrg')) return fail("소속 기관을 입력해 주세요. 소속이 없으면 '없음'으로 적어주세요.");
+  if (!$('agree').checked) return fail('개인정보 수집·이용에 동의해 주세요.');
+
+  let attendees = [];
+  if (kind === 'group'){
+    if (!v('orgName')) return fail('기관·단체명을 입력해 주세요.');
+    const rows = [...$('pRows').children];
+    if (!rows.length) return fail('참가자를 1명 이상 입력해 주세요.');
+    for (const [i, r] of rows.entries()){
+      const name  = r.querySelector('.p-name').value.trim();
+      const phone = r.querySelector('.p-phone').value.trim();
+      if (!name)  return fail(`${i+1}번 참가자의 성함을 입력해 주세요.`);
+      if (phone.replace(/\D/g,'').length < 10) return fail(`${i+1}번 참가자의 연락처를 정확히 입력해 주세요.`);
+      attendees.push({ name, position:r.querySelector('.p-pos').value.trim(),
+                       phone, birth6:r.querySelector('.p-birth').value.trim() });
+    }
+  } else {
+    attendees = [{ name:v('cName'), position:'', phone:v('cPhone'), birth6:'' }];
+  }
+
+  btn.disabled = true; btn.textContent = '접수 중...';
+  try{
+    const r = await rpc('submit_application', {
+      p_kind: kind,
+      p_org_name: kind==='group' ? v('orgName') : v('indOrg'),
+      p_contact_name: v('cName'),
+      p_contact_phone: v('cPhone'),
+      p_contact_email: v('cEmail'),
+      p_payer_name: v('payer'),
+      p_memo: null,
+      p_attendees: attendees
+    });
+
+    const won = n => (n||0).toLocaleString('ko-KR') + '원';
+    $('doneMsg').innerHTML = kind==='group'
+      ? `<b>${v('orgName')}</b> · 이번 신청 ${r.added}명 (누적 ${r.org_total}명)`
+      : `<b>${v('cName')}</b>님, 1명 신청이 접수되었습니다.`;
+    $('dAmount').textContent = won(r.added_amount);
+    $('dPayer').textContent  = v('payer');
+    const b = ST && ST.bank ? ST.bank : {};
+    $('dBank').innerHTML = b.account ? `${b.name} ${b.account}<br><span style="font-weight:400;color:var(--faint)">예금주 ${b.holder}</span>` : '협회 공지 계좌로 입금';
+    $('formWrap').hidden = true;
+    $('done').hidden = false;
+    $('done').scrollIntoView({ behavior:'smooth', block:'center' });
+    pull();
+  }catch(e){
+    fail(e.message);
+  }finally{
+    btn.disabled = false; btn.textContent = '신청하기';
+  }
+};
+
+/* ===================== 추가 신청(폼 초기화) ===================== */
+$('again').onclick = () => {
+  ['orgName','cName','cPhone','cEmail','payer','indOrg'].forEach(id => $(id).value = '');
+  $('pRows').innerHTML = '';
+  $('agree').checked = false;
+  $('err').hidden = true;
+  $('done').hidden = true;
+  setKind(kind);
+  render();
+  $('apply').scrollIntoView({ behavior:'smooth', block:'start' });
+};
+
+/* ===================== DEMO 툴바 ===================== */
+if (DEMO){
+  $('demoBar').hidden = false;
+  $('demoBar').querySelectorAll('button').forEach(b=>{
+    b.onclick = () => {
+      demoState = b.dataset.st;
+      $('demoBar').querySelectorAll('button').forEach(x=>x.setAttribute('aria-pressed', x===b));
+      $('done').hidden = true;
+      pull();
+    };
+  });
+}
+
+/* ===================== 영상 소리 토글 ===================== */
+(function(){
+  const vdo = $('promo'), btn = $('sound');
+  if (!vdo || !btn) return;
+  btn.onclick = () => {
+    vdo.muted = !vdo.muted;
+    btn.setAttribute('aria-pressed', String(!vdo.muted));
+    btn.setAttribute('aria-label', vdo.muted ? '소리 켜기' : '소리 끄기');
+    $('soundLab').textContent = vdo.muted ? '소리 켜기' : '소리 끄기';
+    if (!vdo.muted) { vdo.currentTime = 0; vdo.play().catch(()=>{}); }
+  };
+})();
+
+/* ===================== 시작 ===================== */
+setKind('individual');
+pull();
+</script>
+</body>
+</html>
