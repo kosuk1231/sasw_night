@@ -6,6 +6,6 @@
  *  SUPABASE_ANON_KEY : 같은 화면의 anon public 키  (service_role 키 절대 금지)
  */
 window.SW_CONFIG = {
-  SUPABASE_URL: '',
-  SUPABASE_ANON_KEY: ''
+  SUPABASE_URL: 'https://pjndsnmrsikmxhnhszkn.supabase.co',
+  SUPABASE_ANON_KEY: 'sb_publishable_TwyxJzF81FuaZdryoH6q5g_DQjXnCFr'
 };
