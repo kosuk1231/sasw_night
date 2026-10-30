@@ -247,13 +247,13 @@ footer{margin-top:70px;border-top:1px solid var(--line2);padding:36px 20px 52px}
     </div>
   </div>
   <div class="poster">
-    <img src="public/poster.webp" alt="2026 서울사회복지사의 밤 초대장. 회원 여러분을 초대합니다. 2026년 12월 4일 금요일 17시, 그랜드컨벤션센터.">
+    <img src="assets/poster.webp" alt="2026 서울사회복지사의 밤 초대장. 회원 여러분을 초대합니다. 2026년 12월 4일 금요일 17시, 그랜드컨벤션센터.">
   </div>
 </header>
 
 <div class="video-band">
   <div class="video-frame">
-    <video id="promo" src="public/video.mp4" poster="public/videoposter.jpg"
+    <video id="promo" src="assets/video.mp4" poster="assets/videoposter.jpg"
            autoplay muted loop playsinline preload="metadata"
            aria-label="2026 서울사회복지사의 밤 사전신청 안내 영상"></video>
     <button class="sound" id="sound" type="button" aria-pressed="false" aria-label="소리 켜기">
@@ -455,6 +455,7 @@ const CONFIG = {
   SUPABASE_ANON_KEY: 'sb_publishable_TwyxJzF81FuaZdryoH6q5g_DQjXnCFr',     // anon public key
   POLL_MS: 15000             // 잔여석 갱신 주기
 };
+
 
 /* ===================== 상태 ===================== */
 const DEMO = !CONFIG.SUPABASE_URL || !CONFIG.SUPABASE_ANON_KEY;
