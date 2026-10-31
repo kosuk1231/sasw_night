@@ -51,11 +51,11 @@ create table if not exists settings (
   close_at    timestamptz,                                            -- 비워두면 정원까지
   capacity    int  not null default 450,                              -- 전체 정원
   group_max   int  not null default 10,                               -- 기관당 누적 최대 (단체+개인 소속 합산)
-  fee         int  not null default 0,                                -- 1인 참가비(원) ★ 설정 필요
+  fee         int  not null default 20000,                            -- 1인 참가비(원)
   closed      boolean not null default false,                         -- 수동 마감 스위치
-  bank_name   text default '',
-  bank_account text default '',
-  bank_holder text default '',
+  bank_name   text default '신한은행',
+  bank_account text default '140-012-291070',
+  bank_holder text default '서울특별시사회복지사협회',
   pay_due_days int  not null default 3,                               -- 입금 기한(신청일 + N일), 알림톡 #{입금기한}
   constraint settings_singleton check (id = 1)
 );
@@ -529,9 +529,9 @@ revoke execute on function mark_notification(bigint,text,text,text) from anon, a
 -- 설정 예시 (값을 채워 실행)
 -- ============================================================
 -- update settings set
---   fee          = 30000,
---   bank_name    = '○○은행',
---   bank_account = '000-000000-00-000',
+--   fee          = 20000,
+--   bank_name    = '신한은행',
+--   bank_account = '140-012-291070',
 --   bank_holder  = '서울특별시사회복지사협회',
 --   pay_due_days = 3               -- 알림톡 #{입금기한} = 신청일 + 3일
 -- where id = 1;
