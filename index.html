@@ -2,7 +2,7 @@
 <html lang="ko">
 <head>
 <meta charset="UTF-8">
-<meta name="build" content="sw-night r11 · 2026-10-31 · notice-above-apply">
+<meta name="build" content="sw-night r12 · 2026-10-31 · footer-readable">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>2026 서울사회복지사의 밤 · 사전신청</title>
 <meta name="description" content="2026. 12. 4.(금) 17:00 그랜드컨벤션센터 · 사전신청 11월 10일(화) 10시 오픈">
@@ -199,27 +199,41 @@ textarea{resize:vertical;min-height:72px}
 .notes li::before{content:'·';position:absolute;left:6px;color:var(--gold);font-weight:700}
 .notes b{color:var(--ink);font-weight:600}
 
-.privacy{border:1px solid var(--line2);border-radius:14px;background:rgba(255,255,255,.025);padding:0 18px 16px}
-.privacy summary{cursor:pointer;list-style:none;padding:16px 0;font-weight:600;font-size:15.5px;display:flex;align-items:center;gap:10px}
-.privacy summary::-webkit-details-marker{display:none}
-.privacy summary::before{content:'';width:8px;height:8px;border-right:2px solid var(--gold);border-bottom:2px solid var(--gold);transform:rotate(-45deg);transition:transform .2s;flex:none}
-.privacy[open] summary::before{transform:rotate(45deg)}
-.privacy .info{margin-top:4px}
-.privacy .info dd{font-weight:400;font-size:14.5px;color:var(--dim);line-height:1.7}
-.privacy .info dd b{color:var(--ink);font-weight:600}
-.privacy-foot{margin:14px 2px 0;font-size:13px;color:var(--faint)}
-.f-in2{max-width:var(--maxw);margin:26px auto 0;padding-top:20px;border-top:1px solid var(--line2)}
-.f-privacy{padding:0;scroll-margin-top:72px}
-.f-priv-h{font-size:15px;margin:0 0 4px;color:var(--dim)}
-.f-privacy .sec-note{font-size:13px;margin-bottom:12px}
-.f-privacy .privacy summary{font-size:14px;color:var(--dim)}
-.f-link{color:var(--dim);text-decoration:underline;text-underline-offset:3px}
+
+
+/* ───── 푸터 ───── */
+footer{margin-top:76px;border-top:1px solid var(--line);background:rgba(0,0,0,.22);padding:44px 0 calc(56px + env(safe-area-inset-bottom,0px))}
+.f-wrap{max-width:var(--maxw);margin:0 auto;padding:0 20px}
+.f-title{font-family:var(--display);font-weight:700;font-size:23px;color:var(--ink);margin:0 0 24px;letter-spacing:-.01em}
+.f-grid{margin:0;display:grid;grid-template-columns:1.25fr 1.15fr 1fr .95fr;gap:22px 28px}
+.f-item dt{font-size:13px;font-weight:600;color:var(--gold);margin:0 0 7px;letter-spacing:.02em}
+.f-item dd{margin:0;font-size:16.5px;line-height:1.6;color:var(--ink)}
+.f-tel{color:var(--ink);text-decoration:none;font-weight:600}
+.f-tel:hover{color:var(--gold-lt)}
+.f-link{color:var(--ink);font-weight:600;text-decoration:underline;text-decoration-color:var(--gold);text-underline-offset:4px;text-decoration-thickness:1.5px}
 .f-link:hover{color:var(--gold-lt)}
-footer{margin-top:70px;border-top:1px solid var(--line2);padding:36px 20px 52px}
-.f-in{max-width:var(--maxw);margin:0 auto;display:flex;flex-wrap:wrap;gap:30px;font-size:14px;color:var(--dim)}
-.f-in dt{font-family:var(--mono);font-size:10.5px;letter-spacing:.16em;color:var(--gold);margin-bottom:4px}
-.f-in dd{margin:0}
-.f-title{font-family:var(--display);font-weight:700;font-size:18px;color:var(--ink);width:100%;margin:0}
+
+/* 개인정보 처리방침 */
+.f-privacy{margin-top:30px;padding:0;scroll-margin-top:72px}
+.pp{border:1px solid var(--line);border-radius:14px;background:rgba(255,255,255,.03);overflow:hidden}
+.pp summary{list-style:none;cursor:pointer;display:flex;align-items:center;gap:16px;padding:18px 20px}
+.pp summary::-webkit-details-marker{display:none}
+.pp summary:hover{background:rgba(240,219,171,.05)}
+.pp-head{flex:1;min-width:0}
+.pp-title{display:block;font-size:16.5px;font-weight:700;color:var(--ink)}
+.pp-sub{display:block;font-size:13.5px;color:var(--dim);margin-top:3px}
+.pp-toggle{flex:none;display:inline-flex;align-items:center;gap:7px;font-size:13px;font-weight:600;color:var(--gold-lt);border:1px solid var(--line);border-radius:999px;padding:6px 12px}
+.pp-toggle::after{content:'';width:7px;height:7px;border-right:2px solid var(--gold);border-bottom:2px solid var(--gold);transform:translateY(-2px) rotate(45deg);transition:transform .2s}
+.pp[open] .pp-toggle::after{transform:translateY(1px) rotate(-135deg)}
+.pp-close{display:none}
+.pp[open] .pp-open{display:none}
+.pp[open] .pp-close{display:inline}
+.pp-list{margin:0;border-top:1px solid var(--line2)}
+.pp-row{display:grid;grid-template-columns:150px 1fr;gap:16px;padding:14px 20px;border-bottom:1px solid var(--line2)}
+.pp-row dt{margin:0;font-size:14px;font-weight:600;color:var(--gold)}
+.pp-row dd{margin:0;font-size:15px;line-height:1.7;color:var(--dim)}
+.pp-row dd b{color:var(--ink);font-weight:600}
+.pp-foot{margin:0;padding:14px 20px 18px;font-size:13.5px;line-height:1.65;color:var(--faint)}
 
 /* 데모 툴바 */
 .demo{position:fixed;left:50%;bottom:16px;transform:translateX(-50%);z-index:80;display:flex;align-items:center;gap:7px;background:rgba(6,32,29,.95);border:1px solid var(--gold);border-radius:999px;padding:7px 9px;box-shadow:0 10px 30px rgba(0,0,0,.5)}
@@ -229,6 +243,7 @@ footer{margin-top:70px;border-top:1px solid var(--line2);padding:36px 20px 52px}
 .demo button[aria-pressed="true"]{background:var(--gold);border-color:var(--gold);color:#2b1f00;font-weight:600}
 
 @media (max-width:860px){
+  .f-grid{grid-template-columns:1fr 1fr}
   .hero{grid-template-columns:1fr;gap:28px;padding-top:40px}
   .poster{max-width:360px;margin:0 auto}
   .cards,.cards.two{grid-template-columns:1fr}
@@ -236,6 +251,15 @@ footer{margin-top:70px;border-top:1px solid var(--line2);padding:36px 20px 52px}
 }
 @media (max-width:640px){
   body{font-size:16px}
+  .f-title{font-size:20px;margin-bottom:16px}
+  .f-grid{grid-template-columns:1fr;gap:0}
+  .f-item{display:grid;grid-template-columns:86px 1fr;gap:12px;padding:12px 0;border-top:1px solid var(--line2)}
+  .f-item:first-child{border-top:none;padding-top:0}
+  .f-item dt{margin:2px 0 0}
+  .f-item dd{font-size:16px}
+  .pp summary{padding:16px}
+  .pp-row{grid-template-columns:1fr;gap:4px;padding:13px 16px}
+  .pp-foot{padding:12px 16px 16px}
   .steps{grid-template-columns:1fr;gap:8px}
   .step-arrow{display:none}
   .grid2{grid-template-columns:1fr;gap:0}
@@ -476,33 +500,37 @@ footer{margin-top:70px;border-top:1px solid var(--line2);padding:36px 20px 52px}
 </main>
 
 <footer>
-  <div class="f-in">
+  <div class="f-wrap">
     <p class="f-title">2026 서울사회복지사의 밤</p>
-    <div><dt>일시 · 장소</dt><dd>2026. 12. 4.(금) 17:00<br>그랜드컨벤션센터</dd></div>
-    <div><dt>주최</dt><dd>서울특별시사회복지사협회</dd></div>
-    <div><dt>문의</dt><dd>회원조직팀 02-786-2962</dd></div>
-    <div><dt>정책</dt><dd><a href="#privacy" class="f-link">개인정보 처리방침</a></dd></div>
-  </div>
-  <div class="f-in2">
-  <section id="privacy" class="f-privacy">
-    <h2 class="f-priv-h">개인정보 처리방침</h2>
-    <p class="sec-note">서울특별시사회복지사협회는 「개인정보 보호법」에 따라 아래와 같이 개인정보를 수집·이용합니다.</p>
-    <details class="privacy" id="privacyDetails">
-      <summary>2026 서울사회복지사의 밤 참가 신청 개인정보 수집·이용 안내</summary>
-      <dl class="info">
-        <div><dt>처리 목적</dt><dd>① 참가자 접수 및 행사 안내 ② 참가비 입금 확인 및 영수증 발송 ③ 행사 당일 참석 확인 및 경품 추첨 ④ 단체상해보험 가입</dd></div>
-        <div><dt>수집 항목</dt><dd>성함, 직급, 휴대전화번호, 이메일, 생년월일(앞 6자리), 소속 기관명, 입금자명</dd></div>
-        <div><dt>보유 기간</dt><dd><b>행사 종료 후 즉시 파기</b>합니다. 다만 관련 법령에 따라 보관이 필요한 경우(입금·영수증 기록 등)에는 해당 법령이 정한 기간 동안 보관합니다.</dd></div>
-        <div><dt>제3자 제공</dt><dd>원칙적으로 제공하지 않습니다. 단체상해보험 가입을 위해 보험사에 성함·생년월일·연락처를 제공할 수 있으며, 보험 가입 목적 외에는 사용하지 않습니다.</dd></div>
-        <div><dt>처리 위탁</dt><dd>신청 데이터 저장(Supabase), 알림·영수증 발송(이메일 서비스)을 위해 처리를 위탁하며, 수탁자는 위탁 목적 외 처리를 할 수 없습니다.</dd></div>
-        <div><dt>동의 거부 권리</dt><dd>개인정보 수집·이용에 대한 동의를 거부할 권리가 있습니다. 다만 동의하지 않으실 경우 참가 신청과 행사 안내가 제한됩니다.</dd></div>
-        <div><dt>정보주체 권리</dt><dd>언제든지 열람·정정·삭제·처리정지를 요청하실 수 있습니다. 아래 담당 부서로 연락해 주세요.</dd></div>
-        <div><dt>개인정보 보호책임자</dt><dd>서울특별시사회복지사협회 회원조직팀 · 02-786-2962</dd></div>
-      </dl>
-      <p class="privacy-foot">신청서를 제출하면 위 개인정보 수집·이용에 동의한 것으로 봅니다. 생년월일은 참석자 확인·보험 가입·경품 추첨 목적으로만 사용합니다.</p>
-    </details>
-  </section>
+    <dl class="f-grid">
+      <div class="f-item"><dt>일시 · 장소</dt><dd>2026. 12. 4.(금) 17:00<br>그랜드컨벤션센터</dd></div>
+      <div class="f-item"><dt>주최</dt><dd>서울특별시사회복지사협회</dd></div>
+      <div class="f-item"><dt>문의</dt><dd>회원조직팀<br><a href="tel:0227862962" class="f-tel">02-786-2962</a></dd></div>
+      <div class="f-item"><dt>정책</dt><dd><a href="#privacy" class="f-link">개인정보 처리방침</a></dd></div>
+    </dl>
 
+    <section id="privacy" class="f-privacy">
+      <details class="pp" id="privacyDetails">
+        <summary>
+          <span class="pp-head">
+            <span class="pp-title">개인정보 처리방침</span>
+            <span class="pp-sub">「개인정보 보호법」에 따른 참가 신청 개인정보 수집·이용 안내</span>
+          </span>
+          <span class="pp-toggle" aria-hidden="true"><span class="pp-open">펼치기</span><span class="pp-close">접기</span></span>
+        </summary>
+        <dl class="pp-list">
+          <div class="pp-row"><dt>처리 목적</dt><dd>① 참가자 접수 및 행사 안내 ② 참가비 입금 확인 및 영수증 발송 ③ 행사 당일 참석 확인 및 경품 추첨 ④ 단체상해보험 가입</dd></div>
+          <div class="pp-row"><dt>수집 항목</dt><dd>성함, 직급, 휴대전화번호, 이메일, 생년월일(앞 6자리), 소속 기관명, 입금자명</dd></div>
+          <div class="pp-row"><dt>보유 기간</dt><dd><b>행사 종료 후 즉시 파기</b>합니다. 다만 관련 법령에 따라 보관이 필요한 경우(입금·영수증 기록 등)에는 해당 법령이 정한 기간 동안 보관합니다.</dd></div>
+          <div class="pp-row"><dt>제3자 제공</dt><dd>원칙적으로 제공하지 않습니다. 단체상해보험 가입을 위해 보험사에 성함·생년월일·연락처를 제공할 수 있으며, 보험 가입 목적 외에는 사용하지 않습니다.</dd></div>
+          <div class="pp-row"><dt>처리 위탁</dt><dd>신청 데이터 저장(Supabase), 알림·영수증 발송(이메일 서비스)을 위해 처리를 위탁하며, 수탁자는 위탁 목적 외 처리를 할 수 없습니다.</dd></div>
+          <div class="pp-row"><dt>동의 거부 권리</dt><dd>개인정보 수집·이용에 대한 동의를 거부할 권리가 있습니다. 다만 동의하지 않으실 경우 참가 신청과 행사 안내가 제한됩니다.</dd></div>
+          <div class="pp-row"><dt>정보주체 권리</dt><dd>언제든지 열람·정정·삭제·처리정지를 요청하실 수 있습니다. 아래 담당 부서로 연락해 주세요.</dd></div>
+          <div class="pp-row"><dt>개인정보 보호책임자</dt><dd>서울특별시사회복지사협회 회원조직팀 · 02-786-2962</dd></div>
+        </dl>
+        <p class="pp-foot">신청서를 제출하면 위 개인정보 수집·이용에 동의한 것으로 봅니다. 생년월일은 참석자 확인·보험 가입·경품 추첨 목적으로만 사용합니다.</p>
+      </details>
+    </section>
   </div>
 </footer>
 
