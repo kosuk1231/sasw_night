@@ -2,7 +2,7 @@
 <html lang="ko">
 <head>
 <meta charset="UTF-8">
-<meta name="build" content="sw-night r10 · 2026-10-31 · video-sources · check.html">
+<meta name="build" content="sw-night r11 · 2026-10-31 · notice-above-apply">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>2026 서울사회복지사의 밤 · 사전신청</title>
 <meta name="description" content="2026. 12. 4.(금) 17:00 그랜드컨벤션센터 · 사전신청 11월 10일(화) 10시 오픈">
@@ -162,6 +162,25 @@ textarea{resize:vertical;min-height:72px}
 .again:hover{background:rgba(240,219,171,.1)}
 .pay-note{margin:16px 0 0;font-size:13.5px;color:var(--faint);line-height:1.7}
 
+/* 신청 안내 */
+#notice{padding-top:48px}
+.steps{display:grid;grid-template-columns:1fr 28px 1fr 28px 1fr;align-items:center;gap:6px;margin:0 0 16px}
+.step{display:flex;align-items:center;gap:12px;border:1px solid var(--line);border-radius:14px;padding:14px 16px;background:rgba(240,219,171,.05)}
+.step-n{flex:none;width:30px;height:30px;border-radius:50%;background:var(--gold);color:#2b1f00;font-family:var(--mono);font-weight:600;font-size:14px;display:grid;place-items:center}
+.step b{display:block;font-size:15.5px;line-height:1.35}
+.step div span{display:block;font-size:12.5px;color:var(--faint);line-height:1.4;margin-top:2px}
+.step-arrow{height:1px;background:linear-gradient(90deg,var(--line),var(--gold));position:relative}
+.step-arrow::after{content:'';position:absolute;right:-1px;top:-4px;border:4.5px solid transparent;border-left:6px solid var(--gold);border-right:0}
+.key-facts{display:grid;grid-template-columns:1.2fr 1fr 1fr;gap:12px;margin:0 0 22px}
+.kf{border:1px solid var(--line2);border-radius:14px;padding:18px 18px 16px;background:rgba(255,255,255,.035)}
+.kf i{display:block;font-style:normal;font-family:var(--mono);font-size:11px;letter-spacing:.14em;color:var(--gold);margin-bottom:8px}
+.kf b{display:block;font-size:19px;font-weight:700;line-height:1.3;color:var(--ink)}
+.kf span{display:block;font-size:13.5px;color:var(--dim);margin-top:4px}
+.kf-fee{border-color:var(--gold);background:linear-gradient(180deg,rgba(215,177,99,.16),rgba(215,177,99,.04))}
+.kf-fee b{font-family:var(--mono);font-size:22px;color:var(--gold-lt);letter-spacing:-.02em}
+.kf-fee span{font-family:var(--mono);font-size:13.5px;color:var(--ink)}
+#notice .notes{border:1px solid var(--line2);border-radius:14px;padding:6px 18px;background:rgba(0,0,0,.14)}
+
 /* 일반 카드 */
 .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
 .cards.two{grid-template-columns:1fr 1fr}
@@ -213,9 +232,12 @@ footer{margin-top:70px;border-top:1px solid var(--line2);padding:36px 20px 52px}
   .hero{grid-template-columns:1fr;gap:28px;padding-top:40px}
   .poster{max-width:360px;margin:0 auto}
   .cards,.cards.two{grid-template-columns:1fr}
+  .key-facts{grid-template-columns:1fr}
 }
 @media (max-width:640px){
   body{font-size:16px}
+  .steps{grid-template-columns:1fr;gap:8px}
+  .step-arrow{display:none}
   .grid2{grid-template-columns:1fr;gap:0}
   .form-wrap,.status,.done{padding-left:17px;padding-right:17px}
   .plabels{display:none}
@@ -240,9 +262,9 @@ footer{margin-top:70px;border-top:1px solid var(--line2);padding:36px 20px 52px}
 <nav class="nav">
   <div class="nav-in">
     <div class="brand"><b>2026</b> 서울사회복지사의 밤</div>
+    <a href="#notice">신청 안내</a>
     <a href="#apply" class="cta">사전신청</a>
     <a href="#about">행사 안내</a>
-    <a href="#notice">신청 안내</a>
   </div>
 </nav>
 
@@ -281,6 +303,48 @@ footer{margin-top:70px;border-top:1px solid var(--line2);padding:36px 20px 52px}
 </div>
 
 <main>
+
+  <!-- ===== 신청 안내 ===== -->
+  <section id="notice">
+    <h2>신청 안내</h2>
+    <p class="sec-note">신청 전에 꼭 확인해 주세요. 입금까지 마쳐야 참석이 확정됩니다.</p>
+
+    <div class="steps">
+      <div class="step"><span class="step-n">1</span><div><b>사전신청</b><span>11. 10.(화) 10:00 오픈</span></div></div>
+      <div class="step-arrow" aria-hidden="true"></div>
+      <div class="step"><span class="step-n">2</span><div><b>참가비 입금</b><span>알림톡 안내 계좌로</span></div></div>
+      <div class="step-arrow" aria-hidden="true"></div>
+      <div class="step"><span class="step-n">3</span><div><b>참석 확정</b><span>알림톡 · 이메일 영수증</span></div></div>
+    </div>
+
+    <div class="key-facts">
+      <div class="kf kf-fee">
+        <i>참가비</i>
+        <b id="nFee">1인 20,000원</b>
+        <span id="nBank">신한은행 140-012-291070</span>
+      </div>
+      <div class="kf">
+        <i>신청 자격</i>
+        <b>2026년 회비 납부 회원</b>
+        <span>서울특별시사회복지사협회</span>
+      </div>
+      <div class="kf">
+        <i>기관당 인원</i>
+        <b>최대 10명</b>
+        <span>단체 + 개인(소속 기준) 합산</span>
+      </div>
+    </div>
+
+    <ul class="notes">
+      <li><b>선착순 마감</b> — 신청과 입금 순으로 접수하며, 준비된 자리가 차면 신청이 자동으로 닫힙니다.</li>
+      <li><b>확정 기준</b> — 신청만으로는 확정되지 않습니다. <b>입금이 확인되어야 참석이 확정</b>됩니다.</li>
+      <li><b>단체 재신청</b> — 같은 기관명으로 다시 신청하면 기존 명단에 인원이 합쳐집니다.</li>
+      <li><b>영수증</b> — 입금 확인 후 신청 시 입력한 이메일로 영수증을 보내드립니다.</li>
+      <li><b>중복 방지</b> — 같은 휴대전화 번호로는 한 번만 신청할 수 있습니다.</li>
+      <li><b>문의</b> — 서울특별시사회복지사협회 회원조직팀 <a href="tel:0227862962">02-786-2962</a></li>
+    </ul>
+  </section>
+
 
   <!-- ===== 신청 ===== -->
   <section id="apply">
@@ -408,20 +472,6 @@ footer{margin-top:70px;border-top:1px solid var(--line2);padding:36px 20px 52px}
     </div>
   </section>
 
-  <!-- ===== 신청 안내 ===== -->
-  <section id="notice">
-    <h2>신청 안내</h2>
-    <p class="sec-note">신청 전에 꼭 확인해 주세요.</p>
-    <ul class="notes">
-      <li><b>신청 자격</b> — 서울특별시사회복지사협회 2026년 회비를 납부한 회원</li>
-      <li><b>선착순 마감</b> — 신청과 입금 순으로 접수하며, 준비된 자리가 차면 신청이 자동으로 닫힙니다.</li>
-      <li><b>기관당 인원</b> — 한 기관에서 최대 <b>10명</b>까지 참석할 수 있습니다. 단체 신청과 개인 신청(소속 기준)을 <b>합산</b>하며, 같은 기관명으로 다시 신청하면 기존 명단에 합쳐집니다.</li>
-      <li><b>확정 기준</b> — 신청만으로는 확정되지 않습니다. <b>입금이 확인되어야 참석이 확정</b>됩니다.</li>
-      <li><b>영수증</b> — 입금 확인 후 신청 시 입력한 이메일로 영수증을 보내드립니다.</li>
-      <li><b>중복 방지</b> — 같은 휴대전화 번호로는 한 번만 신청할 수 있습니다.</li>
-      <li><b>문의</b> — 서울특별시사회복지사협회 회원조직팀 <a href="tel:0227862962">02-786-2962</a></li>
-    </ul>
-  </section>
 
 </main>
 
@@ -470,7 +520,6 @@ footer{margin-top:70px;border-top:1px solid var(--line2);padding:36px 20px 52px}
    설정은 config.js 에 있습니다. 이 파일(index.html)은 수정하지 않아도 됩니다.
    ========================================================================= */
 const CONFIG = Object.assign({ SUPABASE_URL:'https://pjndsnmrsikmxhnhszkn.supabase.co', SUPABASE_ANON_KEY:'sb_publishable_TwyxJzF81FuaZdryoH6q5g_DQjXnCFr', POLL_MS:15000 }, window.SW_CONFIG || {});
-
 /* ===================== 상태 ===================== */
 const CONFIG_MISSING = !CONFIG.SUPABASE_URL || !CONFIG.SUPABASE_ANON_KEY;
 // DEMO는 미리보기·로컬에서만. 실제 도메인에서 키가 비어 있으면 가짜 접수를 받지 않고 오류를 띄운다.
@@ -564,6 +613,8 @@ async function pull(){
     $('gmax').textContent = ST.group_max;
     $('pMax').textContent = ST.group_max;
     document.querySelectorAll('.gmax2').forEach(e => e.textContent = ST.group_max);
+    if (ST.fee) $('nFee').textContent = '1인 ' + Number(ST.fee).toLocaleString('ko-KR') + '원';
+    if (ST.bank && ST.bank.account) $('nBank').textContent = `${ST.bank.name} ${ST.bank.account}`;
     render();
   }catch(e){
     if (!ST){
