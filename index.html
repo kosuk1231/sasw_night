@@ -2,7 +2,7 @@
 <html lang="ko">
 <head>
 <meta charset="UTF-8">
-<meta name="build" content="sw-night r12 · 2026-10-31 · footer-readable">
+<meta name="build" content="sw-night r13 · 2026-11-01 · remaining-seats">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>2026 서울사회복지사의 밤 · 사전신청</title>
 <meta name="description" content="2026. 12. 4.(금) 17:00 그랜드컨벤션센터 · 사전신청 11월 10일(화) 10시 오픈">
@@ -385,7 +385,7 @@ footer{margin-top:76px;border-top:1px solid var(--line);background:rgba(0,0,0,.2
           <div class="cd"><b id="cdM">--</b><span>분</span></div>
           <div class="cd"><b id="cdS">--</b><span>초</span></div>
         </div>
-        <div class="seats" id="seatsBox" hidden><b id="seatsNum">--</b><span>명 신청</span></div>
+        <div class="seats" id="seatsBox" hidden><b id="seatsNum">--</b><span>석 남음</span></div>
         <p class="status-msg" id="statusMsg">2026년 11월 10일(화) 오전 10시에 접수가 열립니다.</p>
       </div>
 
@@ -584,7 +584,7 @@ async function rpc(fn, body){
 }
 
 /* ===================== DEMO 백엔드 ===================== */
-const DEMO_CAP = 1000;   // 화면 확인용 가상 정원 (실제 정원은 서버 settings에만 있음)
+const DEMO_CAP = 450;    // 미리보기용 (실제 정원은 서버 settings.capacity)
 const demoDB = { used: 312, groups: {}, phones: new Set() };
 function demoRpc(fn, body){
   return new Promise((res, rej)=>setTimeout(()=>{
@@ -598,7 +598,7 @@ function demoRpc(fn, body){
       if (demoState === 'full'){  server = OPEN + 7200000; used = DEMO_CAP; closed = true; }
       return res({
         server_now:new Date(server).toISOString(), open_at:new Date(OPEN).toISOString(),
-        used, nearly_full:(DEMO_CAP-used)<=30, group_max:10, fee:20000,
+        remaining:Math.max(DEMO_CAP-used,0), nearly_full:(DEMO_CAP-used)<=30, group_max:10, fee:20000,
         closed: closed || used>=DEMO_CAP,
         bank:{name:'신한은행', account:'140-012-291070', holder:'서울특별시사회복지사협회'}
       });
@@ -680,10 +680,12 @@ function render(){
     $('statusMsg').innerHTML = '준비된 자리가 모두 찼습니다. 많은 관심에 감사드립니다.';
   } else {
     $('statusLab').textContent = ST.nearly_full ? '접수 중 · 마감 임박' : '접수 중';
-    $('seatsNum').textContent = ST.used.toLocaleString('ko-KR');
+    const left = Number(ST.remaining);
+    $('seatsBox').hidden = !Number.isFinite(left);          // 서버 SQL이 예전 버전이면 숫자를 숨김
+    $('seatsNum').textContent = Number.isFinite(left) ? left.toLocaleString('ko-KR') : '--';
     $('statusMsg').innerHTML = ST.nearly_full
-      ? '남은 자리가 얼마 없습니다. <b>서둘러 신청</b>해 주세요.'
-      : '지금까지 <b>' + ST.used.toLocaleString('ko-KR') + '명</b>이 신청했습니다. 입금까지 완료해야 확정됩니다.';
+      ? '남은 좌석이 얼마 없습니다. <b>서둘러 신청</b>해 주세요.'
+      : '선착순으로 마감됩니다. <b>입금까지 완료</b>해야 좌석이 확정됩니다.';
   }
 }
 setInterval(() => { if (!CONFIG_ERROR) render(); }, 1000);
