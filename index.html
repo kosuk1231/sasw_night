@@ -2,7 +2,7 @@
 <html lang="ko">
 <head>
 <meta charset="UTF-8">
-<meta name="build" content="sw-night r13 · 2026-11-01 · remaining-seats">
+<meta name="build" content="sw-night r14 · 2026-11-02 · ind-birth · dues-notice">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>2026 서울사회복지사의 밤 · 사전신청</title>
 <meta name="description" content="2026. 12. 4.(금) 17:00 그랜드컨벤션센터 · 사전신청 11월 10일(화) 10시 오픈">
@@ -181,6 +181,11 @@ textarea{resize:vertical;min-height:72px}
 .kf-fee span{font-family:var(--mono);font-size:13.5px;color:var(--ink)}
 #notice .notes{border:1px solid var(--line2);border-radius:14px;padding:6px 18px;background:rgba(0,0,0,.14)}
 
+.dues{margin:0 0 18px;padding:15px 18px;border-radius:12px;border:1px solid rgba(228,117,106,.5);background:rgba(228,117,106,.10);color:#f6d9d4;font-size:15px;line-height:1.7}
+.dues b{color:#fff;font-weight:700}
+.dues-tag{font-weight:700;display:inline-block;margin-right:8px;padding:2px 9px;border-radius:6px;background:var(--danger);color:#fff;font-size:12.5px;vertical-align:1px}
+.dues-sm{margin:20px 0 0;font-size:14px;padding:12px 15px}
+
 /* 일반 카드 */
 .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
 .cards.two{grid-template-columns:1fr 1fr}
@@ -350,7 +355,7 @@ footer{margin-top:76px;border-top:1px solid var(--line);background:rgba(0,0,0,.2
       <div class="kf">
         <i>신청 자격</i>
         <b>2026년 회비 납부 회원</b>
-        <span>서울특별시사회복지사협회</span>
+        <span>미납 시 신청·선정 불가</span>
       </div>
       <div class="kf">
         <i>기관당 인원</i>
@@ -358,6 +363,8 @@ footer{margin-top:76px;border-top:1px solid var(--line);background:rgba(0,0,0,.2
         <span>단체 + 개인(소속 기준) 합산</span>
       </div>
     </div>
+
+    <p class="dues"><span class="dues-tag">꼭 확인해 주세요</span> 2026년도 서울특별시사회복지사협회 회비를 납부하지 않은 경우 <b>신청 및 선정이 되지 않습니다.</b> 신청 후 협회에서 회비 납부 여부를 확인합니다.</p>
 
     <ul class="notes">
       <li><b>선착순 마감</b> — 신청과 입금 순으로 접수하며, 준비된 자리가 차면 신청이 자동으로 닫힙니다.</li>
@@ -373,7 +380,7 @@ footer{margin-top:76px;border-top:1px solid var(--line);background:rgba(0,0,0,.2
   <!-- ===== 신청 ===== -->
   <section id="apply">
     <h2>사전신청</h2>
-    <p class="sec-note">협회 2026년 회비를 납부한 회원이 신청할 수 있습니다. 신청과 입금 순서대로 마감합니다.</p>
+    <p class="sec-note">2026년도 협회 회비를 납부한 회원만 신청할 수 있습니다. 신청과 입금 순서대로 마감합니다.</p>
 
     <div class="apply">
 
@@ -426,11 +433,16 @@ footer{margin-top:76px;border-top:1px solid var(--line);background:rgba(0,0,0,.2
           </div>
         </div>
 
-        <div id="indFields">
+        <div id="indFields" class="grid2">
           <div class="field">
             <label for="indOrg">소속 기관<span class="req">*</span></label>
-            <input type="text" id="indOrg" placeholder="예) ○○종합사회복지관 (소속이 없으면 '없음')" autocomplete="organization">
+            <input type="text" id="indOrg" placeholder="예) ○○종합사회복지관 (없으면 '없음')" autocomplete="organization">
             <span class="hint">한 기관에서 최대 <span class="gmax2">10</span>명까지 참석할 수 있어, 단체 신청과 합산해 확인합니다.</span>
+          </div>
+          <div class="field">
+            <label for="indBirth">생년월일<span class="req">*</span></label>
+            <input type="text" id="indBirth" placeholder="예) 850315 (6자리)" inputmode="numeric" maxlength="6" autocomplete="bday">
+            <span class="hint">2026년 회비 납부 여부 확인에 사용합니다.</span>
           </div>
         </div>
 
@@ -444,11 +456,13 @@ footer{margin-top:76px;border-top:1px solid var(--line);background:rgba(0,0,0,.2
         </div>
         <button class="add-row" id="addRow" type="button" hidden>+ 참가자 추가</button>
 
+        <p class="dues dues-sm">2026년도 서울특별시사회복지사협회 회비를 납부하지 않은 경우 <b>신청 및 선정이 되지 않습니다.</b></p>
+
         <div class="agree">
           <input type="checkbox" id="agree">
           <p><label for="agree"><b>[필수]</b> 개인정보 수집·이용에 동의합니다.</label><br>
           수집 항목 : 성함 · 직급 · 연락처 · 이메일 · 생년월일(앞 6자리) /
-          이용 목적 : 행사 안내 · 참가자 확인 · 입금 영수증 발송 /
+          이용 목적 : 행사 안내 · 회원(회비 납부) 확인 · 참가자 확인 · 입금 영수증 발송 /
           보유 기간 : <b>행사 종료 후 즉시 파기</b> · <a href="#privacy">개인정보 처리방침 보기</a></p>
         </div>
 
@@ -519,7 +533,7 @@ footer{margin-top:76px;border-top:1px solid var(--line);background:rgba(0,0,0,.2
           <span class="pp-toggle" aria-hidden="true"><span class="pp-open">펼치기</span><span class="pp-close">접기</span></span>
         </summary>
         <dl class="pp-list">
-          <div class="pp-row"><dt>처리 목적</dt><dd>① 참가자 접수 및 행사 안내 ② 참가비 입금 확인 및 영수증 발송 ③ 행사 당일 참석 확인 및 경품 추첨 ④ 단체상해보험 가입</dd></div>
+          <div class="pp-row"><dt>처리 목적</dt><dd>① 참가자 접수 및 행사 안내 ② 2026년도 회비 납부(회원) 여부 확인 ③ 참가비 입금 확인 및 영수증 발송 ④ 행사 당일 참석 확인 및 경품 추첨 ⑤ 단체상해보험 가입</dd></div>
           <div class="pp-row"><dt>수집 항목</dt><dd>성함, 직급, 휴대전화번호, 이메일, 생년월일(앞 6자리), 소속 기관명, 입금자명</dd></div>
           <div class="pp-row"><dt>보유 기간</dt><dd><b>행사 종료 후 즉시 파기</b>합니다. 다만 관련 법령에 따라 보관이 필요한 경우(입금·영수증 기록 등)에는 해당 법령이 정한 기간 동안 보관합니다.</dd></div>
           <div class="pp-row"><dt>제3자 제공</dt><dd>원칙적으로 제공하지 않습니다. 단체상해보험 가입을 위해 보험사에 성함·생년월일·연락처를 제공할 수 있으며, 보험 가입 목적 외에는 사용하지 않습니다.</dd></div>
@@ -528,7 +542,7 @@ footer{margin-top:76px;border-top:1px solid var(--line);background:rgba(0,0,0,.2
           <div class="pp-row"><dt>정보주체 권리</dt><dd>언제든지 열람·정정·삭제·처리정지를 요청하실 수 있습니다. 아래 담당 부서로 연락해 주세요.</dd></div>
           <div class="pp-row"><dt>개인정보 보호책임자</dt><dd>서울특별시사회복지사협회 회원조직팀 · 02-786-2962</dd></div>
         </dl>
-        <p class="pp-foot">신청서를 제출하면 위 개인정보 수집·이용에 동의한 것으로 봅니다. 생년월일은 참석자 확인·보험 가입·경품 추첨 목적으로만 사용합니다.</p>
+        <p class="pp-foot">신청서를 제출하면 위 개인정보 수집·이용에 동의한 것으로 봅니다. 생년월일은 회원(회비 납부) 확인·참석자 확인·보험 가입·경품 추첨 목적으로만 사용합니다.</p>
       </details>
     </section>
   </div>
@@ -735,8 +749,21 @@ function renumber(){
 }
 $('addRow').onclick = addPerson;
 
+/* ===================== 생년월일 숫자만 ===================== */
+document.addEventListener('input', e => {
+  if (e.target.id === 'indBirth' || e.target.classList.contains('p-birth'))
+    e.target.value = e.target.value.replace(/\D/g,'').slice(0,6);
+});
+
 /* ===================== 제출 ===================== */
 const v = id => $(id).value.trim();
+// YYMMDD 6자리 + 실제 있는 날짜인지
+function validBirth6(b){
+  if (!/^\d{6}$/.test(b)) return false;
+  const mm = +b.slice(2,4), dd = +b.slice(4,6);
+  if (mm < 1 || mm > 12 || dd < 1) return false;
+  return dd <= [31,29,31,30,31,30,31,31,30,31,30,31][mm-1];
+}
 function fail(msg){ const e=$('err'); e.textContent=msg; e.hidden=false; e.scrollIntoView({block:'center'}); return false; }
 
 $('submit').onclick = async () => {
@@ -748,6 +775,7 @@ $('submit').onclick = async () => {
   if (!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(v('cEmail'))) return fail('이메일 주소를 정확히 입력해 주세요.');
   if (!v('payer'))  return fail('입금자명을 입력해 주세요.');
   if (kind === 'individual' && !v('indOrg')) return fail("소속 기관을 입력해 주세요. 소속이 없으면 '없음'으로 적어주세요.");
+  if (kind === 'individual' && !validBirth6(v('indBirth'))) return fail('생년월일을 6자리로 정확히 입력해 주세요. 예) 850315');
   if (!$('agree').checked) return fail('개인정보 수집·이용에 동의해 주세요.');
 
   let attendees = [];
@@ -764,7 +792,7 @@ $('submit').onclick = async () => {
                        phone, birth6:r.querySelector('.p-birth').value.trim() });
     }
   } else {
-    attendees = [{ name:v('cName'), position:'', phone:v('cPhone'), birth6:'' }];
+    attendees = [{ name:v('cName'), position:'', phone:v('cPhone'), birth6:v('indBirth') }];
   }
 
   btn.disabled = true; btn.textContent = '접수 중...';
@@ -801,7 +829,7 @@ $('submit').onclick = async () => {
 
 /* ===================== 추가 신청(폼 초기화) ===================== */
 $('again').onclick = () => {
-  ['orgName','cName','cPhone','cEmail','payer','indOrg'].forEach(id => $(id).value = '');
+  ['orgName','cName','cPhone','cEmail','payer','indOrg','indBirth'].forEach(id => $(id).value = '');
   $('pRows').innerHTML = '';
   $('agree').checked = false;
   $('err').hidden = true;
