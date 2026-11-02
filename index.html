@@ -2,7 +2,7 @@
 <html lang="ko">
 <head>
 <meta charset="UTF-8">
-<meta name="build" content="sw-night r14 · 2026-11-02 · ind-birth · dues-notice">
+<meta name="build" content="sw-night r15 · 2026-11-02 · dues-once · birth-after-name">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>2026 서울사회복지사의 밤 · 사전신청</title>
 <meta name="description" content="2026. 12. 4.(금) 17:00 그랜드컨벤션센터 · 사전신청 11월 10일(화) 10시 오픈">
@@ -106,6 +106,8 @@ h3{font-family:var(--display);font-weight:700;font-size:17px;margin:0 0 8px}
 .tab[aria-selected="true"]{background:var(--gold);border-color:var(--gold);color:#2b1f00}
 .tab:hover:not([aria-selected="true"]){color:var(--ink);border-color:var(--gold)}
 .grid2{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.fgrid{display:grid;grid-template-columns:1fr 1fr;gap:0 14px;align-items:start}
+.fgrid.is-group .ind-only{display:none}
 .field{display:flex;flex-direction:column;gap:6px;margin-bottom:14px}
 .field label{font-size:13.5px;color:var(--dim);font-weight:500}
 .field label .req{color:var(--gold);margin-left:3px}
@@ -184,7 +186,6 @@ textarea{resize:vertical;min-height:72px}
 .dues{margin:0 0 18px;padding:15px 18px;border-radius:12px;border:1px solid rgba(228,117,106,.5);background:rgba(228,117,106,.10);color:#f6d9d4;font-size:15px;line-height:1.7}
 .dues b{color:#fff;font-weight:700}
 .dues-tag{font-weight:700;display:inline-block;margin-right:8px;padding:2px 9px;border-radius:6px;background:var(--danger);color:#fff;font-size:12.5px;vertical-align:1px}
-.dues-sm{margin:20px 0 0;font-size:14px;padding:12px 15px}
 
 /* 일반 카드 */
 .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
@@ -267,7 +268,7 @@ footer{margin-top:76px;border-top:1px solid var(--line);background:rgba(0,0,0,.2
   .pp-foot{padding:12px 16px 16px}
   .steps{grid-template-columns:1fr;gap:8px}
   .step-arrow{display:none}
-  .grid2{grid-template-columns:1fr;gap:0}
+  .grid2,.fgrid{grid-template-columns:1fr;gap:0}
   .form-wrap,.status,.done{padding-left:17px;padding-right:17px}
   .plabels{display:none}
   .prow{grid-template-columns:22px 1fr 1fr 28px;gap:8px;padding:13px 12px}
@@ -355,7 +356,7 @@ footer{margin-top:76px;border-top:1px solid var(--line);background:rgba(0,0,0,.2
       <div class="kf">
         <i>신청 자격</i>
         <b>2026년 회비 납부 회원</b>
-        <span>미납 시 신청·선정 불가</span>
+        <span>서울특별시사회복지사협회</span>
       </div>
       <div class="kf">
         <i>기관당 인원</i>
@@ -380,7 +381,7 @@ footer{margin-top:76px;border-top:1px solid var(--line);background:rgba(0,0,0,.2
   <!-- ===== 신청 ===== -->
   <section id="apply">
     <h2>사전신청</h2>
-    <p class="sec-note">2026년도 협회 회비를 납부한 회원만 신청할 수 있습니다. 신청과 입금 순서대로 마감합니다.</p>
+    <p class="sec-note">개인 또는 단체로 신청할 수 있습니다. 신청과 입금 순서대로 마감합니다.</p>
 
     <div class="apply">
 
@@ -410,17 +411,20 @@ footer{margin-top:76px;border-top:1px solid var(--line);background:rgba(0,0,0,.2
           </div>
         </div>
 
-        <div class="grid2">
+        <div class="fgrid">
           <div class="field">
             <label for="cName" id="cNameLab">담당자 성함<span class="req">*</span></label>
             <input type="text" id="cName" autocomplete="name">
+          </div>
+          <div class="field ind-only">
+            <label for="indBirth">생년월일<span class="req">*</span></label>
+            <input type="text" id="indBirth" placeholder="예) 850315" inputmode="numeric" maxlength="6" autocomplete="bday">
+            <span class="hint">숫자 6자리로 입력해 주세요.</span>
           </div>
           <div class="field">
             <label for="cPhone" id="cPhoneLab">담당자 연락처<span class="req">*</span></label>
             <input type="tel" id="cPhone" placeholder="010-0000-0000" autocomplete="tel" inputmode="numeric">
           </div>
-        </div>
-        <div class="grid2">
           <div class="field">
             <label for="cEmail">이메일<span class="req">*</span></label>
             <input type="email" id="cEmail" placeholder="receipt@example.com" autocomplete="email">
@@ -431,18 +435,10 @@ footer{margin-top:76px;border-top:1px solid var(--line);background:rgba(0,0,0,.2
             <input type="text" id="payer" placeholder="통장에 찍히는 이름">
             <span class="hint">신청자와 다를 수 있습니다. 실제 이체할 때 쓰는 이름을 적어주세요.</span>
           </div>
-        </div>
-
-        <div id="indFields" class="grid2">
-          <div class="field">
+          <div class="field ind-only">
             <label for="indOrg">소속 기관<span class="req">*</span></label>
             <input type="text" id="indOrg" placeholder="예) ○○종합사회복지관 (없으면 '없음')" autocomplete="organization">
             <span class="hint">한 기관에서 최대 <span class="gmax2">10</span>명까지 참석할 수 있어, 단체 신청과 합산해 확인합니다.</span>
-          </div>
-          <div class="field">
-            <label for="indBirth">생년월일<span class="req">*</span></label>
-            <input type="text" id="indBirth" placeholder="예) 850315 (6자리)" inputmode="numeric" maxlength="6" autocomplete="bday">
-            <span class="hint">2026년 회비 납부 여부 확인에 사용합니다.</span>
           </div>
         </div>
 
@@ -456,13 +452,12 @@ footer{margin-top:76px;border-top:1px solid var(--line);background:rgba(0,0,0,.2
         </div>
         <button class="add-row" id="addRow" type="button" hidden>+ 참가자 추가</button>
 
-        <p class="dues dues-sm">2026년도 서울특별시사회복지사협회 회비를 납부하지 않은 경우 <b>신청 및 선정이 되지 않습니다.</b></p>
 
         <div class="agree">
           <input type="checkbox" id="agree">
           <p><label for="agree"><b>[필수]</b> 개인정보 수집·이용에 동의합니다.</label><br>
           수집 항목 : 성함 · 직급 · 연락처 · 이메일 · 생년월일(앞 6자리) /
-          이용 목적 : 행사 안내 · 회원(회비 납부) 확인 · 참가자 확인 · 입금 영수증 발송 /
+          이용 목적 : 행사 안내 · 회원 확인 · 참가자 확인 · 입금 영수증 발송 /
           보유 기간 : <b>행사 종료 후 즉시 파기</b> · <a href="#privacy">개인정보 처리방침 보기</a></p>
         </div>
 
@@ -711,7 +706,7 @@ function setKind(k){
   $('tabInd').setAttribute('aria-selected', k==='individual');
   $('tabGrp').setAttribute('aria-selected', k==='group');
   $('grpFields').hidden = k!=='group';
-  $('indFields').hidden = k!=='individual';
+  document.querySelector('.fgrid').classList.toggle('is-group', k==='group');
   $('people').hidden    = k!=='group';
   $('addRow').hidden    = k!=='group';
   $('cNameLab').innerHTML = (k==='group' ? '담당자 성함' : '성함') + '<span class="req">*</span>';
