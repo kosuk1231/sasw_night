@@ -47,8 +47,8 @@
   <div class="card" style="padding:14px">
     <button id="try" type="button">▶ 소리 없이 재생해 보기</button>
     <video id="v" controls muted playsinline preload="metadata">
-      <source src="/assets/video.webm" type="video/webm">
-      <source src="/assets/video.mp4" type="video/mp4">
+      <source src="/assets/night2026.webm" type="video/webm">
+      <source src="/assets/night2026.mp4" type="video/mp4">
     </video>
     <div id="vstate" style="margin-top:8px;color:var(--mut);font-size:13.5px"></div>
   </div>
@@ -78,7 +78,7 @@ async function head(url){
     const html = await (await fetch('/', { cache:'no-store' })).text();
     const m = html.match(/sw-night r(\d+)/);
     const ver = m ? +m[1] : 0;
-    if (ver >= 10) row(site,'ok', `index.html 최신 버전 (r${ver})`, '');
+    if (ver >= 17) row(site,'ok', `index.html 최신 버전 (r${ver})`, '');
     else { row(site,'bad', ver ? `index.html 이전 버전 (r${ver})` : 'index.html 버전 표식 없음 (아주 오래된 파일)',
              '새 index.html 로 통째로 교체해야 합니다'); problems.push('index.html 이 최신이 아닙니다 → 교체'); }
     const usesSource = /<source src="\/assets\/video\.(webm|mp4)"/.test(html);
@@ -99,7 +99,7 @@ async function head(url){
   // 3) 영상 파일
   const files = document.getElementById('files');
   const res = {};
-  for (const [f, mime] of [['video.mp4','video/mp4'], ['video.webm','video/webm']]){
+  for (const [f, mime] of [['night2026.mp4','video/mp4'], ['night2026.webm','video/webm']]){
     const r = res[f] = await head('/assets/' + f);
     if (r.status === 200 || r.status === 206){
       const typeOk = r.type.startsWith(mime);
@@ -113,8 +113,8 @@ async function head(url){
       row(files,'bad', `/assets/${f} 없음`, r.status ? `HTTP ${r.status}` : r.err);
     }
   }
-  const mp4ok = [200,206].includes(res['video.mp4'].status), webmok = [200,206].includes(res['video.webm'].status);
-  if (!mp4ok && !webmok) problems.push('영상 파일이 서버에 없습니다 → 저장소의 assets 폴더에 video.mp4 와 video.webm 을 올리세요');
+  const mp4ok = [200,206].includes(res['night2026.mp4'].status), webmok = [200,206].includes(res['night2026.webm'].status);
+  if (!mp4ok && !webmok) problems.push('영상 파일이 서버에 없습니다 → 저장소의 assets 폴더에 night2026.mp4 와 night2026.webm 을 올리세요');
 
   // 4) 브라우저
   const b = document.getElementById('browser');
