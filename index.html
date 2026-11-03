@@ -2,12 +2,12 @@
 <html lang="ko">
 <head>
 <meta charset="UTF-8">
-<meta name="build" content="sw-night r15 · 2026-11-02 · dues-once · birth-after-name">
+<meta name="build" content="sw-night r16 · 2026-11-03 · place-map-lifetime-memo">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>2026 서울사회복지사의 밤 · 사전신청</title>
-<meta name="description" content="2026. 12. 4.(금) 17:00 그랜드컨벤션센터 · 사전신청 11월 10일(화) 10시 오픈">
+<meta name="description" content="2026. 12. 4.(금) 17:00 당산 그랜드컨벤션센터 · 사전신청 11월 10일(화) 10시 오픈">
 <meta property="og:title" content="2026 서울사회복지사의 밤">
-<meta property="og:description" content="2026. 12. 4.(금) 17:00 · 그랜드컨벤션센터 · 사전신청 11. 10.(화) 10:00 오픈">
+<meta property="og:description" content="2026. 12. 4.(금) 17:00 · 당산 그랜드컨벤션센터 · 사전신청 11. 10.(화) 10:00 오픈">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -126,13 +126,13 @@ textarea{resize:vertical;min-height:72px}
 .people-head{display:flex;align-items:center;gap:10px;padding:12px 14px;background:rgba(0,0,0,.2);border-bottom:1px solid var(--line2)}
 .people-head h3{margin:0;font-size:15px}
 .people-head .count{margin-left:auto;font-family:var(--mono);font-size:12.5px;color:var(--gold-lt)}
-.prow{display:grid;grid-template-columns:28px 1.1fr .8fr 1.2fr .9fr 32px;gap:8px;align-items:center;padding:10px 14px;border-bottom:1px solid var(--line2)}
+.prow{display:grid;grid-template-columns:28px 1.1fr .8fr 1.2fr .9fr 62px 32px;gap:8px;align-items:center;padding:10px 14px;border-bottom:1px solid var(--line2)}
 .prow:last-child{border-bottom:none}
 .prow .n{font-family:var(--mono);font-size:12px;color:var(--faint);text-align:center}
 .prow input{padding:9px 10px;font-size:14.5px}
 .prow .del{appearance:none;border:none;background:transparent;color:var(--faint);font-size:19px;line-height:1;cursor:pointer;padding:4px;border-radius:6px}
 .prow .del:hover{color:var(--danger)}
-.plabels{display:grid;grid-template-columns:28px 1.1fr .8fr 1.2fr .9fr 32px;gap:8px;padding:8px 14px 0;font-size:11.5px;color:var(--faint)}
+.plabels{display:grid;grid-template-columns:28px 1.1fr .8fr 1.2fr .9fr 62px 32px;gap:8px;padding:8px 14px 0;font-size:11.5px;color:var(--faint)}
 .add-row{appearance:none;width:100%;border:1px dashed var(--line);background:transparent;color:var(--gold-lt);font-family:var(--body);font-size:14px;font-weight:600;padding:12px;border-radius:10px;cursor:pointer;margin-top:12px;transition:.16s}
 .add-row:hover{background:rgba(240,219,171,.08)}
 .add-row:disabled{opacity:.4;cursor:not-allowed}
@@ -162,6 +162,7 @@ textarea{resize:vertical;min-height:72px}
 .pay-box dd.amount{font-family:var(--mono);font-size:19px;color:var(--gold-lt)}
 .again{appearance:none;margin:20px auto 0;display:block;border:1px solid var(--line);background:transparent;color:var(--gold-lt);font-family:var(--body);font-size:14.5px;font-weight:600;padding:12px 24px;border-radius:999px;cursor:pointer;transition:.16s}
 .again:hover{background:rgba(240,219,171,.1)}
+.pay-box dt[hidden],.pay-box dd[hidden]{display:none}
 .pay-note{margin:16px 0 0;font-size:13.5px;color:var(--faint);line-height:1.7}
 
 /* 신청 안내 */
@@ -186,6 +187,64 @@ textarea{resize:vertical;min-height:72px}
 .dues{margin:0 0 18px;padding:15px 18px;border-radius:12px;border:1px solid rgba(228,117,106,.5);background:rgba(228,117,106,.10);color:#f6d9d4;font-size:15px;line-height:1.7}
 .dues b{color:#fff;font-weight:700}
 .dues-tag{font-weight:700;display:inline-block;margin-right:8px;padding:2px 9px;border-radius:6px;background:var(--danger);color:#fff;font-size:12.5px;vertical-align:1px}
+
+
+/* 히어로 사실 4칸: 일시 | 오픈 / 장소 | 드레스 코드 */
+.facts{display:grid;grid-template-columns:repeat(2,max-content);gap:9px}
+.dc{display:inline-block;width:11px;height:11px;border-radius:50%;margin-right:5px;vertical-align:0}
+.dc-g{background:#2f9e6c}.dc-b{background:#3d7fc6;margin-right:8px}
+.kf-free{display:inline-block !important;margin-top:10px !important;font-family:var(--body) !important;font-size:13px !important;font-weight:700;color:#073322 !important;background:#7fd3a5;padding:4px 11px;border-radius:999px}
+.span2{grid-column:1/-1}
+.opt{font-weight:400;color:var(--faint)}
+.life-box{flex-direction:row !important;align-items:flex-start;gap:11px !important;padding:13px 15px;border:1px solid rgba(127,211,165,.35);border-radius:11px;background:rgba(127,211,165,.07);cursor:pointer}
+.life-box input{width:18px;height:18px;margin-top:2px;accent-color:#7fd3a5;flex:none}
+.life-box span{font-size:14px;color:var(--dim);line-height:1.6}
+.life-box b{color:var(--ink)}
+.p-life{display:flex;align-items:center;justify-content:center;gap:6px;font-size:12.5px;color:var(--dim);cursor:pointer;white-space:nowrap}
+.p-life input{width:17px;height:17px;accent-color:#7fd3a5}
+.p-life span{display:none}
+.f-addr{font-size:14px;color:var(--dim)}
+
+/* 오시는 길 */
+.map-card{border:1px solid var(--line);border-radius:18px;overflow:hidden;background:linear-gradient(180deg,rgba(21,64,57,.55),rgba(8,30,28,.7))}
+.map{display:block;width:100%;height:auto}
+.map .road path{fill:none;stroke:rgba(240,219,171,.13);stroke-width:16;stroke-linecap:round}
+.map .road-name text{font-size:14px;fill:var(--faint);font-family:var(--body)}
+.map .spot rect{fill:var(--faint)}
+.map .spot text{font-size:14px;fill:var(--dim);font-family:var(--body)}
+.map .bus circle{fill:#3d7fc6;stroke:#06201d;stroke-width:2}
+.map .bus text{font-size:13.5px;fill:#9cc7f0;font-family:var(--mono);font-weight:600}
+.map .venue rect{fill:rgba(215,177,99,.22);stroke:var(--gold);stroke-width:2}
+.map .venue text{font-size:15px;font-weight:700;fill:var(--gold-lt);text-anchor:middle;font-family:var(--body)}
+.map .venue .park{font-size:13px;font-weight:600;fill:var(--dim);text-anchor:start}
+.map .walk{fill:none;stroke:var(--gold);stroke-width:2.5;stroke-dasharray:4 4}
+.map .exit circle{fill:var(--gold);stroke:#06201d;stroke-width:2}
+.map .exit text{font-size:11.5px;font-weight:700;fill:#2b1f00;text-anchor:middle;font-family:var(--mono)}
+.map .station path{fill:none;stroke-width:7}
+.map .station circle{fill:#06201d}
+.map .station.small circle{stroke-width:5}
+.map .station text{text-anchor:middle;font-family:var(--body);font-weight:700}
+.map .st-line{font-size:15px;fill:var(--ink)}
+.map .st-name{font-size:12px;fill:var(--gold-lt)}
+.map .st-name2{font-size:13px;fill:var(--dim);font-weight:600}
+.addr{display:flex;flex-wrap:wrap;align-items:center;gap:14px 20px;justify-content:space-between;padding:18px 22px;border-top:1px solid var(--line2)}
+.addr b{display:block;font-size:17px;margin-bottom:3px}
+.addr span{display:block;font-size:14.5px;color:var(--dim)}
+.map-links{display:flex;gap:8px}
+.map-links a{font-size:14px;font-weight:600;color:var(--ink);text-decoration:none;border:1px solid var(--line);padding:9px 15px;border-radius:999px}
+.map-links a:hover{background:rgba(240,219,171,.1)}
+.routes{display:grid;grid-template-columns:1fr 1.35fr 1fr;gap:14px;margin-top:14px}
+.route{border:1px solid var(--line2);border-radius:14px;padding:18px 18px 14px;background:rgba(255,255,255,.03)}
+.route h3{font-size:16px;margin:0 0 10px}
+.route p{margin:0 0 8px;font-size:14.5px;line-height:1.6;color:var(--dim)}
+.route p b{color:var(--ink)}
+.route .sub2{font-size:13px;color:var(--faint);margin-top:10px}
+.route .stop{margin-top:6px;color:var(--ink);font-weight:600}
+.route .code{font-family:var(--mono);font-size:13px;color:var(--gold-lt);margin-left:4px}
+.ln{display:inline-grid;place-items:center;width:22px;height:22px;border-radius:50%;font-family:var(--mono);font-size:12px;font-weight:700;color:#fff;margin-right:6px;vertical-align:1px}
+.ln2{background:#22a95a}.ln9{background:#b39b5e}
+.bt{display:inline-block;font-size:11.5px;font-weight:700;color:#fff;padding:2px 7px;border-radius:5px;margin-right:7px;vertical-align:1px}
+.bt-blue{background:#3d5bab}.bt-green{background:#4f9a2e}.bt-teal{background:#2f9a8f}.bt-red{background:#c4282f}
 
 /* 일반 카드 */
 .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
@@ -253,6 +312,8 @@ footer{margin-top:76px;border-top:1px solid var(--line);background:rgba(0,0,0,.2
   .hero{grid-template-columns:1fr;gap:28px;padding-top:40px}
   .poster{max-width:360px;margin:0 auto}
   .cards,.cards.two{grid-template-columns:1fr}
+  .routes{grid-template-columns:1fr 1fr}
+  .routes .route:nth-child(2){grid-column:1/-1;grid-row:1}
   .key-facts{grid-template-columns:1fr}
 }
 @media (max-width:640px){
@@ -272,8 +333,14 @@ footer{margin-top:76px;border-top:1px solid var(--line);background:rgba(0,0,0,.2
   .form-wrap,.status,.done{padding-left:17px;padding-right:17px}
   .plabels{display:none}
   .prow{grid-template-columns:22px 1fr 1fr 28px;gap:8px;padding:13px 12px}
-  .prow .n{grid-column:1;grid-row:1/4;align-self:center}
-  .prow .del{grid-column:4;grid-row:1/4;align-self:center}
+  .prow .n{grid-column:1;grid-row:1/5;align-self:center}
+  .prow .del{grid-column:4;grid-row:1/5;align-self:center}
+  .prow .p-life{grid-column:2/4;grid-row:4;justify-content:flex-start}
+  .prow .p-life span{display:inline}
+  .facts{grid-template-columns:1fr}
+  .routes{grid-template-columns:1fr}
+  .map .road-name text,.map .spot text{font-size:16px}
+  .map .bus text{font-size:15px}
   .prow .p-name{grid-column:2/4;grid-row:1}
   .prow .p-pos{grid-column:2;grid-row:2}
   .prow .p-birth{grid-column:3;grid-row:2}
@@ -295,6 +362,7 @@ footer{margin-top:76px;border-top:1px solid var(--line);background:rgba(0,0,0,.2
     <a href="#notice">신청 안내</a>
     <a href="#apply" class="cta">사전신청</a>
     <a href="#about">행사 안내</a>
+    <a href="#map">오시는 길</a>
   </div>
 </nav>
 
@@ -305,8 +373,9 @@ footer{margin-top:76px;border-top:1px solid var(--line);background:rgba(0,0,0,.2
     <p class="sub">한 해 동안 서울시민의 곁을 지킨 사회복지사들이 서로를 격려하고, 함께 웃으며 새로운 내일을 준비하는 자리입니다.</p>
     <div class="facts">
       <div class="fact"><i>Date</i><b>2026. 12. 4.(금) 17:00</b></div>
-      <div class="fact"><i>Place</i><b>그랜드컨벤션센터</b></div>
       <div class="fact"><i>Open</i><b>11. 10.(화) 10:00</b></div>
+      <div class="fact"><i>Place</i><b>당산 그랜드컨벤션센터</b></div>
+      <div class="fact"><i>Dress Code</i><b><span class="dc dc-g"></span><span class="dc dc-b"></span>Green &amp; Blue</b></div>
     </div>
   </div>
   <div class="poster">
@@ -342,7 +411,7 @@ footer{margin-top:76px;border-top:1px solid var(--line);background:rgba(0,0,0,.2
     <div class="steps">
       <div class="step"><span class="step-n">1</span><div><b>사전신청</b><span>11. 10.(화) 10:00 오픈</span></div></div>
       <div class="step-arrow" aria-hidden="true"></div>
-      <div class="step"><span class="step-n">2</span><div><b>참가비 입금</b><span>알림톡 안내 계좌로</span></div></div>
+      <div class="step"><span class="step-n">2</span><div><b>참가비 입금</b><span>알림톡 안내 계좌로 · 평생회원 면제</span></div></div>
       <div class="step-arrow" aria-hidden="true"></div>
       <div class="step"><span class="step-n">3</span><div><b>참석 확정</b><span>알림톡 · 이메일 영수증</span></div></div>
     </div>
@@ -352,6 +421,7 @@ footer{margin-top:76px;border-top:1px solid var(--line);background:rgba(0,0,0,.2
         <i>참가비</i>
         <b id="nFee">1인 20,000원</b>
         <span id="nBank">신한은행 140-012-291070</span>
+        <span class="kf-free">평생회원 무료</span>
       </div>
       <div class="kf">
         <i>신청 자격</i>
@@ -370,6 +440,8 @@ footer{margin-top:76px;border-top:1px solid var(--line);background:rgba(0,0,0,.2
     <ul class="notes">
       <li><b>선착순 마감</b> — 신청과 입금 순으로 접수하며, 준비된 자리가 차면 신청이 자동으로 닫힙니다.</li>
       <li><b>확정 기준</b> — 신청만으로는 확정되지 않습니다. <b>입금이 확인되어야 참석이 확정</b>됩니다.</li>
+      <li><b>평생회원</b> — 참가비가 <b>무료</b>입니다. 신청서에서 평생회원에 체크하면 입금 없이 신청이 완료되며, 협회에서 평생회원 여부를 확인합니다.</li>
+      <li><b>입금자명</b> — 개인은 <b>성함+생년월일</b> (예: 홍길동901111), 단체는 <b>기관명</b> 또는 <b>담당자 성함(기관명)</b> (예: 김하늘(성북종복))으로 보내주세요. 입금 확인이 빨라집니다.</li>
       <li><b>단체 재신청</b> — 같은 기관명으로 다시 신청하면 기존 명단에 인원이 합쳐집니다.</li>
       <li><b>영수증</b> — 입금 확인 후 신청 시 입력한 이메일로 영수증을 보내드립니다.</li>
       <li><b>중복 방지</b> — 같은 휴대전화 번호로는 한 번만 신청할 수 있습니다.</li>
@@ -432,22 +504,31 @@ footer{margin-top:76px;border-top:1px solid var(--line);background:rgba(0,0,0,.2
           </div>
           <div class="field">
             <label for="payer">입금자명<span class="req">*</span></label>
-            <input type="text" id="payer" placeholder="통장에 찍히는 이름">
-            <span class="hint">신청자와 다를 수 있습니다. 실제 이체할 때 쓰는 이름을 적어주세요.</span>
+            <input type="text" id="payer" placeholder="예) 홍길동901111">
+            <span class="hint" id="payerHint"><b>성함+생년월일</b>로 입금해 주세요. 자동으로 채워지며 고칠 수 있습니다.</span>
           </div>
           <div class="field ind-only">
             <label for="indOrg">소속 기관<span class="req">*</span></label>
             <input type="text" id="indOrg" placeholder="예) ○○종합사회복지관 (없으면 '없음')" autocomplete="organization">
             <span class="hint">한 기관에서 최대 <span class="gmax2">10</span>명까지 참석할 수 있어, 단체 신청과 합산해 확인합니다.</span>
           </div>
+          <label class="field span2 ind-only life-box" for="indLife">
+            <input type="checkbox" id="indLife">
+            <span><b>평생회원입니다</b> — 참가비 면제, 입금 없이 신청이 완료됩니다. 협회에서 평생회원 여부를 확인합니다.</span>
+          </label>
+          <div class="field span2">
+            <label for="memo">비고 <span class="opt">(축하객 여부)</span></label>
+            <input type="text" id="memo" placeholder="예) 홍길동 수상자 축하객 / 그 밖에 전달할 내용">
+            <span class="hint">수상자의 축하객으로 오시면 수상자 성함을 적어주세요.</span>
+          </div>
         </div>
 
         <div class="people" id="people" hidden>
           <div class="people-head">
             <h3>참가자 명단</h3>
-            <span class="count"><b id="pCount">0</b> / <span id="pMax">10</span>명</span>
+            <span class="count"><b id="pCount">0</b> / <span id="pMax">10</span>명 · 입금 <b id="pAmount">0원</b></span>
           </div>
-          <div class="plabels"><span></span><span>성함 *</span><span>직급</span><span>연락처 *</span><span>생년월일</span><span></span></div>
+          <div class="plabels"><span></span><span>성함 *</span><span>직급</span><span>연락처 *</span><span>생년월일</span><span>평생회원</span><span></span></div>
           <div id="pRows"></div>
         </div>
         <button class="add-row" id="addRow" type="button" hidden>+ 참가자 추가</button>
@@ -456,7 +537,7 @@ footer{margin-top:76px;border-top:1px solid var(--line);background:rgba(0,0,0,.2
         <div class="agree">
           <input type="checkbox" id="agree">
           <p><label for="agree"><b>[필수]</b> 개인정보 수집·이용에 동의합니다.</label><br>
-          수집 항목 : 성함 · 직급 · 연락처 · 이메일 · 생년월일(앞 6자리) /
+          수집 항목 : 성함 · 직급 · 연락처 · 이메일 · 생년월일(앞 6자리) · 평생회원 여부 · 비고 /
           이용 목적 : 행사 안내 · 회원 확인 · 참가자 확인 · 입금 영수증 발송 /
           보유 기간 : <b>행사 종료 후 즉시 파기</b> · <a href="#privacy">개인정보 처리방침 보기</a></p>
         </div>
@@ -472,10 +553,11 @@ footer{margin-top:76px;border-top:1px solid var(--line);background:rgba(0,0,0,.2
         <div class="pay-box">
           <dl>
             <dt>입금 금액</dt><dd class="amount" id="dAmount">-</dd>
-            <dt>입금자명</dt><dd id="dPayer">-</dd>
-            <dt>입금 계좌</dt><dd id="dBank">-</dd>
+            <dt class="pay-row">입금자명</dt><dd class="pay-row" id="dPayer">-</dd>
+            <dt class="pay-row">입금 계좌</dt><dd class="pay-row" id="dBank">-</dd>
           </dl>
-          <p class="pay-note">입금 안내를 <b>카카오톡 알림톡</b>으로 보내드렸습니다. 입금이 확인되면 알림톡과 함께 <b>신청하신 이메일로 영수증</b>을 보내드립니다.
+          <p class="pay-note" id="exemptNote" hidden><b>평생회원 참가비 면제</b>로 입금 없이 신청이 완료되었습니다. 협회에서 평생회원 여부를 확인합니다.</p>
+          <p class="pay-note" id="payNote">입금 안내를 <b>카카오톡 알림톡</b>으로 보내드렸습니다. 입금이 확인되면 알림톡과 함께 <b>신청하신 이메일로 영수증</b>을 보내드립니다.
           <b>입금까지 완료되어야 신청이 확정</b>되며, 미입금 건은 순차적으로 취소될 수 있습니다.</p>
         </div>
         <button class="again" id="again" type="button">추가로 신청하기</button>
@@ -492,7 +574,9 @@ footer{margin-top:76px;border-top:1px solid var(--line);background:rgba(0,0,0,.2
     <dl class="info">
       <div><dt>행사명</dt><dd>2026 서울사회복지사의 밤</dd></div>
       <div><dt>일시</dt><dd>2026년 12월 4일(금) 17:00</dd></div>
-      <div><dt>장소</dt><dd>그랜드컨벤션센터</dd></div>
+      <div><dt>장소</dt><dd>당산 그랜드컨벤션센터</dd></div>
+      <div><dt>주소</dt><dd>서울특별시 영등포구 양평로 58 (당산동6가 337-23) · <a href="#map">오시는 길</a></dd></div>
+      <div><dt>드레스 코드</dt><dd><b>Green &amp; Blue</b> — 초록 · 파랑 계열 의상이나 소품</dd></div>
       <div><dt>참석 규모</dt><dd>약 600명</dd></div>
       <div><dt>주최</dt><dd>서울특별시사회복지사협회</dd></div>
     </dl>
@@ -500,8 +584,111 @@ footer{margin-top:76px;border-top:1px solid var(--line);background:rgba(0,0,0,.2
     <h3 style="margin:30px 0 6px">Green &amp; Blue — 함께 만드는 지속가능한 내일</h3>
     <p class="sec-note">기후위기와 지속가능한 미래의 의미를 함께 나누는 행사로 준비하고 있습니다.</p>
     <div class="cards two">
-      <div class="card"><div class="num">1부</div><h3>시상식</h3><p>한 해 동안 현장을 지켜온 사회복지사를 격려하는 시상 · 축하 공연 <b>클랑클랑 합창단</b></p></div>
+      <div class="card"><div class="num">1부</div><h3>시상식</h3><p>한 해 동안 현장을 지켜온 사회복지사를 격려하는 시상<br>축하 공연 <b>클랑클랑 합창단</b></p></div>
       <div class="card"><div class="num">2부</div><h3>화합과 교류</h3><p>함께 웃고 이야기 나누는 시간 · <b>경품 추첨</b></p></div>
+    </div>
+  </section>
+
+  <!-- ===== 오시는 길 ===== -->
+  <section id="map">
+    <h2>오시는 길</h2>
+    <p class="sec-note">당산역(2·9호선) 바로 앞입니다. 금요일 퇴근 시간대라 도로가 붐비니 대중교통을 이용해 주세요.</p>
+
+    <div class="map-card">
+      <svg class="map" viewBox="0 0 640 420" role="img" aria-label="당산 그랜드컨벤션센터 약도. 지하철 2호선·9호선 당산역 바로 옆, 양평로 북쪽에 있으며 당산역 1번·13번 출구에서 걸어서 1분.">
+        <defs>
+          <pattern id="mapGrid" width="20" height="20" patternUnits="userSpaceOnUse"><path d="M20 0H0V20" fill="none" stroke="rgba(240,219,171,.05)" stroke-width="1"/></pattern>
+        </defs>
+        <rect width="640" height="420" fill="url(#mapGrid)"/>
+        <!-- 도로 -->
+        <g class="road">
+          <path d="M10 250H630"/><path d="M120 375H630"/>
+          <path d="M120 10V410"/><path d="M285 110V410"/><path d="M285 110H540"/>
+          <path d="M385 110V250"/><path d="M540 10V410"/>
+        </g>
+        <g class="road-name">
+          <text x="582" y="243">양평로</text>
+          <text x="132" y="40">양화대교 ↑</text>
+          <text x="552" y="404">영등포구청 ↓</text>
+          <text x="132" y="278">양평동사거리</text>
+        </g>
+        <!-- 주변 건물 -->
+        <g class="spot">
+          <rect x="128" y="185" width="8" height="8"/><text x="142" y="194">SK주유소</text>
+          <rect x="128" y="215" width="8" height="8"/><text x="142" y="224">삼성화재</text>
+          <rect x="296" y="215" width="8" height="8"/><text x="310" y="224">당산119</text>
+        </g>
+        <!-- 버스 정류장 -->
+        <g class="bus">
+          <circle cx="300" cy="272" r="8"/><text x="314" y="277">19-996</text>
+          <circle cx="440" cy="272" r="8"/><text x="454" y="277">19-172</text>
+        </g>
+        <!-- 행사장 -->
+        <g class="venue">
+          <text class="park" x="394" y="140">P 지상 1·2 주차장</text>
+          <rect x="394" y="150" width="136" height="72" rx="8"/>
+          <text x="462" y="181">당산</text>
+          <text x="462" y="204">그랜드컨벤션센터</text>
+        </g>
+        <!-- 도보 1분 -->
+        <path class="walk" d="M553 196 C 548 186, 540 184, 532 186"/>
+        <!-- 출구 -->
+        <g class="exit">
+          <circle cx="563" cy="203" r="11"/><text x="563" y="207">1</text>
+          <circle cx="494" cy="240" r="11"/><text x="494" y="244">13</text>
+        </g>
+        <!-- 당산역 (2호선 초록 / 9호선 금색) -->
+        <g class="station">
+          <path d="M540 218 A32 32 0 0 0 540 282" stroke="#22a95a"/>
+          <path d="M540 218 A32 32 0 0 1 540 282" stroke="#c9b37e"/>
+          <circle cx="540" cy="250" r="25"/>
+          <text x="540" y="247" class="st-line">2·9</text>
+          <text x="540" y="264" class="st-name">당산역</text>
+        </g>
+        <!-- 선유도역 -->
+        <g class="station small">
+          <circle cx="36" cy="250" r="17" stroke="#c9b37e"/>
+          <text x="36" y="255" class="st-line">9</text>
+          <text x="36" y="292" class="st-name2">선유도역</text>
+        </g>
+      </svg>
+
+      <div class="addr">
+        <div>
+          <b>당산 그랜드컨벤션센터</b>
+          <span>서울특별시 영등포구 양평로 58 (당산동6가 337-23)</span>
+          <span>대표전화 <a href="tel:0236677776">02-3667-7776</a></span>
+        </div>
+        <div class="map-links">
+          <a href="https://map.naver.com/p/search/%EB%8B%B9%EC%82%B0%20%EA%B7%B8%EB%9E%9C%EB%93%9C%EC%BB%A8%EB%B2%A4%EC%85%98%EC%84%BC%ED%84%B0" target="_blank" rel="noopener">네이버 지도</a>
+          <a href="https://map.kakao.com/?q=%EB%8B%B9%EC%82%B0%20%EA%B7%B8%EB%9E%9C%EB%93%9C%EC%BB%A8%EB%B2%A4%EC%85%98%EC%84%BC%ED%84%B0" target="_blank" rel="noopener">카카오맵</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="routes">
+      <div class="route">
+        <h3>지하철</h3>
+        <p><span class="ln ln2">2</span> 당산역 <b>1번 출구</b> 직진 1분</p>
+        <p><span class="ln ln9">9</span> 당산역 <b>13번 출구</b> 직진 1분</p>
+        <p class="sub2">서울역 → 홍대입구(2호선 환승) → 당산 약 19분 · 강남고속터미널(9호선 급행) → 당산 약 15분 · 김포공항(9호선 급행) → 당산 약 16분</p>
+      </div>
+      <div class="route">
+        <h3>버스</h3>
+        <p class="stop">당산역 정류장 <span class="code">19-172</span></p>
+        <p><span class="bt bt-blue">간선</span>603 · 605 · 660 · 661 · 760 · 761</p>
+        <p><span class="bt bt-green">지선</span>5620 · 5714 · 6514 · 6620 · 6623 · 6631 · 6632</p>
+        <p class="stop">당산역 정류장 <span class="code">19-996</span></p>
+        <p><span class="bt bt-teal">일반</span>60 · 60-3 · 70 · 70-2 · 70-3 · 88</p>
+        <p><span class="bt bt-red">직행</span>7000 · 7100 · 8000 · 8600 · 8601 · 9030 · G6001 · G6002 · G6003 · G6005</p>
+        <p><span class="bt bt-green">좌석</span>700</p>
+      </div>
+      <div class="route">
+        <h3>자가용</h3>
+        <p>내비게이션에 <b>그랜드컨벤션센터</b> 또는 <b>02-3667-9000</b> 입력</p>
+        <p>지상 1·2 주차장</p>
+        <p class="sub2">행사 시간이 금요일 퇴근 시간대와 겹쳐 주변 도로가 혼잡합니다. 가급적 대중교통을 이용해 주세요.</p>
+      </div>
     </div>
   </section>
 
@@ -512,7 +699,7 @@ footer{margin-top:76px;border-top:1px solid var(--line);background:rgba(0,0,0,.2
   <div class="f-wrap">
     <p class="f-title">2026 서울사회복지사의 밤</p>
     <dl class="f-grid">
-      <div class="f-item"><dt>일시 · 장소</dt><dd>2026. 12. 4.(금) 17:00<br>그랜드컨벤션센터</dd></div>
+      <div class="f-item"><dt>일시 · 장소</dt><dd>2026. 12. 4.(금) 17:00<br>당산 그랜드컨벤션센터<br><span class="f-addr">영등포구 양평로 58</span></dd></div>
       <div class="f-item"><dt>주최</dt><dd>서울특별시사회복지사협회</dd></div>
       <div class="f-item"><dt>문의</dt><dd>회원조직팀<br><a href="tel:0227862962" class="f-tel">02-786-2962</a></dd></div>
       <div class="f-item"><dt>정책</dt><dd><a href="#privacy" class="f-link">개인정보 처리방침</a></dd></div>
@@ -529,7 +716,7 @@ footer{margin-top:76px;border-top:1px solid var(--line);background:rgba(0,0,0,.2
         </summary>
         <dl class="pp-list">
           <div class="pp-row"><dt>처리 목적</dt><dd>① 참가자 접수 및 행사 안내 ② 2026년도 회비 납부(회원) 여부 확인 ③ 참가비 입금 확인 및 영수증 발송 ④ 행사 당일 참석 확인 및 경품 추첨 ⑤ 단체상해보험 가입</dd></div>
-          <div class="pp-row"><dt>수집 항목</dt><dd>성함, 직급, 휴대전화번호, 이메일, 생년월일(앞 6자리), 소속 기관명, 입금자명</dd></div>
+          <div class="pp-row"><dt>수집 항목</dt><dd>성함, 직급, 휴대전화번호, 이메일, 생년월일(앞 6자리), 소속 기관명, 입금자명, 평생회원 여부, 비고(축하객 여부 등)</dd></div>
           <div class="pp-row"><dt>보유 기간</dt><dd><b>행사 종료 후 즉시 파기</b>합니다. 다만 관련 법령에 따라 보관이 필요한 경우(입금·영수증 기록 등)에는 해당 법령이 정한 기간 동안 보관합니다.</dd></div>
           <div class="pp-row"><dt>제3자 제공</dt><dd>원칙적으로 제공하지 않습니다. 단체상해보험 가입을 위해 보험사에 성함·생년월일·연락처를 제공할 수 있으며, 보험 가입 목적 외에는 사용하지 않습니다.</dd></div>
           <div class="pp-row"><dt>처리 위탁</dt><dd>신청 데이터 저장(Supabase), 알림·영수증 발송(이메일 서비스)을 위해 처리를 위탁하며, 수탁자는 위탁 목적 외 처리를 할 수 없습니다.</dd></div>
@@ -630,7 +817,8 @@ function demoRpc(fn, body){
       if (body.p_kind !== 'group') cur = 0;
       body.p_attendees.forEach(a=>demoDB.phones.add((a.phone||'').replace(/\D/g,'')));
       demoDB.used += n;
-      return res({ ok:true, added:n, org_total:cur+n, added_amount:n*20000, total_amount:(cur+n)*20000 });
+      const paying = body.p_attendees.filter(a => !a.lifetime).length;
+      return res({ ok:true, added:n, org_total:cur+n, added_amount:paying*20000, total_amount:(cur+n)*20000, exempt: paying===0 });
     }
     rej(new Error('알 수 없는 요청'));
   }, 420));
@@ -712,8 +900,28 @@ function setKind(k){
   $('cNameLab').innerHTML = (k==='group' ? '담당자 성함' : '성함') + '<span class="req">*</span>';
   $('cPhoneLab').innerHTML = (k==='group' ? '담당자 연락처' : '연락처') + '<span class="req">*</span>';
   if (k==='group' && !$('pRows').children.length) addPerson();
+  $('payer').placeholder = k==='group' ? '예) 성북종합사회복지관 또는 김하늘(성북종복)' : '예) 홍길동901111';
+  $('payerHint').innerHTML = k==='group'
+    ? '<b>기관명</b> 또는 <b>담당자 성함(기관명)</b>으로 입금해 주세요.'
+    : '<b>성함+생년월일</b>로 입금해 주세요. 자동으로 채워지며 고칠 수 있습니다.';
+  syncPayer();
   $('err').hidden = true;
 }
+
+/* ===================== 입금자명 자동 채움 · 평생회원 ===================== */
+let payerTouched = false;
+function syncPayer(){
+  const life = kind === 'individual' && $('indLife').checked;
+  $('payer').disabled = life;
+  if (life){ $('payer').value = ''; $('payer').placeholder = '평생회원은 입금하지 않습니다'; return; }
+  if (kind === 'individual'){
+    $('payer').placeholder = '예) 홍길동901111';
+    if (!payerTouched) $('payer').value = (v('cName') + v('indBirth')).replace(/\s/g,'');
+  }
+}
+$('payer').addEventListener('input', () => { payerTouched = $('payer').value.trim() !== ''; });
+['cName','indBirth'].forEach(id => $(id).addEventListener('input', syncPayer));
+$('indLife').addEventListener('change', syncPayer);
 $('tabInd').onclick = ()=>setKind('individual');
 $('tabGrp').onclick = ()=>setKind('group');
 
@@ -730,8 +938,10 @@ function addPerson(){
     '<input type="text" class="p-pos"   placeholder="직급" aria-label="직급">' +
     '<input type="tel"  class="p-phone" placeholder="010-0000-0000" inputmode="numeric" aria-label="연락처">' +
     '<input type="text" class="p-birth" placeholder="생년월일 6자리" inputmode="numeric" maxlength="6" aria-label="생년월일 앞 6자리">' +
+    '<label class="p-life"><input type="checkbox" aria-label="평생회원 (참가비 면제)"><span>평생회원 (참가비 면제)</span></label>' +
     '<button type="button" class="del" aria-label="이 행 삭제">&times;</button>';
   d.querySelector('.del').onclick = ()=>{ d.remove(); renumber(); };
+  d.querySelector('.p-life input').onchange = renumber;
   rows.appendChild(d);
   renumber();
 }
@@ -741,6 +951,9 @@ function renumber(){
   const max = ST ? ST.group_max : 10;
   $('pCount').textContent = rows.length;
   $('addRow').disabled = rows.length >= max;
+  const fee = ST && ST.fee ? Number(ST.fee) : 20000;
+  const paying = rows.filter(r => !r.querySelector('.p-life input').checked).length;
+  $('pAmount').textContent = (paying * fee).toLocaleString('ko-KR') + '원';
 }
 $('addRow').onclick = addPerson;
 
@@ -768,7 +981,10 @@ $('submit').onclick = async () => {
   if (!v('cName'))  return fail('성함을 입력해 주세요.');
   if (!v('cPhone')) return fail('연락처를 입력해 주세요.');
   if (!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(v('cEmail'))) return fail('이메일 주소를 정확히 입력해 주세요.');
-  if (!v('payer'))  return fail('입금자명을 입력해 주세요.');
+  const indLife = kind === 'individual' && $('indLife').checked;
+  const grpAllLife = kind === 'group' && [...$('pRows').children].length > 0 &&
+                     [...$('pRows').children].every(r => r.querySelector('.p-life input').checked);
+  if (!indLife && !grpAllLife && !v('payer')) return fail('입금자명을 입력해 주세요.');
   if (kind === 'individual' && !v('indOrg')) return fail("소속 기관을 입력해 주세요. 소속이 없으면 '없음'으로 적어주세요.");
   if (kind === 'individual' && !validBirth6(v('indBirth'))) return fail('생년월일을 6자리로 정확히 입력해 주세요. 예) 850315');
   if (!$('agree').checked) return fail('개인정보 수집·이용에 동의해 주세요.');
@@ -784,10 +1000,11 @@ $('submit').onclick = async () => {
       if (!name)  return fail(`${i+1}번 참가자의 성함을 입력해 주세요.`);
       if (phone.replace(/\D/g,'').length < 10) return fail(`${i+1}번 참가자의 연락처를 정확히 입력해 주세요.`);
       attendees.push({ name, position:r.querySelector('.p-pos').value.trim(),
-                       phone, birth6:r.querySelector('.p-birth').value.trim() });
+                       phone, birth6:r.querySelector('.p-birth').value.trim(),
+                       lifetime: r.querySelector('.p-life input').checked });
     }
   } else {
-    attendees = [{ name:v('cName'), position:'', phone:v('cPhone'), birth6:v('indBirth') }];
+    attendees = [{ name:v('cName'), position:'', phone:v('cPhone'), birth6:v('indBirth'), lifetime: indLife }];
   }
 
   btn.disabled = true; btn.textContent = '접수 중...';
@@ -798,8 +1015,8 @@ $('submit').onclick = async () => {
       p_contact_name: v('cName'),
       p_contact_phone: v('cPhone'),
       p_contact_email: v('cEmail'),
-      p_payer_name: v('payer'),
-      p_memo: null,
+      p_payer_name: v('payer') || v('cName'),
+      p_memo: v('memo') || null,
       p_attendees: attendees
     });
 
@@ -807,7 +1024,11 @@ $('submit').onclick = async () => {
     $('doneMsg').innerHTML = kind==='group'
       ? `<b>${v('orgName')}</b> · 이번 신청 ${r.added}명 (누적 ${r.org_total}명)`
       : `<b>${v('cName')}</b>님, 1명 신청이 접수되었습니다.`;
-    $('dAmount').textContent = won(r.added_amount);
+    const exempt = !r.added_amount;
+    $('dAmount').textContent = exempt ? '0원 (평생회원 면제)' : won(r.added_amount);
+    document.querySelectorAll('.pay-row').forEach(e => e.hidden = exempt);
+    $('exemptNote').hidden = !exempt;
+    $('payNote').hidden = exempt;
     $('dPayer').textContent  = v('payer');
     const b = ST && ST.bank ? ST.bank : {};
     $('dBank').innerHTML = b.account ? `${b.name} ${b.account}<br><span style="font-weight:400;color:var(--faint)">예금주 ${b.holder}</span>` : '협회 공지 계좌로 입금';
@@ -824,7 +1045,8 @@ $('submit').onclick = async () => {
 
 /* ===================== 추가 신청(폼 초기화) ===================== */
 $('again').onclick = () => {
-  ['orgName','cName','cPhone','cEmail','payer','indOrg','indBirth'].forEach(id => $(id).value = '');
+  ['orgName','cName','cPhone','cEmail','payer','indOrg','indBirth','memo'].forEach(id => $(id).value = '');
+  $('indLife').checked = false; payerTouched = false;
   $('pRows').innerHTML = '';
   $('agree').checked = false;
   $('err').hidden = true;
