@@ -47,8 +47,8 @@
   <div class="card" style="padding:14px">
     <button id="try" type="button">▶ 소리 없이 재생해 보기</button>
     <video id="v" controls muted playsinline preload="metadata">
-      <source src="/assets/night2026.webm" type="video/webm">
-      <source src="/assets/night2026.mp4" type="video/mp4">
+      <source src="/assets/night2026-extra.webm" type="video/webm">
+      <source src="/assets/night2026-extra.mp4" type="video/mp4">
     </video>
     <div id="vstate" style="margin-top:8px;color:var(--mut);font-size:13.5px"></div>
   </div>
@@ -99,7 +99,7 @@ async function head(url){
   // 3) 영상 파일
   const files = document.getElementById('files');
   const res = {};
-  for (const [f, mime] of [['night2026.mp4','video/mp4'], ['night2026.webm','video/webm']]){
+  for (const [f, mime] of [['night2026-extra.mp4','video/mp4'], ['night2026-extra.webm','video/webm']]){
     const r = res[f] = await head('/assets/' + f);
     if (r.status === 200 || r.status === 206){
       const typeOk = r.type.startsWith(mime);
@@ -113,8 +113,8 @@ async function head(url){
       row(files,'bad', `/assets/${f} 없음`, r.status ? `HTTP ${r.status}` : r.err);
     }
   }
-  const mp4ok = [200,206].includes(res['night2026.mp4'].status), webmok = [200,206].includes(res['night2026.webm'].status);
-  if (!mp4ok && !webmok) problems.push('영상 파일이 서버에 없습니다 → 저장소의 assets 폴더에 night2026.mp4 와 night2026.webm 을 올리세요');
+  const mp4ok = [200,206].includes(res['night2026-extra.mp4'].status), webmok = [200,206].includes(res['night2026-extra.webm'].status);
+  if (!mp4ok && !webmok) problems.push('영상 파일이 서버에 없습니다 → 저장소의 assets 폴더에 night2026-extra.mp4 와 night2026-extra.webm 을 올리세요');
 
   // 4) 브라우저
   const b = document.getElementById('browser');
