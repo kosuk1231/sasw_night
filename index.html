@@ -2,12 +2,12 @@
 <html lang="ko">
 <head>
 <meta charset="UTF-8">
-<meta name="build" content="sw-night r17 · 2026-11-03 · video-2026">
+<meta name="build" content="sw-night r19 · 2026-11-18 · round2-extra · 1123">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>2026 서울사회복지사의 밤 · 사전신청</title>
 <meta name="description" content="2026. 12. 4.(금) 17:00 당산 그랜드컨벤션센터 · 사전신청 11월 10일(화) 10시 오픈">
 <meta property="og:title" content="2026 서울사회복지사의 밤">
-<meta property="og:description" content="2026. 12. 4.(금) 17:00 · 당산 그랜드컨벤션센터 · 사전신청 11. 10.(화) 10:00 오픈">
+<meta property="og:description" content="2026. 12. 4.(금) 17:00 · 당산 그랜드컨벤션센터 · 추가 접수 11. 23.(월) 10:00 오픈">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -125,6 +125,7 @@ textarea{resize:vertical;min-height:72px}
 .people{border:1px solid var(--line2);border-radius:12px;overflow:hidden;margin-top:6px}
 .people-head{display:flex;align-items:center;gap:10px;padding:12px 14px;background:rgba(0,0,0,.2);border-bottom:1px solid var(--line2)}
 .people-head h3{margin:0;font-size:15px}
+.people-head .p-note{font-size:12.5px;color:var(--faint);margin-left:10px}
 .people-head .count{margin-left:auto;font-family:var(--mono);font-size:12.5px;color:var(--gold-lt)}
 .prow{display:grid;grid-template-columns:28px 1.1fr .8fr 1.2fr .9fr 62px 32px;gap:8px;align-items:center;padding:10px 14px;border-bottom:1px solid var(--line2)}
 .prow:last-child{border-bottom:none}
@@ -186,6 +187,12 @@ textarea{resize:vertical;min-height:72px}
 
 .dues{margin:0 0 18px;padding:15px 18px;border-radius:12px;border:1px solid rgba(228,117,106,.5);background:rgba(228,117,106,.10);color:#f6d9d4;font-size:15px;line-height:1.7}
 .dues b{color:#fff;font-weight:700}
+.r2{margin:0 0 22px;padding:18px 20px;border-radius:14px;border:1px solid rgba(214,178,94,.55);background:rgba(214,178,94,.10);color:#efe6cf;font-size:15.5px;line-height:1.75}
+.r2 h3{margin:0 0 8px;font-size:18px;color:#fff;font-weight:700}
+.r2-tag{display:inline-block;margin-right:8px;padding:2px 10px;border-radius:6px;background:#d6b25e;color:#14211c;font-size:12.5px;font-weight:700;vertical-align:2px}
+.r2 ul{margin:6px 0 0;padding-left:20px}
+.r2 li{margin:2px 0}
+.r2 b{color:#fff}
 .dues-tag{font-weight:700;display:inline-block;margin-right:8px;padding:2px 9px;border-radius:6px;background:var(--danger);color:#fff;font-size:12.5px;vertical-align:1px}
 
 
@@ -318,6 +325,8 @@ footer{margin-top:76px;border-top:1px solid var(--line);background:rgba(0,0,0,.2
 }
 @media (max-width:640px){
   body{font-size:16px}
+  .people-head{flex-wrap:wrap}
+  .people-head .p-note{order:3;width:100%;margin:2px 0 0}
   .f-title{font-size:20px;margin-bottom:16px}
   .f-grid{grid-template-columns:1fr;gap:0}
   .f-item{display:grid;grid-template-columns:86px 1fr;gap:12px;padding:12px 0;border-top:1px solid var(--line2)}
@@ -373,7 +382,7 @@ footer{margin-top:76px;border-top:1px solid var(--line);background:rgba(0,0,0,.2
     <p class="sub">한 해 동안 서울시민의 곁을 지킨 사회복지사들이 서로를 격려하고, 함께 웃으며 새로운 내일을 준비하는 자리입니다.</p>
     <div class="facts">
       <div class="fact"><i>Date</i><b>2026. 12. 4.(금) 17:00</b></div>
-      <div class="fact"><i>Open</i><b>11. 10.(화) 10:00</b></div>
+      <div class="fact"><i>추가 접수</i><b>11. 23.(월) 10:00</b></div>
       <div class="fact"><i>Place</i><b>당산 그랜드컨벤션센터</b></div>
       <div class="fact"><i>Dress Code</i><b><span class="dc dc-g"></span><span class="dc dc-b"></span>Green &amp; Blue</b></div>
     </div>
@@ -408,8 +417,19 @@ footer{margin-top:76px;border-top:1px solid var(--line);background:rgba(0,0,0,.2
     <h2>신청 안내</h2>
     <p class="sec-note">신청 전에 꼭 확인해 주세요. 입금까지 마쳐야 참석이 확정됩니다.</p>
 
+    <div class="r2" id="r2box">
+      <h3><span class="r2-tag">추가 접수</span>11. 23.(월) 오전 10시 오픈</h3>
+      1차 사전신청이 마감되어, 회비 납부와 참가비 입금을 확인한 뒤 <b>30석</b>을 추가로 받습니다.
+      <ul>
+        <li><b>1차 사전신청에 참여하지 않은 기관만</b> 신청할 수 있습니다. (1차에 단체 또는 개인으로 신청한 기관은 불가)</li>
+        <li>기관당 <b>최대 3명</b> — 단체 신청과 개인 신청(소속 기준)을 합산합니다.</li>
+        <li>소속이 없는 개인 회원도 신청할 수 있습니다.</li>
+        <li>30석이 차면 자동으로 마감됩니다.</li>
+      </ul>
+    </div>
+
     <div class="steps">
-      <div class="step"><span class="step-n">1</span><div><b>사전신청</b><span>11. 10.(화) 10:00 오픈</span></div></div>
+      <div class="step"><span class="step-n">1</span><div><b>사전신청</b><span>추가 접수 11. 23.(월) 10:00</span></div></div>
       <div class="step-arrow" aria-hidden="true"></div>
       <div class="step"><span class="step-n">2</span><div><b>참가비 입금</b><span>알림톡 안내 계좌로 · 평생회원 면제</span></div></div>
       <div class="step-arrow" aria-hidden="true"></div>
@@ -430,8 +450,8 @@ footer{margin-top:76px;border-top:1px solid var(--line);background:rgba(0,0,0,.2
       </div>
       <div class="kf">
         <i>기관당 인원</i>
-        <b>최대 10명</b>
-        <span>단체 + 개인(소속 기준) 합산</span>
+        <b>최대 3명</b>
+        <span>1차 미신청 기관 · 단체 + 개인 합산</span>
       </div>
     </div>
 
@@ -442,7 +462,8 @@ footer{margin-top:76px;border-top:1px solid var(--line);background:rgba(0,0,0,.2
       <li><b>확정 기준</b> — 신청만으로는 확정되지 않습니다. <b>입금이 확인되어야 참석이 확정</b>됩니다.</li>
       <li><b>평생회원</b> — 참가비가 <b>무료</b>입니다. 신청서에서 평생회원에 체크하면 입금 없이 신청이 완료되며, 협회에서 평생회원 여부를 확인합니다.</li>
       <li><b>입금자명</b> — 개인은 <b>성함+생년월일</b> (예: 홍길동901111), 단체는 <b>기관명</b> 또는 <b>담당자 성함(기관명)</b> (예: 김하늘(성북종복))으로 보내주세요. 입금 확인이 빨라집니다.</li>
-      <li><b>단체 재신청</b> — 같은 기관명으로 다시 신청하면 기존 명단에 인원이 합쳐집니다.</li>
+      <li><b>추가 접수 대상</b> — 1차 사전신청에 참여한 기관(단체·개인 소속 모두)은 추가 접수를 신청할 수 없습니다.</li>
+      <li><b>단체 재신청</b> — 추가 접수에서 같은 기관명으로 다시 신청하면 기존 명단에 인원이 합쳐집니다(기관당 최대 3명).</li>
       <li><b>영수증</b> — 입금 확인 후 신청 시 입력한 이메일로 영수증을 보내드립니다.</li>
       <li><b>중복 방지</b> — 같은 휴대전화 번호로는 한 번만 신청할 수 있습니다.</li>
       <li><b>문의</b> — 서울특별시사회복지사협회 회원조직팀 <a href="tel:0227862962">02-786-2962</a></li>
@@ -466,7 +487,7 @@ footer{margin-top:76px;border-top:1px solid var(--line);background:rgba(0,0,0,.2
           <div class="cd"><b id="cdS">--</b><span>초</span></div>
         </div>
         <div class="seats" id="seatsBox" hidden><b id="seatsNum">--</b><span>석 남음</span></div>
-        <p class="status-msg" id="statusMsg">2026년 11월 10일(화) 오전 10시에 접수가 열립니다.</p>
+        <p class="status-msg" id="statusMsg">2026년 11월 23일(월) 오전 10시에 추가 접수가 열립니다.</p>
       </div>
 
       <div class="form-wrap" id="formWrap" hidden>
@@ -479,7 +500,7 @@ footer{margin-top:76px;border-top:1px solid var(--line);background:rgba(0,0,0,.2
           <div class="field">
             <label for="orgName">기관·단체명<span class="req">*</span></label>
             <input type="text" id="orgName" placeholder="예) 서울특별시사회복지사협회" autocomplete="organization">
-            <span class="hint">이미 같은 기관으로 신청한 내역이 있으면 <b>기존 신청에 인원이 합쳐집니다.</b> 기관당 최대 <span id="gmax">10</span>명 (개인으로 신청한 같은 소속 포함).</span>
+            <span class="hint">이미 같은 기관으로 신청한 내역이 있으면 <b>기존 신청에 인원이 합쳐집니다.</b> 기관당 최대 <span id="gmax">3</span>명 (개인으로 신청한 같은 소속 포함). 1차 사전신청에 참여한 기관은 신청할 수 없습니다.</span>
           </div>
         </div>
 
@@ -510,7 +531,7 @@ footer{margin-top:76px;border-top:1px solid var(--line);background:rgba(0,0,0,.2
           <div class="field ind-only">
             <label for="indOrg">소속 기관<span class="req">*</span></label>
             <input type="text" id="indOrg" placeholder="예) ○○종합사회복지관 (없으면 '없음')" autocomplete="organization">
-            <span class="hint">한 기관에서 최대 <span class="gmax2">10</span>명까지 참석할 수 있어, 단체 신청과 합산해 확인합니다.</span>
+            <span class="hint">한 기관에서 최대 <span class="gmax2">3</span>명까지 참석할 수 있어, 단체 신청과 합산해 확인합니다. 1차 참여 기관 소속은 신청할 수 없습니다.</span>
           </div>
           <label class="field span2 ind-only life-box" for="indLife">
             <input type="checkbox" id="indLife">
@@ -526,7 +547,8 @@ footer{margin-top:76px;border-top:1px solid var(--line);background:rgba(0,0,0,.2
         <div class="people" id="people" hidden>
           <div class="people-head">
             <h3>참가자 명단</h3>
-            <span class="count"><b id="pCount">0</b> / <span id="pMax">10</span>명 · 입금 <b id="pAmount">0원</b></span>
+            <span class="p-note">참가자마다 본인 휴대전화 번호 (알림톡 발송)</span>
+            <span class="count"><b id="pCount">0</b> / <span id="pMax">3</span>명 · 입금 <b id="pAmount">0원</b></span>
           </div>
           <div class="plabels"><span></span><span>성함 *</span><span>직급</span><span>연락처 *</span><span>생년월일</span><span>평생회원</span><span></span></div>
           <div id="pRows"></div>
@@ -743,7 +765,8 @@ footer{margin-top:76px;border-top:1px solid var(--line);background:rgba(0,0,0,.2
 /* =========================================================================
    설정은 config.js 에 있습니다. 이 파일(index.html)은 수정하지 않아도 됩니다.
    ========================================================================= */
-const CONFIG = Object.assign({ SUPABASE_URL:'https://pjndsnmrsikmxhnhszkn.supabase.co', SUPABASE_ANON_KEY:'sb_publishable_TwyxJzF81FuaZdryoH6q5g_DQjXnCFr', POLL_MS:15000 }, window.SW_CONFIG || {});
+const CONFIG = Object.assign({ SUPABASE_URL:'', SUPABASE_ANON_KEY:'', POLL_MS:15000 }, window.SW_CONFIG || {});
+
 /* ===================== 상태 ===================== */
 const CONFIG_MISSING = !CONFIG.SUPABASE_URL || !CONFIG.SUPABASE_ANON_KEY;
 // DEMO는 미리보기·로컬에서만. 실제 도메인에서 키가 비어 있으면 가짜 접수를 받지 않고 오류를 띄운다.
@@ -780,21 +803,21 @@ async function rpc(fn, body){
 }
 
 /* ===================== DEMO 백엔드 ===================== */
-const DEMO_CAP = 450;    // 미리보기용 (실제 정원은 서버 settings.capacity)
-const demoDB = { used: 312, groups: {}, phones: new Set() };
+const DEMO_CAP = 30;     // 미리보기용 (실제 정원은 서버 settings.round2_cap)
+const demoDB = { used: 9, groups: {}, phones: new Set() };
 function demoRpc(fn, body){
   return new Promise((res, rej)=>setTimeout(()=>{
-    const OPEN = new Date('2026-11-10T10:00:00+09:00').getTime();
+    const OPEN = new Date('2026-11-23T10:00:00+09:00').getTime();
     const now = Date.now();
     if (fn === 'public_status'){
       let server = now, used = demoDB.used, closed = false;
       if (demoState === 'before') server = OPEN - 3*86400000 - 7000000;
       if (demoState === 'open')   server = OPEN + 600000;
-      if (demoState === 'last'){  server = OPEN + 3600000; used = DEMO_CAP - 6; }
+      if (demoState === 'last'){  server = OPEN + 3600000; used = DEMO_CAP - 3; }
       if (demoState === 'full'){  server = OPEN + 7200000; used = DEMO_CAP; closed = true; }
       return res({
         server_now:new Date(server).toISOString(), open_at:new Date(OPEN).toISOString(),
-        remaining:Math.max(DEMO_CAP-used,0), nearly_full:(DEMO_CAP-used)<=30, group_max:10, fee:20000,
+        round:2, remaining:Math.max(DEMO_CAP-used,0), nearly_full:(DEMO_CAP-used)<=5, group_max:3, fee:20000,
         closed: closed || used>=DEMO_CAP,
         bank:{name:'신한은행', account:'140-012-291070', holder:'서울특별시사회복지사협회'}
       });
@@ -809,9 +832,10 @@ function demoRpc(fn, body){
       const key = (body.p_org_name||'').replace(/\s|\(주\)|\(사\)/g,'');
       if (key && key !== '없음'){
         cur = demoDB.groups[key] || 0;
-        if (cur + n > 10) return rej(new Error(body.p_kind==='group'
-          ? `「${body.p_org_name}」은(는) 이미 ${cur}명 신청되어 있어 ${10-cur}명까지 추가할 수 있습니다. (기관당 최대 10명, 개인 신청 포함)`
-          : `「${body.p_org_name}」 소속은 이미 ${cur}명이 신청되어 있습니다. 기관당 최대 10명까지만 참석할 수 있습니다.`));
+        if (/한빛/.test(key)) return rej(new Error(`「${body.p_org_name}」은(는) 1차 사전신청에 참여한 기관이라 추가 접수 대상이 아닙니다. 추가 접수는 1차에 신청하지 않은 기관만 신청할 수 있습니다.`));
+        if (cur + n > 3) return rej(new Error(body.p_kind==='group'
+          ? `「${body.p_org_name}」은(는) 이미 ${cur}명 신청되어 있어 ${3-cur}명까지 추가할 수 있습니다. (기관당 최대 3명, 개인 신청 포함)`
+          : `「${body.p_org_name}」 소속은 이미 ${cur}명이 신청되어 있습니다. 기관당 최대 3명까지만 참석할 수 있습니다.`));
         demoDB.groups[key] = cur + n;
       }
       if (body.p_kind !== 'group') cur = 0;
@@ -851,6 +875,14 @@ async function pull(){
   }
 }
 const serverNow = () => Date.now() + skew;
+const isR2 = () => ST && Number(ST.round) === 2;
+function openText(){
+  const d = new Date(new Date(ST.open_at).getTime() + 9*3600000);   // KST
+  const wd = '일월화수목금토'[d.getUTCDay()];
+  const h = d.getUTCHours(), m = d.getUTCMinutes();
+  const hh = (h < 12 ? '오전 ' : '오후 ') + ((h % 12) || 12) + '시' + (m ? ' ' + m + '분' : '');
+  return `${d.getUTCFullYear()}년 ${d.getUTCMonth()+1}월 ${d.getUTCDate()}일(${wd}) ${hh}`;
+}
 
 function render(){
   if (!ST) return;
@@ -864,25 +896,27 @@ function render(){
   $('formWrap').hidden  = pre || full || !$('done').hidden;
 
   if (pre){
-    $('statusLab').textContent = '접수 시작까지';
+    $('statusLab').textContent = isR2() ? '추가 접수 시작까지' : '접수 시작까지';
     const s = Math.floor(left/1000);
     $('cdD').textContent = Math.floor(s/86400);
     $('cdH').textContent = String(Math.floor(s%86400/3600)).padStart(2,'0');
     $('cdM').textContent = String(Math.floor(s%3600/60)).padStart(2,'0');
     $('cdS').textContent = String(s%60).padStart(2,'0');
-    $('statusMsg').innerHTML = '<b>2026년 11월 10일(화) 오전 10시</b>에 접수가 열립니다.';
+    $('statusMsg').innerHTML = `<b>${openText()}</b>에 ${isR2() ? '추가 접수가' : '접수가'} 열립니다.`;
   } else if (full){
-    $('statusLab').textContent = '접수 마감';
+    $('statusLab').textContent = isR2() ? '추가 접수 마감' : '접수 마감';
     $('seatsBox').hidden = true;
-    $('statusMsg').innerHTML = '준비된 자리가 모두 찼습니다. 많은 관심에 감사드립니다.';
+    $('statusMsg').innerHTML = isR2()
+      ? '추가 접수 자리가 모두 찼습니다. 많은 관심에 감사드립니다.'
+      : '준비된 자리가 모두 찼습니다. 많은 관심에 감사드립니다.';
   } else {
-    $('statusLab').textContent = ST.nearly_full ? '접수 중 · 마감 임박' : '접수 중';
+    $('statusLab').textContent = (isR2() ? '추가 접수 중' : '접수 중') + (ST.nearly_full ? ' · 마감 임박' : '');
     const left = Number(ST.remaining);
     $('seatsBox').hidden = !Number.isFinite(left);          // 서버 SQL이 예전 버전이면 숫자를 숨김
     $('seatsNum').textContent = Number.isFinite(left) ? left.toLocaleString('ko-KR') : '--';
     $('statusMsg').innerHTML = ST.nearly_full
       ? '남은 좌석이 얼마 없습니다. <b>서둘러 신청</b>해 주세요.'
-      : '선착순으로 마감됩니다. <b>입금까지 완료</b>해야 좌석이 확정됩니다.';
+      : (isR2() ? '1차 미신청 기관 대상 · 기관당 최대 3명 · ' : '') + '선착순으로 마감됩니다. <b>입금까지 완료</b>해야 좌석이 확정됩니다.';
   }
 }
 setInterval(() => { if (!CONFIG_ERROR) render(); }, 1000);
@@ -1002,6 +1036,16 @@ $('submit').onclick = async () => {
       attendees.push({ name, position:r.querySelector('.p-pos').value.trim(),
                        phone, birth6:r.querySelector('.p-birth').value.trim(),
                        lifetime: r.querySelector('.p-life input').checked });
+    }
+    // 같은 번호를 여러 참가자에게 넣었는지 (담당자 번호 반복 입력 등)
+    const seen = {};
+    for (const [i, a] of attendees.entries()){
+      const k = a.phone.replace(/\D/g,'');
+      if (seen[k] !== undefined){
+        rows[i].querySelector('.p-phone').focus();
+        return fail(`${seen[k]+1}번과 ${i+1}번 참가자의 연락처가 같습니다. 참가자마다 본인 휴대전화 번호를 입력해 주세요.`);
+      }
+      seen[k] = i;
     }
   } else {
     attendees = [{ name:v('cName'), position:'', phone:v('cPhone'), birth6:v('indBirth'), lifetime: indLife }];
