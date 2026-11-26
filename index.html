@@ -431,7 +431,7 @@ footer{margin-top:76px;border-top:1px solid var(--line);background:rgba(0,0,0,.2
     </div>
     <a class="sv-cta" href="#survey">
       <span class="k">For Attendees</span>
-      <span><b>참석 확정자 사전 설문</b><small>내 2026년을 한 단어로 · 신청곡 · 수상자께 한마디 · 수어통역 신청 — 12월 2일(수) 18시까지</small></span>
+      <span><b>참석 확정자 사전 설문</b><small>내 2026년을 한 단어로 · 신청곡 · 수상자께 한마디 · 수어통역 신청 — 12월 1일(화) 18시까지 · <b style="display:inline;font-size:inherit;color:var(--gold)">사연 선정 시 소정의 경품</b></small></span>
       <span class="arw">→</span>
     </a>
   </div>
@@ -463,7 +463,7 @@ footer{margin-top:76px;border-top:1px solid var(--line);background:rgba(0,0,0,.2
   <!-- ===== 사전 설문 (최종 참석자) ===== -->
   <section id="survey">
     <h2>참석자 사전 설문</h2>
-    <p class="sec-note">참석이 확정된 분(참가비 입금 확인)께 여쭙니다. 남겨 주신 이야기와 신청곡은 행사 영상, 사회자 사연 소개, 현장 BGM으로 함께 나눕니다. <b style="color:var(--ink)">12월 2일(수) 오후 6시까지</b></p>
+    <p class="sec-note">참석이 확정된 분(참가비 입금 확인)께 여쭙니다. 남겨 주신 이야기와 신청곡은 행사 영상, 사회자 사연 소개, 현장 BGM으로 함께 나눕니다. <b style="color:var(--gold)">사연이 선정되신 분께는 소정의 경품을 드립니다.</b> <b style="color:var(--ink)">12월 1일(화) 오후 6시까지</b></p>
 
     <div class="apply">
       <div class="sv-intro">
@@ -487,7 +487,7 @@ footer{margin-top:76px;border-top:1px solid var(--line);background:rgba(0,0,0,.2
 
         <div class="sv-block">
           <h3><span class="no">01</span>올해를 돌아보며</h3>
-          <p class="lead">짧게 적어도 충분합니다. 이름을 밝힐지는 아래에서 고를 수 있어요.</p>
+          <p class="lead">짧게 적어도 충분합니다. 이름을 밝힐지는 아래에서 고를 수 있어요. 현장에서 소개할 사연을 골라 <b style="color:var(--gold)">선정되신 분께 소정의 경품</b>을 드립니다.</p>
           <div class="field">
             <label for="svWord">내 2026년을 한 단어로<span class="req">*</span><span class="cnt"><span id="svWordCnt">0</span>/20</span></label>
             <input type="text" id="svWord" maxlength="20" placeholder="예) 버팀 · 동료 · 성장 · 쉼표">
@@ -538,7 +538,7 @@ footer{margin-top:76px;border-top:1px solid var(--line);background:rgba(0,0,0,.2
               <label><input type="radio" name="svShare" value="익명으로만"><span>익명으로만 소개해 주세요</span></label>
               <label><input type="radio" name="svShare" value="소개하지 않음"><span>소개하지 말아 주세요</span></label>
             </div>
-            <span class="hint">‘소개하지 않음’을 고르면 신청곡은 BGM으로만 틀고 사연은 읽지 않습니다.</span>
+            <span class="hint">익명으로 소개된 사연도 소정의 경품을 드리며, 선정되신 분께는 따로 연락드립니다. ‘소개하지 않음’을 고르면 신청곡은 BGM으로만 틀고 사연은 읽지 않아 사연 선정(경품)에서는 빠집니다.</span>
           </div>
           <div class="field">
             <label>행사 당일 수어통역이 필요하신가요?<span class="req">*</span></label>
@@ -570,7 +570,7 @@ footer{margin-top:76px;border-top:1px solid var(--line);background:rgba(0,0,0,.2
           <input type="checkbox" id="svAgree">
           <p><label for="svAgree"><b>[필수]</b> 사전 설문 응답의 수집·이용에 동의합니다.</label><br>
           수집 항목 : 성함, 소속(선택), 설문 응답(한 단어, 힘들었던·보람 있던 순간, 다시 태어나도 사회복지사, 신청곡과 사연, 수상자께 한마디), 현장 소개 방법 /
-          이용 목적 : 행사 영상·사연 소개·현장 BGM·수상자 축하 메시지 전달 등 행사 진행 / 보유 기간 : <b>행사 종료 후 즉시 파기</b></p>
+          이용 목적 : 행사 영상·사연 소개·현장 BGM·수상자 축하 메시지 전달·사연 선정자 경품 안내 등 행사 진행 / 보유 기간 : <b>행사 종료 후 즉시 파기</b></p>
         </div>
 
         <p class="err" id="svErr" hidden></p>
@@ -941,7 +941,7 @@ footer{margin-top:76px;border-top:1px solid var(--line);background:rgba(0,0,0,.2
 /* =========================================================================
    설정은 config.js 에 있습니다. 이 파일(index.html)은 수정하지 않아도 됩니다.
    ========================================================================= */
-const CONFIG = Object.assign({ SUPABASE_URL:'', SUPABASE_ANON_KEY:'', POLL_MS:15000 }, window.SW_CONFIG || {});
+const CONFIG = Object.assign({ SUPABASE_URL:'https://pjndsnmrsikmxhnhszkn.supabase.co', SUPABASE_ANON_KEY:'sb_publishable_TwyxJzF81FuaZdryoH6q5g_DQjXnCFr', POLL_MS:15000 }, window.SW_CONFIG || {});
 
 /* ===================== 상태 ===================== */
 const CONFIG_MISSING = !CONFIG.SUPABASE_URL || !CONFIG.SUPABASE_ANON_KEY;
@@ -1285,7 +1285,7 @@ $('again').onclick = () => {
 
 /* ===================== 사전 설문 (r20) ===================== */
 (function(){
-  const SURVEY_CLOSE = new Date('2026-12-02T18:00:00+09:00').getTime();   // 서버 settings.survey_close_at 과 같게
+  const SURVEY_CLOSE = new Date('2026-12-01T18:00:00+09:00').getTime();   // 서버 settings.survey_close_at 과 같게
   const form = $('svForm'); if (!form) return;
   const radio = n => (document.querySelector(`input[name="${n}"]:checked`) || {}).value || null;
   const svFail = m => { const e = $('svErr'); e.textContent = m; e.hidden = false; e.scrollIntoView({block:'center', behavior:'smooth'}); return false; };
