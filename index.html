@@ -2,7 +2,7 @@
 <html lang="ko">
 <head>
 <meta charset="UTF-8">
-<meta name="build" content="sw-night r24 · 2026-11-26 · day-guide · survey-v5">
+<meta name="build" content="sw-night r25 · 2026-11-26 · day-guide · survey-v6">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>2026 서울사회복지사의 밤 · 사전신청</title>
 <meta name="description" content="2026. 12. 4.(금) 17:00 당산 그랜드컨벤션센터 · 사전신청 11월 10일(화) 10시 오픈">
@@ -369,20 +369,21 @@ footer{margin-top:76px;border-top:1px solid var(--line);background:rgba(0,0,0,.2
 .sv-cta b{font-size:15.5px;display:block}
 .sv-cta small{display:block;color:var(--dim);font-size:13px;margin-top:2px}
 .sv-cta .arw{margin-left:auto;font-size:20px;color:var(--gold)}
-.sv-intro{padding:22px 26px;border-bottom:1px solid var(--line2);display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
-@media (max-width:860px){.sv-intro{grid-template-columns:1fr 1fr}}
+.sv-intro{padding:22px 26px;border-bottom:1px solid var(--line2)}
 .cheer{padding:16px 16px 4px;border:1px solid rgba(215,177,99,.45);border-radius:13px;background:linear-gradient(135deg,rgba(215,177,99,.13),rgba(215,177,99,.03))}
 .cheer .who{display:flex;align-items:center;gap:12px;margin-bottom:12px}
 .cheer .who .ic{width:40px;height:40px;border-radius:50%;background:var(--gold);color:#2b1f00;display:grid;place-items:center;font-size:19px;flex:none}
 .cheer .who b{display:block;font-size:15.5px}
 .cheer .who small{color:var(--dim);font-size:13px}
-.sv-intro div{background:rgba(0,0,0,.2);border:1px solid var(--line2);border-radius:12px;padding:12px 14px}
-.sv-intro i{display:block;font-style:normal;font-family:var(--mono);font-size:10.5px;letter-spacing:.14em;color:var(--gold);margin-bottom:4px}
-.sv-intro b{font-size:14.5px}
+.sv-intro p{margin:0;font-size:16px;line-height:1.75;color:var(--dim);word-break:keep-all}
+.sv-intro p b{display:block;font-size:17px;color:var(--gold);margin-bottom:4px}
+.sv-intro ul{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:6px 0;font-size:16px;color:var(--ink)}
+.sv-intro li:not(:last-child)::after{content:"·";margin:0 10px;color:var(--faint)}
+.sv-intro li small{color:var(--dim);font-size:.9em}
 .sv-block{margin:6px 0 22px;padding-top:18px;border-top:1px solid var(--line2)}
 .sv-block:first-of-type{border-top:none;padding-top:0}
-.sv-block h3{font-size:16.5px;margin:0 0 4px;display:flex;align-items:center;gap:9px}
-.sv-block h3 .no{font-family:var(--mono);font-size:11px;color:#2b1f00;background:var(--gold);border-radius:999px;padding:2px 8px;letter-spacing:.06em}
+.sv-block h3{font-family:var(--body);font-size:18px;margin:0 0 4px;display:flex;align-items:center;gap:9px}
+.sv-block h3 .no{font-family:var(--body);font-size:13px;font-weight:800;color:#2b1f00;background:var(--gold);border-radius:999px;padding:3px 10px;letter-spacing:0}
 .sv-block .lead{margin:0 0 14px;color:var(--faint);font-size:13.5px}
 .chips{display:flex;flex-wrap:wrap;gap:8px}
 .chips label{position:relative;cursor:pointer}
@@ -399,7 +400,11 @@ footer{margin-top:76px;border-top:1px solid var(--line);background:rgba(0,0,0,.2
 .sv-closed[hidden]{display:none}
 .cnt{float:right;font-family:var(--mono);font-size:11.5px;color:var(--faint)}
 @media (max-width:640px){
-  .sv-intro{grid-template-columns:1fr;padding:18px 17px}
+  .sv-intro{padding:18px 17px}
+  .sv-intro ul{display:block;font-size:15px}
+  .sv-intro li{padding-left:14px;position:relative;margin:3px 0}
+  .sv-intro li::before{content:"";position:absolute;left:0;top:.72em;width:5px;height:5px;border-radius:50%;background:var(--gold)}
+  .sv-intro li:not(:last-child)::after{content:none}
   .sv-cta .k{display:none}
   .chips span{padding:9px 13px;font-size:14px}
 }
@@ -441,7 +446,7 @@ textarea.long{min-height:150px}
     </div>
     <a class="sv-cta" href="#survey">
       <span class="k">For Attendees</span>
-      <span><b>참석 확정자 사전 설문</b><small>내 2026년을 한 단어로 · 신청곡 · 서울사회복지사에게 한마디 · 수어통역 신청 — 12월 1일(화) 18시까지 · <b style="display:inline;font-size:inherit;color:var(--gold)">사연 선정 시 소정의 경품</b></small></span>
+      <span><b>참석 확정자 사전 설문</b><small>내 2026년을 한 단어로 · 신청곡 · 동료 사회복지사에게 응원 한마디 · 수어통역 신청 — 12월 1일(화) 18시까지 · <b style="display:inline;font-size:inherit;color:var(--gold)">사연 선정 시 소정의 경품</b></small></span>
       <span class="arw">→</span>
     </a>
   </div>
@@ -477,10 +482,14 @@ textarea.long{min-height:150px}
 
     <div class="apply">
       <div class="sv-intro">
-        <div><i>01 · 올해를 돌아보며</i><b>한 단어 · 힘들었던 또는 보람 있던 순간</b></div>
-        <div><i>02 · 신청곡</i><b>세 가지 중 한 곡과 사연</b></div>
-        <div><i>03 · 04 · 한마디</i><b>수상자께 · 서울사회복지사에게</b></div>
-        <div><i>06 · 수어통역</i><b>필요하신 분만 신청해 주세요</b></div>
+        <p><b>이런 내용을 여쭙니다</b></p>
+        <ul>
+          <li>올해 기억에 남는 순간</li>
+          <li>신청곡과 사연</li>
+          <li>아름다운사회복지사상 수상자께 축하 메시지</li>
+          <li>동료 사회복지사에게 응원 한마디</li>
+          <li>수어통역 신청 <small>(필요한 분만)</small></li>
+        </ul>
       </div>
 
       <div class="sv-closed" id="svClosed" hidden>사전 설문이 마감되었습니다. 참여해 주신 모든 분께 감사드립니다.<br>12월 4일(금) 당산 그랜드컨벤션센터에서 뵙겠습니다.</div>
@@ -506,8 +515,8 @@ textarea.long{min-height:150px}
           <div class="field">
             <label>올해의 순간 하나를 골라 들려주세요 <span class="opt">(선택)</span></label>
             <div class="chips" role="radiogroup">
-              <label><input type="radio" name="svMomentType" value="가장 힘들었던 순간"><span>가장 힘들었던 순간</span></label>
-              <label><input type="radio" name="svMomentType" value="가장 보람 있던 순간"><span>가장 보람 있던 순간</span></label>
+              <label><input type="radio" name="svMomentType" value="가장 기억에 남는 순간"><span>가장 기억에 남는 순간</span></label>
+              <label><input type="radio" name="svMomentType" value="가장 의미 있었던 순간"><span>가장 의미 있었던 순간</span></label>
             </div>
           </div>
           <div class="field">
@@ -542,12 +551,12 @@ textarea.long{min-height:150px}
         </div>
 
         <div class="sv-block">
-          <h3><span class="no">03</span>수상자께 축하 한마디</h3>
-          <p class="lead">보내 주신 한마디는 모아서 시상 영상과 축하 이미지로 수상자께 전해 드립니다. (선택)<span class="cheer-note">※ 축하 한마디는 수상자께 전하는 메시지로, 사연 소개·경품 대상과는 별개입니다.</span></p>
+          <h3><span class="no">03</span>아름다운사회복지사상 수상자께 축하 메시지</h3>
+          <p class="lead">올해의 <b style="color:var(--ink)">아름다운사회복지사상</b> 수상자 이정미 사회복지사(한국여성의집)께 축하 메시지를 남겨 주세요. 모아서 시상 영상과 축하 이미지로 전해 드립니다. (선택)<span class="cheer-note">※ 축하 메시지는 수상자께 전하는 글로, 사연 소개·경품 대상과는 별개입니다.</span></p>
           <div class="cheer">
             <div class="who"><span class="ic">✿</span><span><b>올해의 아름다운사회복지사상 · 이정미 사회복지사</b><small>한국여성의집</small></span></div>
             <div class="field">
-              <label for="svCheer">이정미 선생님께 한마디 <span class="opt">(선택)</span><span class="cnt"><span id="svCheerCnt">0</span>/300</span></label>
+              <label for="svCheer">이정미 선생님께 축하 메시지 <span class="opt">(선택)</span><span class="cnt"><span id="svCheerCnt">0</span>/300</span></label>
               <textarea id="svCheer" maxlength="300" placeholder="예) 현장을 지켜 주셔서 고맙습니다. 수상을 진심으로 축하드려요!"></textarea>
               <span class="hint">아래 ‘현장 소개 방법’에서 고른 대로 이름 또는 익명으로 표시합니다. ‘소개하지 않음’을 고르면 영상에는 쓰지 않고 수상자께만 전합니다.</span>
             </div>
@@ -555,10 +564,10 @@ textarea.long{min-height:150px}
         </div>
 
         <div class="sv-block">
-          <h3><span class="no">04</span>서울사회복지사에게 한마디</h3>
+          <h3><span class="no">04</span>동료 사회복지사에게 응원 한마디</h3>
           <p class="lead">보내 주신 한마디는 행사 당일 화면과 영상으로 함께 나눕니다. (선택)</p>
           <div class="peer">
-            <p class="q">2026년 수고한 서울사회복지사에게 한마디<small>여러분의 한마디가 누군가에게 위로가 됩니다</small></p>
+            <p class="q">한 해를 함께 수고한 동료 사회복지사에게 응원과 격려의 말을 남겨 주세요<small>여러분의 한마디가 누군가에게 위로가 됩니다</small></p>
             <div class="field" style="margin-top:12px">
               <label for="svPeer" style="display:flex;justify-content:flex-end"><span class="cnt"><span id="svPeerCnt">0</span>/500</span></label>
               <textarea id="svPeer" maxlength="500" placeholder="예) 올해도 누군가의 곁을 지켜 준 당신, 정말 수고 많으셨습니다. 내년에도 함께해요!"></textarea>
@@ -609,7 +618,7 @@ textarea.long{min-height:150px}
         <div class="agree">
           <input type="checkbox" id="svAgree">
           <p><label for="svAgree"><b>[필수]</b> 사전 설문 응답의 수집·이용에 동의합니다.</label><br>
-          수집 항목 : 성함, 소속(선택), 설문 응답(한 단어, 힘들었던 또는 보람 있던 순간 이야기, 다시 태어나도 사회복지사와 그 이유, 신청곡과 사연, 수상자께 한마디, 서울사회복지사에게 한마디), 현장 소개 방법 /
+          수집 항목 : 성함, 소속(선택), 설문 응답(한 단어, 기억에 남는 또는 의미 있었던 순간 이야기, 다시 태어나도 사회복지사와 그 이유, 신청곡과 사연, 수상자께 축하 메시지, 동료 사회복지사에게 응원 한마디), 현장 소개 방법 /
           이용 목적 : 행사 영상·사연 소개·현장 BGM·수상자 축하 메시지 전달·사연 선정자 경품 안내 등 행사 진행 / 보유 기간 : <b>행사 종료 후 즉시 파기</b></p>
         </div>
 
@@ -818,9 +827,7 @@ textarea.long{min-height:150px}
       <div><dt>주최</dt><dd>서울특별시사회복지사협회</dd></div>
     </dl>
 
-    <h3 style="margin:30px 0 6px">Green &amp; Blue — 함께 만드는 지속가능한 내일</h3>
-    <p class="sec-note">기후위기와 지속가능한 미래의 의미를 함께 나누는 행사로 준비하고 있습니다.</p>
-    <div class="cards two">
+    <div class="cards two" style="margin-top:28px">
       <div class="card"><div class="num">1부</div><h3>시상식</h3><p>한 해 동안 현장을 지켜온 사회복지사를 격려하는 시상<br>축하 공연 <b>클랑클랑 합창단</b></p></div>
       <div class="card"><div class="num">2부</div><h3>화합과 교류</h3><p>함께 웃고 이야기 나누는 시간 · <b>경품 추첨</b></p></div>
     </div>
@@ -954,7 +961,7 @@ textarea.long{min-height:150px}
         <dl class="pp-list">
           <div class="pp-row"><dt>처리 목적</dt><dd>① 참가자 접수 및 행사 안내 ② 2026년도 회비 납부(회원) 여부 확인 ③ 참가비 입금 확인 및 영수증 발송 ④ 행사 당일 참석 확인 및 경품 추첨 ⑤ 단체상해보험 가입</dd></div>
           <div class="pp-row"><dt>수집 항목</dt><dd>성함, 직급, 휴대전화번호, 이메일, 생년월일(앞 6자리), 소속 기관명, 입금자명, 평생회원 여부, 비고(축하객 여부 등)</dd></div>
-          <div class="pp-row"><dt>사전 설문</dt><dd>참석 확정자에게 알림톡으로 안내해 성함·소속(선택)과 설문 응답(한 단어, 힘들었던 또는 보람 있던 순간 이야기, 다시 태어나도 사회복지사와 그 이유, 신청곡과 사연, 수상자께 한마디, 서울사회복지사에게 한마디, 현장 소개 방법)과 수어통역 필요 여부·연락처·요청 사항을 받습니다. 행사 영상·사연 소개·현장 BGM·수상자 축하 메시지 전달과 수어통역·좌석 준비에만 사용하며, 소개 방법에서 고른 범위 안에서만 공개합니다.</dd></div>
+          <div class="pp-row"><dt>사전 설문</dt><dd>참석 확정자에게 알림톡으로 안내해 성함·소속(선택)과 설문 응답(한 단어, 기억에 남는 또는 의미 있었던 순간 이야기, 다시 태어나도 사회복지사와 그 이유, 신청곡과 사연, 수상자께 축하 메시지, 동료 사회복지사에게 응원 한마디, 현장 소개 방법)과 수어통역 필요 여부·연락처·요청 사항을 받습니다. 행사 영상·사연 소개·현장 BGM·수상자 축하 메시지 전달과 수어통역·좌석 준비에만 사용하며, 소개 방법에서 고른 범위 안에서만 공개합니다.</dd></div>
           <div class="pp-row"><dt>보유 기간</dt><dd><b>행사 종료 후 즉시 파기</b>합니다. 다만 관련 법령에 따라 보관이 필요한 경우(입금·영수증 기록 등)에는 해당 법령이 정한 기간 동안 보관합니다.</dd></div>
           <div class="pp-row"><dt>제3자 제공</dt><dd>원칙적으로 제공하지 않습니다. 단체상해보험 가입을 위해 보험사에 성함·생년월일·연락처를 제공할 수 있으며, 보험 가입 목적 외에는 사용하지 않습니다.</dd></div>
           <div class="pp-row"><dt>처리 위탁</dt><dd>신청 데이터 저장(Supabase), 알림·영수증 발송(이메일 서비스)을 위해 처리를 위탁하며, 수탁자는 위탁 목적 외 처리를 할 수 없습니다.</dd></div>
@@ -1338,8 +1345,8 @@ $('again').onclick = () => {
   $('svCheer').addEventListener('input', () => { $('svCheerCnt').textContent = $('svCheer').value.length; });
   [['svMoment','svMomentCnt'],['svReason','svReasonCnt'],['svStory','svStoryCnt'],['svPeer','svPeerCnt']].forEach(([a,b]) =>
     $(a).addEventListener('input', () => { $(b).textContent = $(a).value.length; }));
-  const MPH = { '가장 힘들었던 순간': '그 순간을 어떻게 지나왔는지, 누가 곁에 있었는지도 좋아요.',
-                '가장 보람 있던 순간': '이 일을 하길 잘했다고 느낀 순간, 그때의 장면과 마음을 들려주세요.' };
+  const MPH = { '가장 기억에 남는 순간': '올해 떠올리면 미소 짓게 되는 장면, 함께한 사람과 그때의 마음을 들려주세요.',
+                '가장 의미 있었던 순간': '이 일을 하길 잘했다고 느낀 순간, 누군가에게 힘이 되었던 장면을 들려주세요.' };
   document.querySelectorAll('input[name="svMomentType"]').forEach(r => r.addEventListener('change', () => {
     $('svMoment').placeholder = MPH[radio('svMomentType')]; }));
   $('svSign').addEventListener('change', () => { $('signBox').hidden = !$('svSign').checked; });
@@ -1353,7 +1360,7 @@ $('again').onclick = () => {
     const name = $('svName').value.trim(), org = $('svOrg').value.trim();
     if (!name) return svFail('성함을 입력해 주세요.');
     if (!$('svWord').value.trim()) return svFail('「내 2026년을 한 단어로」를 적어 주세요.');
-    if ($('svMoment').value.trim() && !radio('svMomentType')) return svFail('「가장 힘들었던 순간」과 「가장 보람 있던 순간」 중 하나를 골라 주세요.');
+    if ($('svMoment').value.trim() && !radio('svMomentType')) return svFail('「가장 기억에 남는 순간」과 「가장 의미 있었던 순간」 중 하나를 골라 주세요.');
     if (!radio('svAgain')) return svFail('「다시 태어나도 사회복지사?」에 답해 주세요.');
     if ($('svSong').value.trim() && !radio('svSongType')) return svFail('신청곡이 어떤 노래인지(위로가 된 노래 / 동료에게 / 출퇴근길) 하나를 골라 주세요.');
     if ($('svStory').value.trim() && !$('svSong').value.trim()) return svFail('사연과 함께 신청곡(가수 - 곡명)도 적어 주세요.');
