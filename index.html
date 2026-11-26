@@ -2,7 +2,7 @@
 <html lang="ko">
 <head>
 <meta charset="UTF-8">
-<meta name="build" content="sw-night r27 · 2026-11-26 · day-guide · survey-v6 · inline-config">
+<meta name="build" content="sw-night r28 · 2026-11-26 · day-guide · survey-v7 · inline-config">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>2026 서울사회복지사의 밤 · 사전신청</title>
 <meta name="description" content="2026. 12. 4.(금) 17:00 당산 그랜드컨벤션센터 · 사전신청 11월 10일(화) 10시 오픈">
@@ -448,7 +448,7 @@ textarea.long{min-height:150px}
     </div>
     <a class="sv-cta" href="#survey">
       <span class="k">For Attendees</span>
-      <span><b>참석 확정자 사전 설문</b><small>내 2026년을 한 단어로 · 신청곡 · 동료 사회복지사에게 응원 한마디 · 수어통역 신청 — 12월 1일(화) 18시까지 · <b style="display:inline;font-size:inherit;color:var(--gold)">사연 선정 시 소정의 경품</b></small></span>
+      <span><b>참석 확정자 사전 설문</b><small>내 2026년을 한 단어로 · 신청곡 · 함께하는 동료에게 응원 한마디 · 수어통역 신청 — 12월 1일(화) 18시까지 · <b style="display:inline;font-size:inherit;color:var(--gold)">사연 선정 시 소정의 경품</b></small></span>
       <span class="arw">→</span>
     </a>
   </div>
@@ -504,10 +504,14 @@ textarea.long{min-height:150px}
             <input type="text" id="svWord" maxlength="20" placeholder="예) 버팀 · 동료 · 성장 · 쉼표">
           </div>
           <div class="field">
-            <label>올해의 순간 하나를 골라 들려주세요 <span class="opt">(선택)</span></label>
+            <label>올해의 순간, 하나를 골라 들려주세요 <span class="opt">(선택)</span></label>
             <div class="chips" role="radiogroup">
               <label><input type="radio" name="svMomentType" value="가장 기억에 남는 순간"><span>가장 기억에 남는 순간</span></label>
-              <label><input type="radio" name="svMomentType" value="가장 의미 있었던 순간"><span>가장 의미 있었던 순간</span></label>
+              <label><input type="radio" name="svMomentType" value="이 일을 하길 잘했다고 느낀 순간"><span>이 일을 하길 잘했다고 느낀 순간</span></label>
+              <label><input type="radio" name="svMomentType" value="이용자·주민에게 힘을 얻은 순간"><span>이용자·주민에게 힘을 얻은 순간</span></label>
+              <label><input type="radio" name="svMomentType" value="동료 덕분에 웃었던 순간"><span>동료 덕분에 웃었던 순간</span></label>
+              <label><input type="radio" name="svMomentType" value="작은 변화를 만들어 낸 순간"><span>작은 변화를 만들어 낸 순간</span></label>
+              <label><input type="radio" name="svMomentType" value="내가 한 뼘 성장한 순간"><span>내가 한 뼘 성장한 순간</span></label>
             </div>
           </div>
           <div class="field">
@@ -555,13 +559,13 @@ textarea.long{min-height:150px}
         </div>
 
         <div class="sv-block">
-          <h3><span class="no">04</span>동료 사회복지사에게 응원 한마디</h3>
+          <h3><span class="no">04</span>함께하는 동료에게 응원 한마디</h3>
           <p class="lead">보내 주신 한마디는 행사 당일 화면과 영상으로 함께 나눕니다. (선택)</p>
           <div class="peer">
-            <p class="q">한 해를 함께 수고한 동료 사회복지사에게 응원과 격려의 말을 남겨 주세요<small>여러분의 한마디가 누군가에게 위로가 됩니다</small></p>
+            <p class="q">2026 서울사회복지사의 밤에 함께하는 동료 사회복지사에게 응원과 격려의 한마디를 남겨 주세요<small>올 한 해 각자의 자리에서 애쓴 서로에게 — 여러분의 한마디가 이 밤, 누군가에게 위로가 됩니다</small></p>
             <div class="field" style="margin-top:12px">
               <label for="svPeer" style="display:flex;justify-content:flex-end"><span class="cnt"><span id="svPeerCnt">0</span>/500</span></label>
-              <textarea id="svPeer" maxlength="500" placeholder="예) 올해도 누군가의 곁을 지켜 준 당신, 정말 수고 많으셨습니다. 내년에도 함께해요!"></textarea>
+              <textarea id="svPeer" maxlength="500" placeholder="예) 오늘 이 자리에 함께한 모든 선생님, 올 한 해 정말 수고 많으셨습니다. 내년에도 서로 기대며 함께해요!"></textarea>
               <span class="hint">아래 ‘현장 소개 방법’에서 고른 대로 이름 또는 익명으로 표시합니다.</span>
             </div>
           </div>
@@ -609,7 +613,7 @@ textarea.long{min-height:150px}
         <div class="agree">
           <input type="checkbox" id="svAgree">
           <p><label for="svAgree"><b>[필수]</b> 사전 설문 응답의 수집·이용에 동의합니다.</label><br>
-          수집 항목 : 성함, 소속(선택), 설문 응답(한 단어, 기억에 남는 또는 의미 있었던 순간 이야기, 다시 태어나도 사회복지사와 그 이유, 신청곡과 사연, 수상자께 축하 메시지, 동료 사회복지사에게 응원 한마디), 현장 소개 방법 /
+          수집 항목 : 성함, 소속(선택), 설문 응답(한 단어, 올해의 순간 이야기, 다시 태어나도 사회복지사와 그 이유, 신청곡과 사연, 수상자께 축하 메시지, 함께하는 동료에게 응원 한마디), 현장 소개 방법 /
           이용 목적 : 행사 영상·사연 소개·현장 BGM·수상자 축하 메시지 전달·사연 선정자 경품 안내 등 행사 진행 / 보유 기간 : <b>행사 종료 후 즉시 파기</b></p>
         </div>
 
@@ -952,7 +956,7 @@ textarea.long{min-height:150px}
         <dl class="pp-list">
           <div class="pp-row"><dt>처리 목적</dt><dd>① 참가자 접수 및 행사 안내 ② 2026년도 회비 납부(회원) 여부 확인 ③ 참가비 입금 확인 및 영수증 발송 ④ 행사 당일 참석 확인 및 경품 추첨 ⑤ 단체상해보험 가입</dd></div>
           <div class="pp-row"><dt>수집 항목</dt><dd>성함, 직급, 휴대전화번호, 이메일, 생년월일(앞 6자리), 소속 기관명, 입금자명, 평생회원 여부, 비고(축하객 여부 등)</dd></div>
-          <div class="pp-row"><dt>사전 설문</dt><dd>참석 확정자에게 알림톡으로 안내해 성함·소속(선택)과 설문 응답(한 단어, 기억에 남는 또는 의미 있었던 순간 이야기, 다시 태어나도 사회복지사와 그 이유, 신청곡과 사연, 수상자께 축하 메시지, 동료 사회복지사에게 응원 한마디, 현장 소개 방법)과 수어통역 필요 여부·연락처·요청 사항을 받습니다. 행사 영상·사연 소개·현장 BGM·수상자 축하 메시지 전달과 수어통역·좌석 준비에만 사용하며, 소개 방법에서 고른 범위 안에서만 공개합니다.</dd></div>
+          <div class="pp-row"><dt>사전 설문</dt><dd>참석 확정자에게 알림톡으로 안내해 성함·소속(선택)과 설문 응답(한 단어, 올해의 순간 이야기, 다시 태어나도 사회복지사와 그 이유, 신청곡과 사연, 수상자께 축하 메시지, 함께하는 동료에게 응원 한마디, 현장 소개 방법)과 수어통역 필요 여부·연락처·요청 사항을 받습니다. 행사 영상·사연 소개·현장 BGM·수상자 축하 메시지 전달과 수어통역·좌석 준비에만 사용하며, 소개 방법에서 고른 범위 안에서만 공개합니다.</dd></div>
           <div class="pp-row"><dt>보유 기간</dt><dd><b>행사 종료 후 즉시 파기</b>합니다. 다만 관련 법령에 따라 보관이 필요한 경우(입금·영수증 기록 등)에는 해당 법령이 정한 기간 동안 보관합니다.</dd></div>
           <div class="pp-row"><dt>제3자 제공</dt><dd>원칙적으로 제공하지 않습니다. 단체상해보험 가입을 위해 보험사에 성함·생년월일·연락처를 제공할 수 있으며, 보험 가입 목적 외에는 사용하지 않습니다.</dd></div>
           <div class="pp-row"><dt>처리 위탁</dt><dd>신청 데이터 저장(Supabase), 알림·영수증 발송(이메일 서비스)을 위해 처리를 위탁하며, 수탁자는 위탁 목적 외 처리를 할 수 없습니다.</dd></div>
@@ -1336,8 +1340,13 @@ $('again').onclick = () => {
   $('svCheer').addEventListener('input', () => { $('svCheerCnt').textContent = $('svCheer').value.length; });
   [['svMoment','svMomentCnt'],['svReason','svReasonCnt'],['svStory','svStoryCnt'],['svPeer','svPeerCnt']].forEach(([a,b]) =>
     $(a).addEventListener('input', () => { $(b).textContent = $(a).value.length; }));
-  const MPH = { '가장 기억에 남는 순간': '올해 떠올리면 미소 짓게 되는 장면, 함께한 사람과 그때의 마음을 들려주세요.',
-                '가장 의미 있었던 순간': '이 일을 하길 잘했다고 느낀 순간, 누군가에게 힘이 되었던 장면을 들려주세요.' };
+  const MPH = {
+    '가장 기억에 남는 순간': '올해 떠올리면 미소 짓게 되는 장면, 함께한 사람과 그때의 마음을 들려주세요.',
+    '이 일을 하길 잘했다고 느낀 순간': '사회복지사로 일하길 잘했다고 느낀 장면, 그때 누가 곁에 있었는지 들려주세요.',
+    '이용자·주민에게 힘을 얻은 순간': '만나는 분들의 한마디나 변화가 오히려 나에게 힘이 되었던 순간을 들려주세요.',
+    '동료 덕분에 웃었던 순간': '함께 일하는 동료 덕분에 웃고, 버티고, 힘이 났던 순간을 들려주세요.',
+    '작은 변화를 만들어 낸 순간': '작지만 분명히 달라진 것 — 사람, 동네, 제도, 일하는 방식의 변화를 들려주세요.',
+    '내가 한 뼘 성장한 순간': '새로 배우고, 도전하고, 한 뼘 자랐다고 느낀 순간을 들려주세요.' };
   document.querySelectorAll('input[name="svMomentType"]').forEach(r => r.addEventListener('change', () => {
     $('svMoment').placeholder = MPH[radio('svMomentType')]; }));
   $('svSign').addEventListener('change', () => { $('signBox').hidden = !$('svSign').checked; });
@@ -1351,7 +1360,7 @@ $('again').onclick = () => {
     const name = $('svName').value.trim(), org = $('svOrg').value.trim();
     if (!name) return svFail('성함을 입력해 주세요.');
     if (!$('svWord').value.trim()) return svFail('「내 2026년을 한 단어로」를 적어 주세요.');
-    if ($('svMoment').value.trim() && !radio('svMomentType')) return svFail('「가장 기억에 남는 순간」과 「가장 의미 있었던 순간」 중 하나를 골라 주세요.');
+    if ($('svMoment').value.trim() && !radio('svMomentType')) return svFail('이야기를 적으셨다면 ‘올해의 순간’ 중 하나를 골라 주세요.');
     if (!radio('svAgain')) return svFail('「다시 태어나도 사회복지사?」에 답해 주세요.');
     if ($('svSong').value.trim() && !radio('svSongType')) return svFail('신청곡이 어떤 노래인지(위로가 된 노래 / 동료에게 / 출퇴근길) 하나를 골라 주세요.');
     if ($('svStory').value.trim() && !$('svSong').value.trim()) return svFail('사연과 함께 신청곡(가수 - 곡명)도 적어 주세요.');
