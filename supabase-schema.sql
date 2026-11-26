@@ -103,6 +103,15 @@ create table if not exists attendees (
   created_at     timestamptz not null default now()
 );
 create index if not exists attendees_app_idx on attendees (application_id);
+-- 평생회원은 참가비 면제
+alter table attendees add column if not exists lifetime boolean not null default false;
+
+-- 신청 1건의 청구액 = 평생회원이 아닌 참가자 수 × 참가비
+create or replace function amount_due(p_application_id uuid)
+returns int language sql stable as $$
+  select (count(*) filter (where not t.lifetime))::int * (select fee from settings where id = 1)
+    from attendees t where t.application_id = p_application_id and t.status = 'active'
+$$;
 -- 같은 번호로 두 번 신청되는 것을 DB 레벨에서 차단
 create unique index if not exists attendees_phone_uniq
   on attendees (phone_key) where status = 'active';
@@ -167,11 +176,11 @@ declare s settings%rowtype; used int;
 begin
   select * into s from settings where id = 1;
   select count(*) into used from attendees where status = 'active';
-  -- 정원(capacity)과 잔여석은 내부 운영 기준이라 외부에 내보내지 않는다.
+  -- 잔여 좌석만 공개한다. 신청 인원(used)을 함께 내보내면 둘을 더해 정원이 계산되므로 내보내지 않는다.
   return jsonb_build_object(
     'server_now',  now(),
     'open_at',     s.open_at,
-    'used',        used,
+    'remaining',   greatest(s.capacity - used, 0),
     'nearly_full', (s.capacity - used) <= 30,
     'group_max',   s.group_max,
     'fee',         s.fee,
@@ -233,6 +242,18 @@ begin
     raise exception 'FULL|남은 자리가 신청 인원보다 적습니다. 인원을 줄여 다시 시도해 주세요.';
   end if;
 
+  -- 같은 신청서 안에서 참가자끼리 번호가 겹치는지 (예: 담당자 번호를 여러 칸에 반복 입력)
+  select digits_only(e->>'phone') into dup
+    from jsonb_array_elements(p_attendees) e
+   group by digits_only(e->>'phone')
+  having count(*) > 1
+   limit 1;
+  if dup is not null then
+    raise exception 'DUP_IN|참가자 명단에 같은 연락처(%)가 두 번 이상 들어 있습니다. 참가자마다 본인 휴대전화 번호를 입력해 주세요.',
+      regexp_replace(dup, '^(\d{3})(\d{3,4})(\d{4})$', '\1-\2-\3');
+  end if;
+  dup := null;
+
   -- 휴대전화 중복 확인 (이미 신청된 사람 차단)
   select a.name into dup
   from jsonb_array_elements(p_attendees) e
@@ -246,6 +267,8 @@ begin
 
   -- 기관 키: 단체는 기관명, 개인은 소속으로 만든다 (둘 다 같은 10명 한도에 합산)
   k := nullif(norm_key(p_org_name), '');
+  -- '없음' 류는 기관이 아니다 → 10명 합산에서 제외
+  if k in ('없음','없슴','무소속','소속없음','해당없음','na','none') then k := null; end if;
 
   if p_kind = 'group' then
     if k is null then
@@ -263,7 +286,8 @@ begin
         btrim(p_org_name), org_total, greatest(s.group_max - org_total, 0), s.group_max;
     end if;
 
-    if found then
+    -- 주의: 위의 count(*) 가 FOUND 를 항상 true 로 바꾸므로 FOUND 대신 app.id 로 판단한다
+    if app.id is not null then
       -- ── 재신청: 기존 단체 행에 합친다 ──
       select count(*) into cur from attendees
        where application_id = app.id and status = 'active';
@@ -302,30 +326,16 @@ begin
 
   for rec in select * from jsonb_array_elements(p_attendees) loop
     i := i + 1;
-    insert into attendees (application_id, seq, name, position, phone, birth6)
+    insert into attendees (application_id, seq, name, position, phone, birth6, lifetime)
     values (app.id, cur + i, btrim(rec->>'name'), nullif(btrim(coalesce(rec->>'position','')),''),
-            btrim(rec->>'phone'), nullif(btrim(coalesce(rec->>'birth6','')),''));
+            btrim(rec->>'phone'), nullif(btrim(coalesce(rec->>'birth6','')),''),
+            coalesce((rec->>'lifetime')::boolean, false));
   end loop;
 
-  -- ── 카카오 알림톡 적재: 신청자 전원 (단체든 개인이든 참가자 한 명당 1건) ──
+  -- ── 카카오 알림톡 ① 신청 접수: 참가자 전원 (변수는 #{성함} 하나) ──
   insert into notifications (application_id, kind, to_phone, variables)
-  select app.id, 'applied', btrim(e->>'phone'), jsonb_build_object(
-    '#{이름}',     btrim(e->>'name'),
-    '#{구분}',     case when app.kind = 'group' then '단체' else '개인' end,
-    '#{기관명}',   coalesce(app.org_name, '-'),
-    '#{담당자}',   p_contact_name,
-    '#{인원}',     n::text,
-    '#{누적인원}', (cur + n)::text,
-    '#{금액}',     won(n * s.fee),
-    '#{누적금액}', won((cur + n) * s.fee),
-    '#{입금자명}', p_payer_name,
-    '#{은행}',     coalesce(s.bank_name, ''),
-    '#{계좌번호}', coalesce(s.bank_account, ''),
-    '#{예금주}',   coalesce(s.bank_holder, ''),
-    '#{입금기한}', kdate(now() + make_interval(days => s.pay_due_days)),
-    '#{행사일시}', '2026. 12. 4.(금) 17:00',
-    '#{장소}',     '그랜드컨벤션센터'
-  )
+  select app.id, 'applied', btrim(e->>'phone'),
+         jsonb_build_object('#{성함}', btrim(e->>'name'))
   from jsonb_array_elements(p_attendees) e;
 
   -- 담당자가 참가자 명단에 없으면(대리 신청) 담당자에게도 1건
@@ -333,10 +343,12 @@ begin
        select 1 from jsonb_array_elements(p_attendees) e
         where digits_only(e->>'phone') = digits_only(p_contact_phone)) then
     insert into notifications (application_id, kind, to_phone, variables)
-    select app.id, 'applied', p_contact_phone,
-           (select variables from notifications
-             where application_id = app.id and kind = 'applied'
-             order by id desc limit 1) || jsonb_build_object('#{이름}', p_contact_name);
+    values (app.id, 'applied', p_contact_phone, jsonb_build_object('#{성함}', p_contact_name));
+  end if;
+
+  -- 참가자 전원이 평생회원이면 낼 돈이 없으므로 바로 '확정' (입금 매칭·영수증 대상에서 빠짐)
+  if amount_due(app.id) = 0 then
+    update applications set paid_at = coalesce(paid_at, now()), updated_at = now() where id = app.id;
   end if;
 
   select count(*) into used from attendees where status = 'active';
@@ -348,10 +360,15 @@ begin
     'org_name',      app.org_name,
     'added',         n,
     'org_total',     cur + n,
-    'added_amount',  n * s.fee,
-    'total_amount',  (cur + n) * s.fee,
+    'added_amount',  (select (count(*) filter (where not coalesce((e->>'lifetime')::boolean,false)))::int
+                        from jsonb_array_elements(p_attendees) e) * s.fee,
+    'total_amount',  amount_due(app.id),
+    'exempt',        amount_due(app.id) = 0,
     'remaining',     greatest(s.capacity - used, 0)
   );
+exception
+  when unique_violation then
+    raise exception 'DUP|이미 신청된 연락처가 포함되어 있습니다. 참가자마다 본인 휴대전화 번호를 입력했는지 확인해 주세요.';
 end $$;
 
 -- ------------------------------------------------------------
@@ -370,6 +387,11 @@ declare
   s         settings%rowtype;
   p         payments%rowtype;
   target    uuid;
+  base      text;
+  digs      text;
+  head      text;
+  is_amb    boolean;
+  ambiguous int := 0;
 begin
   select * into s from settings where id = 1;
 
@@ -391,18 +413,48 @@ begin
   end loop;
 
   -- 2) 자동 매칭
-  for p in select * from payments where application_id is null order by id loop
+  --   은행 「내용」은 '주희진861208'(이름+생년월일), '고창기 / 6803'(이름+전화 뒷자리),
+  --   '서울구로삶터지역자활'(기관명이 10자에서 잘림)처럼 들어온다.
+  --   ▸ 이름 부분  : 뒤에 붙은 숫자를 떼어낸 키 (base)
+  --   ▸ 숫자 부분  : 참가자 생년월일 6자리 또는 전화번호 뒷자리와 대조해 동명이인을 가른다
+  --   ▸ 기관명 잘림 : 5자 이상이면 앞부분 일치도 후보로 본다
+  --   후보가 같은 점수로 2건 이상이면 '보류' — 엉뚱한 사람에게 붙이느니 사람이 확인한다.
+  -- 이름 뒤에 숫자(생년월일·전화 뒷자리)가 붙은 입금을 먼저 처리 → 동명이인이 확실한 쪽부터 자리를 잡는다
+  for p in select * from payments where application_id is null
+           order by (payer_key ~ '[0-9]{4,}$') desc, id loop
     target := null;
+    base   := regexp_replace(p.payer_key, '[0-9]+$', '');                       -- '주희진861208' → '주희진'
+    digs   := substring(p.payer_key from '([0-9]+)$');                          --              → '861208'
+    head   := regexp_replace(norm_key(regexp_replace(p.payer_name, '\s*[_/(,\-].*$', '')), '[0-9]+$', '');
+                                                                                -- '전안나_대관' → '전안나', '고창기 / 6803' → '고창기'
+    continue when base = '' and coalesce(head, '') = '';
 
-    -- 입금자명 키 일치 + 미납 금액이 정확히 맞는 건
-    select a.id into target
-    from applications a
-    where (a.payer_key = p.payer_key or a.org_key = p.payer_key)
-      and a.paid_at is null
-      and (select count(*) from attendees t
-            where t.application_id = a.id and t.status='active') * s.fee = p.amount
-    order by a.created_at
-    limit 1;
+    with c as (
+      select a.id, a.created_at,
+             ( case when digs is not null and length(digs) >= 4 and exists (
+                      select 1 from attendees t
+                       where t.application_id = a.id and t.status = 'active'
+                         and (t.birth6 = digs or (length(digs) between 4 and 5 and t.birth6 like digs || '%')
+                              or (length(digs) <= 8 and right(t.phone_key, length(digs)) = digs)))
+                    then 2 else 0 end
+             + case when a.payer_key in (p.payer_key, base, head) or a.org_key in (p.payer_key, base, head)
+                         or regexp_replace(a.payer_key, '[0-9]+$', '') in (base, head)
+                    then 1 else 0 end ) as score
+        from applications a
+       where a.paid_at is null
+         and amount_due(a.id) = p.amount
+         and (   a.payer_key in (p.payer_key, base, head)
+              or regexp_replace(a.payer_key, '[0-9]+$', '') in (base, head)
+              or a.org_key   in (p.payer_key, base, head)
+              or (length(base) >= 5 and (a.org_key like base || '%' or a.payer_key like base || '%')))
+    ), top as (
+      select * from c where score = (select max(score) from c)
+    )
+    select case when (select count(*) from top) = 1 then (select id from top) end,
+           (select count(*) from top) > 1
+      into target, is_amb;
+
+    if is_amb then ambiguous := ambiguous + 1; end if;
 
     if target is not null then
       update payments
@@ -418,27 +470,18 @@ begin
     end if;
   end loop;
 
-  return jsonb_build_object('inserted', inserted, 'skipped', skipped, 'matched', matched);
+  return jsonb_build_object('inserted', inserted, 'skipped', skipped, 'matched', matched, 'ambiguous', ambiguous);
 end $$;
 
 -- 입금 확인 알림톡 적재 (자동·수기 매칭 공통)
 create or replace function enqueue_paid_notice(p_application_id uuid)
 returns void language plpgsql security definer set search_path = public as $$
-declare a applications%rowtype; hc int;
+declare a applications%rowtype;
 begin
   select * into a from applications where id = p_application_id;
-  select count(*) into hc from attendees where application_id = a.id and status = 'active';
+  -- 카카오 알림톡 ② 참석 확정: 담당자(단체)·신청자(개인) 1건 (변수는 #{성함} 하나)
   insert into notifications (application_id, kind, to_phone, variables)
-  values (a.id, 'paid', a.contact_phone, jsonb_build_object(
-    '#{이름}',     a.contact_name,
-    '#{기관명}',   coalesce(a.org_name, ''),
-    '#{인원}',     hc::text,
-    '#{입금액}',   won(a.paid_amount),
-    '#{입금일}',   to_char(coalesce(a.paid_at, now()) at time zone 'Asia/Seoul', 'YYYY. MM. DD.'),
-    '#{이메일}',   a.contact_email,
-    '#{행사일시}', '2026. 12. 4.(금) 17:00',
-    '#{장소}',     '그랜드컨벤션센터'
-  ));
+  values (a.id, 'paid', a.contact_phone, jsonb_build_object('#{성함}', a.contact_name));
 end $$;
 
 -- 수기 매칭 (자동으로 못 잡은 건을 관리자가 연결)
@@ -483,17 +526,22 @@ $$;
 -- ------------------------------------------------------------
 -- 9. 조회용 뷰 (구글시트 동기화 · 관리자 화면)
 -- ------------------------------------------------------------
+-- 열 구성이 바뀌어도 재실행되도록 뷰는 지우고 다시 만든다 (데이터와 무관)
+drop view if exists v_pending_receipts, v_attendees, v_applications;
+
 create or replace view v_applications as
 select
   a.id, a.kind,
   case a.kind when 'group' then '단체' else '개인' end as kind_label,
   a.org_name, a.contact_name, a.contact_phone, a.contact_email, a.payer_name,
   (select count(*) from attendees t where t.application_id = a.id and t.status='active') as headcount,
-  (select count(*) from attendees t where t.application_id = a.id and t.status='active')
-    * (select fee from settings where id=1) as amount_due,
+  amount_due(a.id) as amount_due,
   a.paid_amount, a.paid_at,
-  case when a.paid_at is not null then '입금확인' else '미입금' end as pay_status,
-  a.receipt_sent_at, a.memo, a.created_at, a.updated_at
+  case when amount_due(a.id) = 0 then '면제(평생회원)'
+       when a.paid_at is not null then '입금확인' else '미입금' end as pay_status,
+  a.receipt_sent_at, a.memo, a.created_at, a.updated_at,
+  a.org_key,
+  (select count(*) from attendees t where t.application_id = a.id and t.status='active' and t.lifetime) as lifetime_count
 from applications a;
 
 create or replace view v_attendees as
@@ -501,8 +549,11 @@ select
   t.id, t.application_id,
   case a.kind when 'group' then '단체' else '개인' end as kind_label,
   a.org_name, t.seq, t.name, t.position, t.phone, t.birth6, t.status,
-  case when a.paid_at is not null then '입금확인' else '미입금' end as pay_status,
-  t.created_at
+  case when t.lifetime then '면제(평생회원)'
+       when a.paid_at is not null then '입금확인' else '미입금' end as pay_status,
+  t.created_at,
+  a.org_key,
+  t.lifetime
 from attendees t join applications a on a.id = t.application_id
 where t.status = 'active';
 
@@ -512,18 +563,44 @@ select a.id, a.kind, a.org_name, a.contact_name, a.contact_email, a.payer_name,
        a.paid_amount, a.paid_at,
        (select count(*) from attendees t where t.application_id=a.id and t.status='active') as headcount
 from applications a
-where a.paid_at is not null and a.receipt_sent_at is null;
+where a.paid_at is not null and a.receipt_sent_at is null and a.paid_amount > 0;
 
 -- ------------------------------------------------------------
--- 10. 권한 — 익명 키로 부를 수 있는 함수만 열어준다
+-- 10. 권한 — 공개 키(anon)로는 '상태 조회'와 '신청'만 가능하게
+--   ※ PostgreSQL은 함수 실행 권한을 PUBLIC(모든 사용자)에게 기본으로 준다.
+--     anon 만 빼면 PUBLIC 경로로 여전히 호출되므로 PUBLIC 에서도 회수해야 한다.
+--   ※ 뷰는 기본적으로 '만든 사람 권한'으로 실행되어 RLS 를 우회한다.
+--     security_invoker 로 바꾸고, 공개 역할의 조회 권한을 회수한다.
 -- ------------------------------------------------------------
-grant execute on function public_status()        to anon, authenticated;
-grant execute on function submit_application(text,text,text,text,text,text,text,jsonb) to anon, authenticated;
-revoke execute on function import_payments(jsonb)          from anon, authenticated;
-revoke execute on function match_payment_manual(bigint,uuid) from anon, authenticated;
-revoke execute on function mark_receipt_sent(uuid)         from anon, authenticated;
-revoke execute on function enqueue_paid_notice(uuid)       from anon, authenticated;
-revoke execute on function mark_notification(bigint,text,text,text) from anon, authenticated;
+
+-- (1) 원본 테이블: RLS 에 더해 공개 역할의 직접 권한도 회수 (이중 잠금)
+revoke all on table settings, applications, attendees, payments, notifications from public, anon, authenticated;
+grant  all on table settings, applications, attendees, payments, notifications to service_role;
+revoke all on all sequences in schema public from public, anon, authenticated;
+grant  usage, select on all sequences in schema public to service_role;
+
+-- (2) 뷰: 호출한 사람 권한으로 실행 + 공개 역할 조회 금지 (시트 동기화는 service_role)
+alter view v_applications     set (security_invoker = true);
+alter view v_attendees        set (security_invoker = true);
+alter view v_pending_receipts set (security_invoker = true);
+revoke all on table v_applications, v_attendees, v_pending_receipts from public, anon, authenticated;
+grant select on table v_applications, v_attendees, v_pending_receipts to service_role;
+
+-- (3) 함수: 공개용 2개만 열고, 나머지는 service_role 전용
+revoke all on function public_status()                                              from public;
+revoke all on function submit_application(text,text,text,text,text,text,text,jsonb) from public;
+grant execute on function public_status()                                              to anon, authenticated, service_role;
+grant execute on function submit_application(text,text,text,text,text,text,text,jsonb) to anon, authenticated, service_role;
+
+revoke all on function import_payments(jsonb)                 from public, anon, authenticated;
+revoke all on function match_payment_manual(bigint,uuid)      from public, anon, authenticated;
+revoke all on function mark_receipt_sent(uuid)                from public, anon, authenticated;
+revoke all on function enqueue_paid_notice(uuid)             from public, anon, authenticated;
+revoke all on function mark_notification(bigint,text,text,text) from public, anon, authenticated;
+revoke all on function amount_due(uuid)                       from public, anon, authenticated;
+grant execute on function import_payments(jsonb), match_payment_manual(bigint,uuid), mark_receipt_sent(uuid),
+                          enqueue_paid_notice(uuid), mark_notification(bigint,text,text,text), amount_due(uuid)
+                       to service_role;
 
 -- ============================================================
 -- 설정 예시 (값을 채워 실행)

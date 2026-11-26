@@ -78,11 +78,12 @@ async function head(url){
     const html = await (await fetch('/', { cache:'no-store' })).text();
     const m = html.match(/sw-night r(\d+)/);
     const ver = m ? +m[1] : 0;
-    if (ver >= 17) row(site,'ok', `index.html 최신 버전 (r${ver})`, '');
+    if (ver >= 19) row(site,'ok', `index.html 최신 버전 (r${ver} · 추가 접수)`, '');
     else { row(site,'bad', ver ? `index.html 이전 버전 (r${ver})` : 'index.html 버전 표식 없음 (아주 오래된 파일)',
              '새 index.html 로 통째로 교체해야 합니다'); problems.push('index.html 이 최신이 아닙니다 → 교체'); }
-    const usesSource = /<source src="\/assets\/video\.(webm|mp4)"/.test(html);
-    if (!usesSource) problems.push('index.html 이 영상 파일을 예전 방식으로 부르고 있습니다 → 교체');
+    const usesSource = /<source src="\/assets\/night2026-extra\.(webm|mp4)"/.test(html);
+    row(site, usesSource ? 'ok' : 'bad', usesSource ? 'index.html 이 추가 모집 영상(night2026-extra)을 사용' : 'index.html 이 예전 영상을 가리킴', usesSource ? '' : '새 index.html 로 교체해야 합니다');
+    if (!usesSource) problems.push('index.html 이 추가 모집 영상을 가리키지 않습니다 → 새 index.html 로 교체');
   }catch(e){ row(site,'bad','index.html 을 읽지 못함', e.message); }
 
   // 2) config.js

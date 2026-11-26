@@ -10,6 +10,7 @@
  *   SOLAPI_SENDER                        발신번호 (등록된 번호, 예 01090628804)
  *   TEMPLATE_APPLIED                     신청 접수 안내 템플릿 ID (신청자 전원)
  *   TEMPLATE_PAID                        입금 확인 안내 템플릿 ID (담당자·신청자)
+ *   TEMPLATE_SURVEY                      사전 설문 안내 템플릿 ID (참석 확정자 전원, 선택 — 없으면 그 종류만 '템플릿 미설정'으로 기록)
  *   SUPABASE_URL, SUPABASE_SERVICE_KEY   service_role 키 (서버 전용)
  *   WEBHOOK_SECRET                       Webhook 헤더 x-webhook-secret 과 동일한 값
  */
@@ -24,6 +25,7 @@ const env = (k, required = true) => {
 const TEMPLATES = () => ({
   applied: env('TEMPLATE_APPLIED'),
   paid:    env('TEMPLATE_PAID'),
+  survey:  env('TEMPLATE_SURVEY', false),
 });
 
 // ── Supabase (service_role) ──
