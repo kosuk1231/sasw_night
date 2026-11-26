@@ -2,7 +2,7 @@
 <html lang="ko">
 <head>
 <meta charset="UTF-8">
-<meta name="build" content="sw-night r22 · 2026-11-26 · day-guide · survey-v3">
+<meta name="build" content="sw-night r23 · 2026-11-26 · day-guide · survey-v4">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>2026 서울사회복지사의 밤 · 사전신청</title>
 <meta name="description" content="2026. 12. 4.(금) 17:00 당산 그랜드컨벤션센터 · 사전신청 11월 10일(화) 10시 오픈">
@@ -409,6 +409,10 @@ section[hidden]{display:none!important}
 .prize p{margin:0;font-size:14.5px;line-height:1.6;color:var(--dim)}
 .prize b{color:var(--gold-lt,#f0dbab);font-weight:700}
 textarea.long{min-height:150px}
+.sign-check{display:flex;align-items:center;gap:12px;padding:14px 16px;border:1px solid var(--line);border-radius:12px;background:rgba(0,0,0,.15);cursor:pointer;font-size:15px}
+.sign-check input{width:20px;height:20px;accent-color:#7fd3a5;flex:none}
+.sign-check:has(input:checked){border-color:rgba(127,211,165,.6);background:rgba(127,211,165,.1)}
+.cheer-note{display:block;margin-top:8px;font-size:13px;color:var(--faint)}
 </style>
 </head>
 <body>
@@ -473,7 +477,7 @@ textarea.long{min-height:150px}
         <div><i>01 · 올해를 돌아보며</i><b>한 단어 · 힘들었던 또는 보람 있던 순간</b></div>
         <div><i>02 · 신청곡</i><b>세 가지 중 한 곡과 사연</b></div>
         <div><i>03 · 축하 한마디</i><b>아름다운사회복지사상 이정미 사회복지사께</b></div>
-        <div><i>04 · 수어통역</i><b>현장 수어통역이 필요한지 알려 주세요</b></div>
+        <div><i>05 · 수어통역</i><b>필요하신 분만 신청해 주세요</b></div>
       </div>
 
       <div class="sv-closed" id="svClosed" hidden>사전 설문이 마감되었습니다. 참여해 주신 모든 분께 감사드립니다.<br>12월 4일(금) 당산 그랜드컨벤션센터에서 뵙겠습니다.</div>
@@ -536,7 +540,7 @@ textarea.long{min-height:150px}
 
         <div class="sv-block">
           <h3><span class="no">03</span>수상자께 축하 한마디</h3>
-          <p class="lead">보내 주신 한마디는 모아서 시상 영상과 축하 이미지로 수상자께 전해 드립니다. (선택)</p>
+          <p class="lead">보내 주신 한마디는 모아서 시상 영상과 축하 이미지로 수상자께 전해 드립니다. (선택)<span class="cheer-note">※ 축하 한마디는 수상자께 전하는 메시지로, 사연 소개·경품 대상과는 별개입니다.</span></p>
           <div class="cheer">
             <div class="who"><span class="ic">✿</span><span><b>올해의 아름다운사회복지사상 · 이정미 사회복지사</b><small>한국여성의집</small></span></div>
             <div class="field">
@@ -548,7 +552,8 @@ textarea.long{min-height:150px}
         </div>
 
         <div class="sv-block">
-          <h3><span class="no">04</span>현장 소개와 수어통역</h3>
+          <h3><span class="no">04</span>현장 소개 방법</h3>
+          <p class="lead">올해의 순간·신청곡 사연을 사회자가 소개하거나, 축하 한마디를 영상에 담을 때 이름을 어떻게 표시할지 골라 주세요.</p>
           <div class="field">
             <label>남겨 주신 이야기를 현장에서 소개할 때<span class="req">*</span></label>
             <div class="chips" role="radiogroup">
@@ -558,12 +563,13 @@ textarea.long{min-height:150px}
             </div>
             <span class="hint">익명으로 소개된 사연도 소정의 경품을 드리며, 선정되신 분께는 따로 연락드립니다. ‘소개하지 않음’을 고르면 신청곡은 BGM으로만 틀고 사연은 읽지 않아 사연 선정(경품)에서는 빠집니다.</span>
           </div>
+        </div>
+
+        <div class="sv-block">
+          <h3><span class="no">05</span>수어통역 신청</h3>
+          <p class="lead">1부 시상식에 수어통역이 제공됩니다. 통역이 필요하신 분만 체크해 주세요. (선택)</p>
           <div class="field">
-            <label>행사 당일 수어통역이 필요하신가요?<span class="req">*</span></label>
-            <div class="chips" role="radiogroup">
-              <label><input type="radio" name="svSign" value="필요 없음"><span>필요 없어요</span></label>
-              <label><input type="radio" name="svSign" value="필요"><span>필요해요</span></label>
-            </div>
+            <label class="sign-check"><input type="checkbox" id="svSign"> 행사 당일 수어통역이 필요해요</label>
             <div class="sign-box" id="signBox" hidden>
               <div class="field">
                 <label for="svSignPhone">연락받으실 휴대전화<span class="req">*</span></label>
@@ -1320,9 +1326,7 @@ $('again').onclick = () => {
                 '가장 보람 있던 순간': '이 일을 하길 잘했다고 느낀 순간, 그때의 장면과 마음을 들려주세요.' };
   document.querySelectorAll('input[name="svMomentType"]').forEach(r => r.addEventListener('change', () => {
     $('svMoment').placeholder = MPH[radio('svMomentType')]; }));
-  document.querySelectorAll('input[name="svSign"]').forEach(r => r.addEventListener('change', () => {
-    $('signBox').hidden = radio('svSign') !== '필요';
-  }));
+  $('svSign').addEventListener('change', () => { $('signBox').hidden = !$('svSign').checked; });
   $('svSignPhone').addEventListener('input', e => {
     const d = e.target.value.replace(/\D/g,'').slice(0,11);
     e.target.value = d.length < 4 ? d : d.length < 8 ? d.replace(/(\d{3})(\d+)/,'$1-$2') : d.replace(/(\d{3})(\d{3,4})(\d{4})$/,'$1-$2-$3');
@@ -1338,9 +1342,8 @@ $('again').onclick = () => {
     if ($('svSong').value.trim() && !radio('svSongType')) return svFail('신청곡이 어떤 노래인지(위로가 된 노래 / 동료에게 / 출퇴근길) 하나를 골라 주세요.');
     if ($('svStory').value.trim() && !$('svSong').value.trim()) return svFail('사연과 함께 신청곡(가수 - 곡명)도 적어 주세요.');
     if (!radio('svShare')) return svFail('현장 소개 방법을 골라 주세요.');
-    if (!radio('svSign'))  return svFail('수어통역이 필요한지 골라 주세요.');
-    if (radio('svSign') === '필요' && $('svSignPhone').value.replace(/\D/g,'').length < 10) return svFail('좌석 안내를 위해 연락받으실 휴대전화 번호를 적어 주세요.');
-    if (radio('svSign') === '필요' && !$('svSignAgree').checked) return svFail('수어통역 지원 준비를 위한 정보 수집에 동의해 주세요.');
+    if ($('svSign').checked && $('svSignPhone').value.replace(/\D/g,'').length < 10) return svFail('좌석 안내를 위해 연락받으실 휴대전화 번호를 적어 주세요.');
+    if ($('svSign').checked && !$('svSignAgree').checked) return svFail('수어통역 지원 준비를 위한 정보 수집에 동의해 주세요.');
     if (!$('svAgree').checked) return svFail('설문 응답 수집·이용에 동의해 주세요.');
 
     const answers = {
@@ -1348,7 +1351,7 @@ $('again').onclick = () => {
       again_sw: radio('svAgain'), again_reason: $('svReason').value,
       song_type: radio('svSongType'), song: $('svSong').value,
       song_story: $('svStory').value, cheer_msg: $('svCheer').value, share_ok: radio('svShare'),
-      sign_need: radio('svSign'), sign_phone: $('svSignPhone').value, sign_note: $('svSignNote').value, sign_consent: $('svSignAgree').checked
+      sign_need: $('svSign').checked ? '필요' : '필요 없음', sign_phone: $('svSignPhone').value, sign_note: $('svSignNote').value, sign_consent: $('svSignAgree').checked
     };
     const btn = $('svSubmit'); btn.disabled = true; btn.textContent = '제출 중…';
     try {
